@@ -25,39 +25,39 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 ## Table of Contents
 
 ### Importing and Reshaping
-[Importing into Stata](Link)
+[Importing into Stata](Link)  
 [Reshaping Data](Link)
 
 ### Cleaning Variables
-[Variable Names](Link)
-[Variable Labels](Link)
-[Variable Notes](Link)
-[Variable Types and Formats](Link)
-[Variables with Multiple Response](Link)
-[Missing Values](Link)
-[Categorical variables and dummy variables](Link)
-[Value Labels](Link)
-[“Specify” Variables](Link)
+[Variable Names](Link)  
+[Variable Labels](Link)  
+[Variable Notes](Link)  
+[Variable Types and Formats](Link)  
+[Variables with Multiple Response](Link)  
+[Missing Values](Link)  
+[Categorical variables and dummy variables](Link)  
+[Value Labels](Link)  
+[“Specify” Variables](Link)  
 [Variable Keep and Order](Link)
 
-### Checking for Unique and Complete Observations in Each Dataset	10
-[Remove Incomplete and Test Surveys](Link)
-[Unique IDs and duplicates](Link)
-[Checking for Consistency in Each Dataset](Link)
-[Skips](Link)
-[Logic Tests](Link)
-[Joining Datasets](Link)
-[Appending](Link)
-[Merging](Link)
+### Checking for Unique and Complete Observations in Each Dataset
+[Remove Incomplete and Test Surveys](Link)  
+[Unique IDs and duplicates](Link)  
+[Checking for Consistency in Each Dataset](Link)  
+[Skips](Link)  
+[Logic Tests](Link)  
+[Joining Datasets](Link)  
+[Appending](Link)  
+[Merging](Link)  
 [Manual and Fuzzy Matching](Link)
 
 ### Inspecting the Clean Data
-[Code Checks](Link)
-[Programming Utilities](Link)
-[Searching Many Do-Files](Link)
-[Gathering File Information for Many Files](Link)
-[Finding Differences Between Two Do-Files](Link)
-[Cleaning up and Restyling Do-Files](Link)
+[Code Checks](Link)  
+[Programming Utilities](Link)  
+[Searching Many Do-Files](Link)  
+[Gathering File Information for Many Files](Link)  
+[Finding Differences Between Two Do-Files](Link)  
+[Cleaning up and Restyling Do-Files](Link)  
 [Comparing Two Excel Files](Link)
 
 
