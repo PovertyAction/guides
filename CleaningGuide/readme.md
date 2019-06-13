@@ -24,40 +24,40 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 
 ## Table of Contents
 
-### Importing and Reshaping
-[Importing into Stata](Link)  
-[Reshaping Data](Link)
+### [Importing and Reshaping](Link)
+Importing into Stata
+Reshaping Data
 
-### Cleaning Variables
-[Variable Names](Link)  
-[Variable Labels](Link)  
-[Variable Notes](Link)  
-[Variable Types and Formats](Link)  
-[Variables with Multiple Response](Link)  
-[Missing Values](Link)  
-[Categorical variables and dummy variables](Link)  
-[Value Labels](Link)  
-[“Specify” Variables](Link)  
-[Variable Keep and Order](Link)
+### [Cleaning Variables](Link)
+Variable Names  
+Variable Labels
+Variable Notes
+Variable Types and Formats
+Variables with Multiple Response
+Missing Values
+Categorical variables and dummy variables
+Value Labels  
+“Specify” Variables 
+Variable Keep and Order
 
-### Checking for Unique and Complete Observations in Each Dataset
-[Remove Incomplete and Test Surveys](Link)  
-[Unique IDs and duplicates](Link)  
-[Checking for Consistency in Each Dataset](Link)  
-[Skips](Link)  
-[Logic Tests](Link)  
-[Joining Datasets](Link)  
-[Appending](Link)  
-[Merging](Link)  
-[Manual and Fuzzy Matching](Link)
+### [Checking for Unique and Complete Observations in Each Dataset](Link)
+Remove Incomplete and Test Surveys
+Unique IDs and duplicates
+Checking for Consistency in Each Dataset
+Skips
+Logic Tests
+Joining Datasets
+Appending  
+Merging
+Manual and Fuzzy Matching
 
-### Inspecting the Clean Data
-[Code Checks](Link)  
-[Programming Utilities](Link)  
-[Searching Many Do-Files](Link)  
-[Gathering File Information for Many Files](Link)  
-[Finding Differences Between Two Do-Files](Link)  
-[Cleaning up and Restyling Do-Files](Link)  
-[Comparing Two Excel Files](Link)
+### [Inspecting the Clean Data](Link)
+Code Checks
+Programming Utilities
+Searching Many Do-Files
+Gathering File Information for Many Files
+Finding Differences Between Two Do-Files
+Cleaning up and Restyling Do-Files  
+Comparing Two Excel Files
 
 
