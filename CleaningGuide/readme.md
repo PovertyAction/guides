@@ -25,39 +25,39 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 ## Table of Contents
 
 ### [Importing and Reshaping](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Importing%20and%20Reshaping/readme.md)
-Importing into Stata
-Reshaping Data
+-Importing into Stata
+-Reshaping Data
 
 ### [Cleaning Variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Cleaning%20Variables/readme.md)
-Variable Names  
-Variable Labels
-Variable Notes
-Variable Types and Formats
-Variables with Multiple Response
-Missing Values
-Categorical variables and dummy variables
-Value Labels  
-“Specify” Variables 
-Variable Keep and Order
+-Variable Names  
+-Variable Labels
+-Variable Notes
+-Variable Types and Formats
+-Variables with Multiple Response
+-Missing Values
+-Categorical variables and dummy variables
+-Value Labels  
+-“Specify” Variables 
+-Variable Keep and Order
 
 ### [Checking for Unique and Complete Observations in Each Dataset](Link)
-Remove Incomplete and Test Surveys
-Unique IDs and duplicates
-Checking for Consistency in Each Dataset
-Skips
-Logic Tests
-Joining Datasets
-Appending  
-Merging
-Manual and Fuzzy Matching
+-Remove Incomplete and Test Surveys
+-Unique IDs and duplicates
+-Checking for Consistency in Each Dataset
+-Skips
+-Logic Tests
+-Joining Datasets
+-Appending  
+-Merging
+-Manual and Fuzzy Matching
 
 ### [Inspecting the Clean Data](Link)
-Code Checks
-Programming Utilities
-Searching Many Do-Files
-Gathering File Information for Many Files
-Finding Differences Between Two Do-Files
-Cleaning up and Restyling Do-Files  
-Comparing Two Excel Files
+-Code Checks
+-Programming Utilities
+-Searching Many Do-Files
+-Gathering File Information for Many Files
+-Finding Differences Between Two Do-Files
+-Cleaning up and Restyling Do-Files  
+-Comparing Two Excel Files
 
 
