@@ -28,7 +28,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 Importing into Stata
 Reshaping Data
 
-### [Cleaning Variables](Link)
+### [Cleaning Variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Cleaning%20Variables/readme.md)
 Variable Names  
 Variable Labels
 Variable Notes
