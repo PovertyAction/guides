@@ -24,7 +24,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 
 ## Table of Contents
 
-### [Importing and Reshaping](Link)
+### [Importing and Reshaping](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Importing%20and%20Reshaping/readme.md)
 Importing into Stata
 Reshaping Data
 
