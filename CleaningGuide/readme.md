@@ -51,7 +51,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - Merging
 - Manual and Fuzzy Matching
 
-### [Inspecting the Clean Data](Link)
+### [Inspecting the Clean Data](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Inspecting%20the%20Clean%20Data/Readme.md)
 - Code Checks
 - Programming Utilities
 - Searching Many Do-Files
