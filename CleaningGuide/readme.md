@@ -40,7 +40,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - “Specify” Variables 
 - Variable Keep and Order
 
-### [Checking for Unique and Complete Observations in Each Dataset](Link)
+### [Checking for Unique and Complete Observations in Each Dataset](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Checking%20for%20Unique%20and%20Complete%20Observations%20in%20Each%20Dataset/readme.md)
 - Remove Incomplete and Test Surveys
 - Unique IDs and duplicates
 - Checking for Consistency in Each Dataset
