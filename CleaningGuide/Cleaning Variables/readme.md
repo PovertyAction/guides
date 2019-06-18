@@ -85,7 +85,7 @@ For multiple choice variables (also known as categorical variables or enumerated
 
 The quickest way to change string variables to numeric variables with value labels is the `encode` command. `encode` will automatically convert the string variable into a numeric variable and assign the numbers 1 – x (where x is the number of unique answer choices) to the alphabetized list of the answer choices (ordered 0-9, followed by a-z). Because this is done automatically based on alphabetical order, if you are trying to make value labels match some existing assignment, you may need to recode or label them manually.
 
-One way to ensure that data is encoded in the way you want is to create the variable label from a known list and then encode the variable using the user written command `sencode` (installed using `ssc install sencode`). `sencode` labels the variable according to the values that you've predefined and then adds additional values in order from the highest value if it encounters values that you haven't defined. An example data flow follows that uses the  `sencode` command to add labels and the confirm that the labels match the expected values:
+One way to ensure that data is encoded in a known way is to create the variable label from a list you defined and then encode the variable using the user written command `sencode` (installed using `ssc install sencode`). `sencode` labels the variable according to the values that you've predefined and then adds additional values in order from the highest value if it encounters values that you haven't defined. An example data flow follows that uses the  `sencode` command to add labels and the confirm that the labels match the expected values:
 
 ````    
 	*Ensure sencode is installed
@@ -96,9 +96,15 @@ One way to ensure that data is encoded in the way you want is to create the vari
      	sysuse auto, clear
 	keep if _n <= 10 // Keep the first ten observations for the sample
 	
-	# del ; // This set the delimiter to ";" instead a return so a command can be formatted across multiple lines
+	/*  "# del" sets the delimiter to ";" instead of a return so a command 
+	    can be formatted across multiple lines 
+	*/
+	# del ;
 	
-	label define make_label /* This label is named by the variable name and then the label, in a consistent way */
+	/* This label is named by the variable name, an "_", and then "label"
+	   so that we can loop over the labels. 
+	*/
+	label define make_label 
 		1	"AMC Concord"
 		2	"AMC Pacer"
 		3	"AMC Spirit"
@@ -114,9 +120,9 @@ One way to ensure that data is encoded in the way you want is to create the vari
 	# del cr
 
 	*Create a local list of variables to encode
-	loc str_var make // Create a list of string variables to first encode, then check
+	loc str_var make
 
-	*check that the non-response
+	*Encode values and confirm expected
 	foreach var of local str_var {
 		
 		*Count variable values 
@@ -137,8 +143,8 @@ One way to ensure that data is encoded in the way you want is to create the vari
 		*Encode variables
 		sencode `var', label(`var'_label) replace // type h sencode to see options
 
-		*Check if values are in range in range
-		assert inrange(`var',`vlab_min',`vlab_max') if !mi(`var') // Only check if the values that are non-missing
+		*Check if values are in range in range if the values are non-missing
+		assert inrange(`var',`vlab_min',`vlab_max') if !mi(`var')
 		
 		macro drop vlab_max vlab_min // Ensure the working space is clean	
 	}  
