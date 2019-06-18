@@ -88,6 +88,10 @@ The quickest way to change string variables to numeric variables with value labe
 One way to ensure that data is encoded in the way you want is to create the variable label from a known list and then encode the variable using the user written command `sencode` (installed using `ssc install sencode`). `sencode` labels the variable according to the values that you've predefined and then adds additional values in order from the highest value if it encounters values that you haven't defined. An example data flow follows that uses the  `sencode` command to add labels and the confirm that the labels match the expected values:
 
 ````    
+	*Ensure sencode is installed
+	cap which sencode // Confirm secode is installed
+	if _rc ssc install sencode // If there is an error code, then install sencode
+	
 	*Load data
      	sysuse auto, clear
 	keep if _n <= 10 // Keep the first ten observations for the sample
