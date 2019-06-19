@@ -85,7 +85,30 @@ For multiple choice variables (also known as categorical variables or enumerated
 
 The quickest way to change string variables to numeric variables with value labels is the `encode` command. `encode` will automatically convert the string variable into a numeric variable and assign the numbers 1 – x (where x is the number of unique answer choices) to the alphabetized list of the answer choices (ordered 0-9, followed by a-z). Because this is done automatically based on alphabetical order, if you are trying to make value labels match some existing assignment, you may need to recode or label them manually.
 
-One way to ensure that data is encoded in a known way is to create the variable label from a list you defined and then encode the variable using the user written command `sencode` (installed using `ssc install sencode`). `sencode` labels the variable according to the values that you've predefined and then adds additional values in order from the highest value if it encounters values that you haven't defined. An example data flow follows that uses the  `sencode` command to add labels and the confirm that the labels match the expected values:
+Stata stores value labels independently from the variables, so it's important to manage value labels separatly from variables as they can contain PII. Deleting all variables that have a value label and saving the dataset will ensure that the value label is removed from the .dta file. To see which labels are currently defined in Stata and their content you can use the `label list` command (a number of helpful summary information is stored in the return values of `label list` and `label dir` as well). These labels can be modified or deleted to combine using the options of label define function:
+
+````
+	*Drop old labels
+	label drop ex1 ex2 ex3
+	
+	*Define label
+	label define yesno 1 "No" 3 "Yes"
+	label list yesno
+	
+	*Modify label to correct the error
+	label define yesno 1 "No" 2 "Yes", modify
+	
+	*Add extended values to the label defined above
+	label define yesno .n "No response" 3 "Maybe", add
+	
+	*Apply the label to all of the variables it should apply to
+	loc dummy_vars ex1 ex2 ex3
+	label values `dummy_vars' yesno
+````
+
+One way to ensure that data is encoded in a known way is to create the variable label from a list you defined and then encode the variable using the user written command `sencode` (installed using `ssc install sencode`). `sencode` labels the variable according to the values that you've predefined and then adds additional values in order from the highest value if it encounters values that you haven't defined. 
+
+An example data flow follows that uses the  `sencode` command to add labels and the confirm that the labels match the expected values:
 
 ````    
 	*Ensure sencode is installed
