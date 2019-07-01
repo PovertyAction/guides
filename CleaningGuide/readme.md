@@ -24,7 +24,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 
 ## Table of Contents
 
-### [Raw survey data management](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Importing%20and%20Reshaping/readme.md)
+### [Raw survey data management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management)
 - Importing into Stata
   - Excel 
 - Using Stata data files 
@@ -41,13 +41,13 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - Logic Tests
 - Numerical Formats 
 
-### [Variable Management](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Cleaning%20Variables/readme.md)
+### [Variable Management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/02%20Variable%20Management)
 - Variables with Multiple Response
 - Missing Values
 - Categorical variables and dummy variables
 - “Specify” Variables 
 
-### [Dataset, Value, and Variable Documentation](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Checking%20for%20Unique%20and%20Complete%20Observations%20in%20Each%20Dataset/readme.md)
+### [Dataset, Value, and Variable Documentation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation)
 - Variable Names  
 - Variable Labels
 - Variable Notes
@@ -55,7 +55,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - Value Labels  
 - Variable Keep and Order
 
-### [Data Aggregation and Outcome Creation](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Inspecting%20the%20Clean%20Data/Readme.md)
+### [Data Aggregation and Outcome Creation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation)
 - Merging two datasets 
 - Merging across data hierarchies 
 - Collapsing 
@@ -63,7 +63,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - Fuzzy Matching 
 - Egen 
 
-### [Quality Control]
+### [Quality Control](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/05%20Quality%20Control)
 - Assert 
 - Code Checks
 - Programming Utilities
@@ -73,7 +73,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - Cleaning up and Restyling Do-Files  
 - Comparing Two Excel Files
 
-### [Advanced commands you should know]
+### [Advanced commands you should know](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/06%20Useful%20Commands)
 - fillin
 - mmerge 
 - levelsof
