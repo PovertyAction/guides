@@ -1,42 +1,8 @@
 # Checking for Unique and Complete Observations in Each Dataset
-## Remove Incomplete and Test Surveys
-Sometimes incomplete surveys will sneak into the raw datasets, either because they weren’t removed from the paper stack of surveys of because someone uploaded them to the server. Likewise, during the initial stages of testing for computer-assisted interviewing (CAI), the field RAs may test the program and upload the resulting surveys to the server. Check with the field RA to identify and remove any test surveys. Remove any incomplete surveys as well, which you can likely identify by key variables at the end of the survey that are missing.
-## Unique IDs and duplicates
-As mentioned in the manual covering data collection, unique IDs are critical to a well-managed dataset, particularly when it comes time to merge across datasets. You should use the `isid` command in Stata to check that the ID is indeed unique. If you receive an error, use the `duplicates` command to investigate as to why you have duplicates (`help duplicates`). If they are true duplicates across all variables and it is clear why these duplicates were created, you can proceed to remove duplicate copies. If they are not duplicates across all variables, you will want to look into why there are multiple observations and develop some rule for choosing which one to keep. In general, observations that are more recent and more informative (i.e., have fewer missing values) are better. However, for some projects, it is better to keep the earlier observation. You should check with your PI, the project manager and the filed staff about how to create these rules and how to proceed.  Once you come up with a decision, be sure to document both what you decide to do and why it was decided, as well as when and who made the decision for future reference.
 
-Note that sometimes people take a survey twice and receive two different IDs. See `help duplicates` for guidance on commands that can be useful for this. Apart from dropping duplicates in terms of all variables using `duplicates drop`, check for duplicates in terms of things you suspect may identify the same person (e.g., name, address, phone number, birthday and combinations of the above). Once you’ve cleaned each data set individually, it is wise to check that the unique IDs are assigned properly across datasets. For instance, if you have a baseline survey and an endline survey, after merging them based on unique ID, check that the names and birthdate variables from each survey match to the other survey.
-
-# Checking for Consistency in Each Dataset
-Once you have a grasp on the overall organization of a dataset — including the variable names, labels, and formats, as well as the number of observations — it’s time to dive into the relationships among variables and the distribution of values within each variable. Here, you want to check that things make sense. Can someone who said they don’t have a business really be bringing in $1 million in profits each week? Unlikely. Well-programmed surveys should minimize the need for these tests, although they are still good to implement as a check on the quality of the programming.
-
-## Skips
-The surveys will likely have skips. For instance, if a respondent says they have zero goats to a question, the survey may instruct the surveyor to (or the program may automatically) go to questions about sheep instead of questions about the quality of goat cheese the respondent makes from their goats. You should test that these skips worked by developing a series of checks based on a close reading of the survey instrument itself. Here, it can be very helpful to use the assert command. If some of the skips did not work or allowed for some entry error among respondents, document the issues by outputting a list of the problematic observations into a spreadsheet and mention it to the PIs.
-
-## Logic Tests
-Logic tests check if the values observed in the data make sense given other values. For instance, can someone who says they were born in 2000 really have been a member of their current community for thirty years?
-
-The list of logic tests to examine is not obvious; check for things that you think would be very problematic or that would clearly indicate that something was wrong with the data. Again, if any of those tests fail, flag the values and bring them up with the PIs.
-
-# Joining Datasets
-## Appending
-Raw data may come split into several files, either split by variables or by observations (or both). Datasets split by observations will need to be appended (“stacked”) to each other (see help append). In appending datasets, be sure that all common variables have the same storage types (numeric or string) and the same names.
-
-## Merging
-You may also need to merge two or more datasets together, if they are split by variables. For example, you may have variables that were split between two datasets by the survey program. Be sure that both datasets have a unique ID and be extra careful to specify whether the merge is one-to-one or one-to-many (see the `merge` options for how to specify this). A many-to-many merge is a really bad practice and should not be done. If you do this, you may inadvertently change the sample size of your dataset. After the merge, type `tab _merge` and check to see that the results (number of matches, number from master data only, and number from using data only) were what you expected. Adding a few assertions after the merge is good practice to make sure things are running correctly. There are a couple other merge command options that try to build in more safety features for you. You should look at the documentation for both `safemerge` and `mmerge` for alternative merge methods. 
-
-See the IPA Stata beginner’s training manual for step-by-step guidance on how to `append` and `merge` datasets. The IPA high intermediate Stata training also has a helpful module on merging, including a discussion of common pitfalls.
-
-## Manual and Fuzzy Matching
-Usually when you `merge`, you have a unique ID — or at least enough of one that you can salvage. Sometimes, however, no unique identifier was collected, and you’re left searching for alternative ways to link two datasets. The most obvious way to do this is to try and match on names or other string variables. However, small misspellings in these variables can easily result in mismatches. There are a few ways to deal with this. The best way would be to remove the most obvious sources of mismatches (like spaces, capital letters, etc.) check how many names match perfectly and try to match the one that don’t manually. This might be time consuming but should be the first alternative to try. Only when this is impossible, or the amount of data makes it extremely difficult you should try one of the following options.
-
-Fuzzy matching refers to the technique of finding strings that match a pattern approximately or based on probabilities rather than exactly. Commands that use this type of algorithms will typically give out probabilities of matches and should only be used when exact matching is not an option. If you are thinking about using one of these commands check with your manager to see if there is any other way to do this.
-
-There are a few commands that can help with fuzzy matching in Stata: 
-`Reclink`
-- One option for this is reclink, an SSC user-written Stata program that implements “fuzzy matching.” (Type `ssc install reclink` in Stata to install it.) Instead of a unique ID, you specify one or more lists of variables that tilt the evidence of a match in one direction or another. For example, two ages of 25 and 26 are a closer match than 35 and 65. reclink even supports string matching, so, for example, you can try using name variables in the linkage even if the variables aren’t perfectly clean. (That said, do try some cleaning beforehand: standardize letter case, etc. See the IPA high intermediate Stata training for more on string cleaning.)
-`reclink` is awesome, but it isn’t flawless. Previous RAs have run into the following issues. Each bullet below describes a problem along with the attempted solutions and whether they succeeded. 
-1.  The variable specified to `idusing()` should never be in the master dataset. If this is the case,` _merge match U*` should be right. Also, unless the user doesn't care about the values of shared variables from the using dataset, the two datasets shouldn't share any variable names except for the variables for matching
-2.  If guideline (1) is followed, this issue will necessarily not happen, but `idusing()` and `idmaster()` should not have the same variable names; if this is the case the matches might not happen properly. As mentioned in (1), it’s generally a good idea to make sure all non-matched variables have different names.  When using reclink, tempfiles can be especially helpful, since you will likely need to be jumping back and forth between files to change variables names, and changing names simply for the period of matching might be one of the easiest ways of ensuring you’re preserving the original versions of variable names in your dataset.
-
-`strgroup`
-You will need to type `net install strgroup` to get this command. This command calculates the difference between strings and uses a user-specified threshold to create groups/matches.
+1. Merging two Datasets
+2. Merging across data hierarchies 
+3. Collapsing
+4. Appending
+5. Fuzzy merge
+6. Egen
