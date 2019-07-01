@@ -1,13 +1,16 @@
-# Importing and Reshaping 
-## Importing into Stata
-Data comes in many forms, from raw text (.txt) files to multi-sheet Excel files. Importing data into Stata is necessary if the data is not already in Stata format (.dta file). In general, you should be able to use Stata’s functions and loops to efficiently import data. Stata can import most data formats. If your project’s data was collected using a platform like SurveyCTO, the raw data will come in .csv format. See the data collection folder for detailed instructions on importing SurveyCTO data. 
-## Importing from different sources 
-In Stata 13 and beyond, the import command can import CSV files, excel files, and more depending on the option used (delimited for CSV, excel for excel), and export does the same for exporting. If you are new to using import or are importing a file type you have not seen before, it can be helpful to use the drop-down menu by clicking “file>Import” and then selecting the file type most like yours. Once you do this, you will be able to copy the specific command syntax directly from the command prompt or review window in Stata to your script.  
-Note that it is often a good idea when using the insheet command, to use the option names and have your dataset have the same variable names at those at the top of the raw dataset.
-A useful function for importing multiple files within a folder is the dir extended macro function. You can find documentation on this by typing help extended_fcn in Stata.  This function allows you to store all the names of the files in a folder in a local so you can loop through them for importing. See an example script of this process below. 
-### Resource 
-## Reshaping 
-When downloading from SurveyCTO, you can choose whether to export the data in wide or long format.
-Keeping the data in long format means that SurveyCTO will automatically organize observations at the largest unit level (e.g. household-level) and will save all sub-unit level data into separate repeats group (e.g. person-level, plot-level). This means you will have a larger number of datasets to work with (and perhaps a more involved merging process if you want to compile all the data), but each dataset in itself will be smaller and easier to read.
-Wide data, on the other hand, saves you the process of merging manually, but it means that some of the sub-unit level data will automatically be reshaped in order to fit with the main dataset. For example, ages of individual household members collected by the variable “age” will be reshaped as “age_1” (for the first member), “age_2” (for the second member), etc. It is easier to run quality checks on wide data, but these datasets can also grow very large very quickly and become unwieldy to work with.
-For more guidance on what “wide” and “long” datasets are, and how to reshape type help reshape in Stata.
+# Raw survey data management
+- Importing into Stata
+  - Excel
+- Using Stata data files
+- Deidentifying
+- Replacements
+  - readreplace
+- SurveyCTO split
+- Reshaping Data
+- Remove Incomplete and Test Surveys
+- Unique IDs and duplicates
+  - String IDs
+- Checking for Consistency in Each Dataset
+- Skips
+- Logic Tests
+- Numerical Formats
