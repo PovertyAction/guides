@@ -1,2 +1,9 @@
-# Inspecting the Clean Data
-Once you’ve finished cleaning a dataset, take some time to inspect the final product by using a command like codebookout, This command will output an excel file that is a codebook of your final data including variable names, labels, types, values and value labels. Check that variables are labeled and take on a range of values that make sense. You should use these checklists to perform checks on your dataset. 
+# Quality Control 
+1. Code Checks
+2. Programming Utilities
+3. Searching Many Do-Files
+4. Gathering File Information for Many Files
+5. Finding Differences Between Two Do-Files
+6. Cleaning up and Restyling Do-Files
+7. Comparing Two Excel Files
+8. Assert
