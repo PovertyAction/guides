@@ -1,1 +1,5 @@
 # Reshaping
+When downloading from SurveyCTO, you can choose whether to export the data in wide or long format.
+Keeping the data in long format means that SurveyCTO will automatically organize observations at the largest unit level (e.g. household-level) and will save all sub-unit level data into separate repeats group (e.g. person-level, plot-level). This means you will have a larger number of datasets to work with (and perhaps a more involved merging process if you want to compile all the data), but each dataset in itself will be smaller and easier to read.
+Wide data, on the other hand, saves you the process of merging manually, but it means that some of the sub-unit level data will automatically be reshaped in order to fit with the main dataset. For example, ages of individual household members collected by the variable “age” will be reshaped as “age_1” (for the first member), “age_2” (for the second member), etc. It is easier to run quality checks on wide data, but these datasets can also grow very large very quickly and become unwieldy to work with.
+For more guidance on what “wide” and “long” datasets are, and how to reshape type help reshape in Stata.
