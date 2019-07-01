@@ -24,34 +24,47 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 
 ## Table of Contents
 
-### [Importing and Reshaping](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Importing%20and%20Reshaping/readme.md)
+### [Raw survey data management](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Importing%20and%20Reshaping/readme.md)
 - Importing into Stata
+  - Excel 
+- Using Stata data files 
+- Deidentifying
+- Replacements
+  - readreplace 
+- SurveyCTO split
 - Reshaping Data
+- Remove Incomplete and Test Surveys
+- Unique IDs and duplicates
+  - String IDs
+- Checking for Consistency in Each Dataset
+- Skips
+- Logic Tests
+- Numerical Formats 
 
-### [Cleaning Variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Cleaning%20Variables/readme.md)
+### [Variable Management](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Cleaning%20Variables/readme.md)
+- Variables with Multiple Response
+- Missing Values
+- Categorical variables and dummy variables
+- “Specify” Variables 
+
+### [Dataset, Value, and Variable Documentation](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Checking%20for%20Unique%20and%20Complete%20Observations%20in%20Each%20Dataset/readme.md)
 - Variable Names  
 - Variable Labels
 - Variable Notes
 - Variable Types and Formats
-- Variables with Multiple Response
-- Missing Values
-- Categorical variables and dummy variables
 - Value Labels  
-- “Specify” Variables 
 - Variable Keep and Order
 
-### [Checking for Unique and Complete Observations in Each Dataset](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Checking%20for%20Unique%20and%20Complete%20Observations%20in%20Each%20Dataset/readme.md)
-- Remove Incomplete and Test Surveys
-- Unique IDs and duplicates
-- Checking for Consistency in Each Dataset
-- Skips
-- Logic Tests
-- Joining Datasets
-- Appending  
-- Merging
-- Manual and Fuzzy Matching
+### [Data Aggregation and Outcome Creation](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Inspecting%20the%20Clean%20Data/Readme.md)
+- Merging two datasets 
+- Merging across data hierarchies 
+- Collapsing 
+- Appending 
+- Fuzzy Matching 
+- Egen 
 
-### [Inspecting the Clean Data](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/Inspecting%20the%20Clean%20Data/Readme.md)
+### [Quality Control]
+- Assert 
 - Code Checks
 - Programming Utilities
 - Searching Many Do-Files
@@ -60,4 +73,12 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - Cleaning up and Restyling Do-Files  
 - Comparing Two Excel Files
 
+### [Advanced commands you should know]
+- fillin
+- mmerge 
+- levelsof
+- labeldup 
+- labelrename 
+- relist 
+- missings
 
