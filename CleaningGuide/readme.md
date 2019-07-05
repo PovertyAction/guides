@@ -24,61 +24,61 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 
 ## Table of Contents
 
-### [Raw survey data management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management)
-- Importing into Stata
+### Raw survey data management
+- [Importing into Stata](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/01%20Importing%20into%20Stata.md)
   - Excel 
-- Using Stata data files 
-- Deidentifying
-- Replacements
+- [Using Stata data files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/02%20Using%20Stata%20Data%20Files.md)
+- [De-identifying data](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/03%20De-identifying%20data.md)
+- [Replacements](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/04%20Replacements.md)
   - readreplace 
-- SurveyCTO split
-- Reshaping Data
-- Remove Incomplete and Test Surveys
-- Unique IDs and duplicates
+- [SurveyCTO split](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/05%20SurveyCTO%20Split.md)
+- [Reshaping data](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/06%20Reshaping.md)
+- [Remove incomplete and test surveys](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/07%20Remove%20Incomplete%20and%20Test%20Surveys.md)
+- [Unique IDs and duplicates](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/08%20Unique%20IDs%20and%20duplicates.md)
   - String IDs
-- Checking for Consistency in Each Dataset
-- Skips
-- Logic Tests
-- Numerical Formats 
+- [Checking for consistency in each dataset](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/09%20Checking%20for%20Consistency%20in%20Each%20Dataset.md)
+- [Skips](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/10%20Skips.md)
+- [Logic tests](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/11%20Logic%20Tests.md)
+- [Numerical formats](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/12%20Numerical%20Formats.md)
 
-### [Variable Management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/02%20Variable%20Management)
-- Variables with Multiple Response
-- Missing Values
-- Categorical variables and dummy variables
-- “Specify” Variables 
+### Variable Management
+- [Variables with multiple response](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/01%20Variables%20with%20Multiple%20Responses.md)
+- [Missing values](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/02%20Missing%20Values.md)
+- [Categorical variables and dummy variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/03%20Categorical%20variables%20and%20dummy%20variables.md)
+- [“Specify” Variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/04%20%22Specify%22%20Variables.md)
 
-### [Dataset, Value, and Variable Documentation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation)
-- Variable Names  
-- Variable Labels
-- Variable Notes
-- Variable Types and Formats
-- Value Labels  
-- Variable Keep and Order
+### Dataset, Value, and Variable Documentation
+- [Variable names](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/01%20Variables%20Names.md)
+- [Variable labels](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/02%20Variable%20Labels.md)
+- [Variable notes](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/04%20Variable%20Types%20and%20Formats.md)
+- [Variable types and formats](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/04%20Variable%20Types%20and%20Formats.md)
+- [Value labels](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/05%20Value%20Labels.md)  
+- [Variable keep and order](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/06%20Variable%20Keep%20and%20Order.md)
 
-### [Data Aggregation and Outcome Creation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation)
-- Merging two datasets 
-- Merging across data hierarchies 
-- Collapsing 
-- Appending 
-- Fuzzy Matching 
-- Egen 
+### [ata Aggregation and Outcome Creation
+- [Merging two datasets](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/01%20Merging%20two%20datasets.md)
+- [Merging across data hierarchies](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/02%20Merging%20across%20data%20hierarchies.md)
+- [Collapsing](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/03%20Collapsing.md)
+- [Appending](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/04%20Appending.md)
+- [Fuzzy merging](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/05%20Fuzzy%20Merge.md) 
+- [Egen](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/06%20Egen.md) 
 
-### [Quality Control](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/05%20Quality%20Control)
-- Assert 
-- Code Checks
-- Programming Utilities
-- Searching Many Do-Files
-- Gathering File Information for Many Files
-- Finding Differences Between Two Do-Files
-- Cleaning up and Restyling Do-Files  
-- Comparing Two Excel Files
+### Quality Control
+- [Code checks](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/01%20Code%20Checks.md)
+- [Programming utilities](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/02%20Programming%20Utilities.md)
+- [Searching many do-files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/03%20Searching%20Many%20Do-Files.md)
+- [Gathering file information for many files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/04%20Gathering%20File%20Information%20for%20Many%20Files.md)
+- [Finding differences between two do-files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/05%20Finding%20Differences%20Between%20Two%20Do-Files.md)
+- [Cleaning up and restyling do-files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/06%20Cleaning%20up%20and%20Restyling%20Do-Files.md)
+- [Comparing two excel files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/07%20Comparing%20Two%20Excel%20Files.md)
+- [Assert](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/08%20Assert.md) 
 
-### [Advanced commands you should know](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/06%20Useful%20Commands)
-- fillin
-- mmerge 
-- levelsof
-- labeldup 
-- labelrename 
-- relist 
-- missings
+### Useful commands (that you should know and use)
+- [fillin](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/fillin.md)
+- [labeldup](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labeldup.md)
+- [labelrename](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labelrename.md)
+- [levelsof](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/levelsof.md)
+- [missings](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/missings.md)
+- [mmerge](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/mmerge.md)
+- [retlist](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/retlist.md)
 
