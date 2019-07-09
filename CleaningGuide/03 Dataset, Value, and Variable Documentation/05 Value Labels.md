@@ -30,16 +30,13 @@ An example data flow follows that uses the  `sencode` command to add labels and 
 
 ````    
 	*Ensure sencode is installed
-	cap which sencode // Confirm secode is installed
-	if _rc ssc install sencode // If there is an error code, then install sencode
+	cap which sencode
+	if _rc ssc install sencode 
 	
 	*Load data
      	sysuse auto, clear
-	keep if _n <= 10 // Keep the first ten observations for the sample
+	keep if _n <= 10 // Keep the first ten observations of the sample
 	
-	/*  "# del" sets the delimiter to ";" instead of a return so a command 
-	    can be formatted across multiple lines 
-	*/
 	# del ;
 	
 	/* This label is named by the variable name, an "_", and then "label"
@@ -71,13 +68,13 @@ An example data flow follows that uses the  `sencode` command to add labels and 
 		   then the bounds of the value label that are defined above are 
 		   saved in two local marcos.
 		   
-		   Next, the variable is encoded. If a value that you don't expect
-		   exists it will be added to the value label without informing you.
-		   Therefore, the code checks that all of the values are in the 
+		   Next, the variable is encoded. If a value that you don't expect to
+		   exist exists, it will be added to the value label without informing 
+		   you. Therefore, the code checks that all of the values are in the 
 		   range of the values that are defined above.
 		*/
 		di "Encoding `var'"
-		qui lab list `var'_label // Store the range of values in return codes from the label defined above
+		qui lab list `var'_label // Store the range of values in return codes
 		loc vlab_max `r(max)'
 		loc vlab_min `r(min)' 
 		
