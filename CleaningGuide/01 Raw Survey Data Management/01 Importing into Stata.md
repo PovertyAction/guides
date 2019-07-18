@@ -40,3 +40,4 @@ A useful function for importing multiple files within a folder is the dir extend
 	}	
 ````
 
+Once you import your data into Stata, these new .dta files are no longer considered a raw dataset, and you should not save them back into the same folder that your raw excel, csv, or any other type of files were saved in. It can be helpful to go ahead and set up a "dta" or "temp" folder for you to save these intermediate data files. 
