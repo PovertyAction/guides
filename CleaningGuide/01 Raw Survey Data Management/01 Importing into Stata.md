@@ -27,10 +27,11 @@ A useful function for importing multiple files within a folder is the dir extend
 	  		*Check for expected/necessary variables
 	      			confirm var expected_var_names
 
-	  	/*The filenames in the local "files" includes the extension (in this cas .xlsx). 
-		So, I remove these and make new clean file name to save the files as.
-		You can edit the filenames however you see fit. */
-    			local cleanfilename = subinstr("`file'", ".xlsx","",.)
+	  	* Edit filename 
+			/*The filenames in the local "files" includes the extension (in this cas .xlsx). 
+			So, I remove these and make new clean file name to save the files as.
+			You can edit the filenames however you see fit. */
+    				local cleanfilename = subinstr("`file'", ".xlsx","",.)
 
 	 	 *Save the file with the new clean file name as a dta file
 	 		 save "$temp/`cleanfilename'_raw.dta", replace
