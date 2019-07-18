@@ -13,7 +13,6 @@ A useful function for importing multiple files within a folder is the dir extend
 
 *Loop through the files to import, clean the file name, and save as a dta
 	foreach file in `files' {
-  	
 		*Show your progress of which file you are working on
 			di in red "working on `file'"
   	
