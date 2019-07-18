@@ -12,26 +12,29 @@ A useful function for importing multiple files within a folder is the dir extend
     local files: dir "$raw" files "*.xlsx", respectcase 
 
 *Loop through the files to import, clean the file name, and save as a dta
-  foreach file in `files' {
-  	*Show your progress of which file you are working on
-  	    di in red "working on `file'"
-  	*Import each file 
-       import excel using "$raw/`file'", clear firstrow
+	foreach file in `files' {
+  	
+		*Show your progress of which file you are working on
+			di in red "working on `file'"
+  	
+		*Import each file
+			import excel using "$raw/`file'", clear firstrow
 
-   *Quality Checks
-	  	*Assert you have the correct number of observations.
-		      assert r(N) == number_of_expected_observations
-		  *Check that what variables you think sould be unique identifiers are indeed unique. 
-          isid unique_id_var
-	  	*Check for expected/necessary variables
-	      	confirm var expected_var_names
+  		*Quality Checks
+	  		*Assert you have the correct number of observations.
+		    		assert r(N) == number_of_expected_observations
+		 	*Check that what variables you think sould be unique identifiers are indeed unique. 
+          			isid unique_id_var
+	  		*Check for expected/necessary variables
+	      			confirm var expected_var_names
 
-	  	/*The filenames in the local "files" includes the extension (in this cas .xlsx)
-    
-		      local cleanfilename = subinstr("`file'", ".xlsx","",.)
+	  	/*The filenames in the local "files" includes the extension (in this cas .xlsx). 
+		So, I remove these and make new clean file name to save the files as.
+		You can edit the filenames however you see fit. */
+    			local cleanfilename = subinstr("`file'", ".xlsx","",.)
 
-	  *Save the file with its clean file name as a dta file
-	  save "$temp/`cleanfilename'_raw.dta", replace
+	 	 *Save the file with the new clean file name as a dta file
+	 		 save "$temp/`cleanfilename'_raw.dta", replace
   }	
 ````
 
