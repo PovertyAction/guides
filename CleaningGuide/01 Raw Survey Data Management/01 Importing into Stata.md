@@ -19,7 +19,7 @@ A useful function for importing multiple files within a folder is the dir extend
 		*Import each file
 			import excel using "$raw/`file'", clear firstrow
 
-  		*Quality Checks
+  		*Quality Checks (Optional)
 	  		*Assert you have the correct number of observations.
 		    		assert r(N) == number_of_expected_observations
 		 	*Check that what variables you think sould be unique identifiers are indeed unique. 
