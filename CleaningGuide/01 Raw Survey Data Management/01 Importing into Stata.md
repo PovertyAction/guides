@@ -10,9 +10,13 @@ Note that it is often a good idea when using the `insheet` command, to use the o
 A useful function for importing multiple files within a folder is the dir extended macro function. You can find documentation on this by typing `help extended_fcn` in Stata.  This function allows you to store all the names of the files in a folder in a local so you can loop through them for importing. See example code of this process below. 
 
 ````
+*Delete and re-create an output folder for your new data 
+	rmdir "filepath/dtafiles"
+	mkdir "filepath/dtafiles"	
+
 *This stores all files with the extension .xlsx in the "$raw" data folder into a local "files"
     local files: dir "$raw" files "*.xlsx", respectcase 
-
+   
 *Loop through the files to import, clean the file name, and save as a dta
 	foreach file in `files' {
 		*Show your progress of which file you are working on
@@ -36,8 +40,8 @@ A useful function for importing multiple files within a folder is the dir extend
     				local cleanfilename = subinstr("`file'", ".xlsx","",.)
 
 	 	 *Save the file with the new clean file name as a dta file
-	 		 save "$temp/`cleanfilename'_raw.dta", replace
+	 		 save "filepath/dtafiles/`cleanfilename'_raw.dta", replace
 	}	
 ````
 
-Once you import your data into Stata, these new .dta files are no longer considered a raw dataset, and you should not save them back into the same folder that your raw excel, csv, or any other type of files were saved in. It can be helpful to go ahead and set up a "dta" or "temp" folder for you to save these intermediate data files. 
+Once you import your data into Stata, these new .dta files are no longer considered a raw dataset, and you should not save them back into the same folder that your raw excel, csv, or any other type of files were saved in. It can be helpful to go ahead and set up a "dta" or "temp" folder for you to save these intermediate data files before you start.  As done in the previous example, you can create a folder to save your files in directly in your script by using `mkdir "filepath"`. So that you aren't recreating a file that is already there, you can either do `cap mkdir "filepath"` or use `rmdir "filepath"` to remove the folder first. 
