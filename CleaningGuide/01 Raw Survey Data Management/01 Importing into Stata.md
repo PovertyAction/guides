@@ -35,6 +35,6 @@ A useful function for importing multiple files within a folder is the dir extend
 
 	 	 *Save the file with the new clean file name as a dta file
 	 		 save "$temp/`cleanfilename'_raw.dta", replace
-  }	
+	}	
 ````
 
