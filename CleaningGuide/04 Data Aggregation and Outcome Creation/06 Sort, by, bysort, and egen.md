@@ -1,18 +1,20 @@
 # Sort, by, bysort, egen
   
-  
-  sysuse bplong, clear 
-{		//a.  Sort order
-			*Quick example showing the order of sorting
-				sort when patient
-				sort patient when
-				preserve
-					replace when = . if _n == 25
-					sort when patient //where did the missing value get sorted to?
-				restore 
-			
-			*sort males first (smallest to largest) and then by patient
-				sort sex patient
+## Sort order
+Quick example showing the order of sorting
+		````
+		sysuse bplong, clear 
+		sort when patient
+		sort patient when
+		preserve
+		replace when = . if _n == 25
+		sort when patient //where did the missing value get sorted to?
+		restore 
+		````			
+
+
+sort males first (smallest to largest) and then by patient
+			sort sex patient
 			
 			*gsort by gender first so that females are at the top (largest to smallest) and then by patient
 				gsort -sex patient 
