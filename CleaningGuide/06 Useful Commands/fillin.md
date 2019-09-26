@@ -10,14 +10,22 @@ This is a simple to use, but yet powerful command. Frequently in cleaning data s
 | 2   	| endline1        | Male     |
 | 2   	| endline2       | Male      |
 
-We can use 'filling ID Survey_Round' to get the following
+We can use `fillin ID Survey_Round` to get the following
 
-| ID          | Survey_Round | Gender      | _ fillin 	|
+| ID          | Survey_Round | Gender      | \_fillin 	|
 | :---        |    :----:    |        ---: | 	    ---:|
 | 1           | baseline     | Female  	   | 0		|
 | 1   	      | endline1     | Female      |0 		|
 | 1   	      | endline1     | .  	   |1 		|
-| 2           | baseline     | Male   	   |1		|
-| 2   	      | endline1     | Male        |1		|
-| 2           | endline2     | Male        |1		|
+| 2           | baseline     | Male   	   |0		|
+| 2   	      | endline1     | Male        |0		|
+| 2           | endline2     | Male        |0		|
 
+A couple things to note:
+  1. This command automatically creates an indicator variabel called \_fillin that keeps track of observations that were created from the command
+  2. Variables not specified in the `fillin` are filled in with a missing value. So after you run \_fillin you will need to go back and replace observations as you see appropriate. For example, for typically constant variables such as gender you could replace this new missing value to match the one above it. 
+  
+  ```
+  sort ID survey_Round
+  replace Gender = Gender\[\_n-1] if ID == ID\[\_n-1] & \_fillin == 1 
+  ```
