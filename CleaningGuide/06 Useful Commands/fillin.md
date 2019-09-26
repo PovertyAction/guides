@@ -16,7 +16,7 @@ We can use `fillin ID Survey_Round` to get the following
 | :---        |    :----:    |        ---: | 	    ---:|
 | 1           | baseline     | Female  	   | 0		|
 | 1   	      | endline1     | Female      |0 		|
-| 1   	      | endline1     | .  	   |1 		|
+| 1   	      | endline2     | .  	   |1 		|
 | 2           | baseline     | Male   	   |0		|
 | 2   	      | endline1     | Male        |0		|
 | 2           | endline2     | Male        |0		|
