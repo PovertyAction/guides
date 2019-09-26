@@ -26,6 +26,6 @@ A couple things to note:
   2. Variables not specified in the `fillin` are filled in with a missing value. So after you run `fillin` you will need to go back and replace observations as you see appropriate. For example, for typically constant variables such as gender you could replace this new missing value to match the one above it. 
   
   ```
-  sort ID survey_Round
+  sort ID Survey_Round
   replace Gender = Gender[_n-1] if ID == ID[_n-1] & _fillin == 1 
   ```
