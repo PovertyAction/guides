@@ -6,3 +6,6 @@ Another helpful command in quality control is `assert`. You should include many 
 
 Finally, you can use the checklist in this folder to perform checks on your dataset. (To open, click on the link for the checklist and then click "view raw" to download.)
 
+# Checking for Consistency Across Datasets
+
+Once you have a grasp on the overall organization of a dataset — including the variable names, labels, and formats, as well as the number of observations — it’s time to dive into the relationships among variables and the distribution of values within each variable. Here, you want to check that things make sense. Can someone who said they don’t have a business really be bringing in $1 million in profits each week? Unlikely. Well-programmed surveys should minimize the need for these tests, although they are still good to implement as a check on the quality of the programming.
