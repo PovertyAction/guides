@@ -1,5 +1,7 @@
 # Sort, by, bysort, egen
-  
+ 
+Note 
+
 ## Sort order
 Quick example showing the order of sorting
 		````
