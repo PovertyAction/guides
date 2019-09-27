@@ -18,7 +18,7 @@ Going from a wide dataset by person to a long datset by person-month. The variab
 
 ```
 ds income*          \\\store all of the income_MMYYYY variables into a local to count how many we are reshaping 
-local copies : word count `r(varlist)'  \\ the number of vars we want to reshape
+local copies : word count `r(varlist)'  \\ the number of vars with the same stub per stub
 expand `copies'      \\we need to create as many of each of our observations as as many vars we want to reshape
 
 gen yearmonth = .        \\create an empty var that will hold the sub-group identifier (this is the j var in reshape)
