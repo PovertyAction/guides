@@ -4,5 +4,5 @@ Once you’ve finished cleaning a dataset, take some time to inspect the final p
 
 Another helpful command in quality control is `assert`. You should include many asserts throughout your do files in order to check that your assumptions while cleaning hold. This is especially important if you are going to be collecting more data later. 
 
-Finally, you can use the checklist in this folder to perform checks on your dataset. 
+Finally, you can use the checklist in this folder to perform checks on your dataset. (To open, click on the link for the checklist and then click "view raw" to download.)
 
