@@ -5,6 +5,6 @@ Stata has special codes for missing values. For numeric variables, missing value
 
 Work with the field RA to determine what values represent missing values in your data. For instance, sometimes -99 refers to “don’t know”. In that case, you will want to replace all -99 values with .d. It can be helpful to use the recode command to efficiently replace those values.
 
-It might be useful to use cb2html command to detect which missing values were used in the survey or any data entry error. There is also misstable summarize, as well as the user-written mdesc, and missings.
+It might be useful to use `missings` which can be installed through ssc.
 
-String variables with a missing value are shown as “” (called “blank”). When it is necessary to know why a string variable is missing, select standard strings are used: see [here](Link) for the IPA convention.
+String variables with a missing value are shown as “” (called “blank”). 
