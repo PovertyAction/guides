@@ -63,21 +63,12 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - [Egen](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/06%20Egen.md) 
 
 ### Quality Control
-- [Code checks](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/01%20Code%20Checks.md)
-- [Programming utilities](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/02%20Programming%20Utilities.md)
-- [Searching many do-files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/03%20Searching%20Many%20Do-Files.md)
-- [Gathering file information for many files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/04%20Gathering%20File%20Information%20for%20Many%20Files.md)
-- [Finding differences between two do-files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/05%20Finding%20Differences%20Between%20Two%20Do-Files.md)
-- [Cleaning up and restyling do-files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/06%20Cleaning%20up%20and%20Restyling%20Do-Files.md)
-- [Comparing two excel files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/07%20Comparing%20Two%20Excel%20Files.md)
-- [Assert](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/08%20Assert.md) 
+
 
 ### Useful commands (that you should know and use)
 - [fillin](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/fillin.md)
 - [labeldup](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labeldup.md)
 - [labelrename](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labelrename.md)
-- [levelsof](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/levelsof.md)
-- [missings](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/missings.md)
 - [mmerge](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/mmerge.md)
 - [retlist](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/retlist.md)
 
