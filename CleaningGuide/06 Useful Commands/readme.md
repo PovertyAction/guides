@@ -14,8 +14,18 @@ This command will provide you with a list of all of the unique values of a varia
 
 # missings
 
+This is not a built-in Stata command and thus you will need to type `ssc install missings` to get this command before you can use it or read the help file.
+
+This group of commands allows for several ways to investigate the missing values in variables. Missing values are typically forgotten about or ignored, but that is a big mistake. They can mess with your cleaning and analysis greatly and you should be aware of the missing values in your dataset. This command includes ways to report, list, tag, and drop missing values. 
+
+A very helpful command within this group is `missings dropvars` which allows you to eliminate variables that are missing on all observations. This is much easier than looping through vars and obs to assert they are missing to drop them. 
+
 # mmerge
 
+
+
 # ret list
+
+
 
 
