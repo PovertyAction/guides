@@ -19,20 +19,20 @@ Going from a wide dataset by person to a long datset by person-month. The variab
 ```
 ds income*          \\\store all of the income_MMYYYY variables into a local to count how many we are reshaping 
 local copies : word count `r(varlist)'  \\ the number of vars we want to reshape
-expand `copies'      \\we need to create as many copies of our observations as as many vars we want to reshape
+expand `copies'      \\we need to create as many of each of our observations as as many vars we want to reshape
 
-gen yearmonth = .
+gen yearmonth = .        \\create an empty var that will hold the sub-group identifier (this is the j var in reshape)
      foreach var in  income expenditures {
-           ds `var'_*, 
-           local reshapevarlist `r(varlist)'
-           local monthyear = subinstr("`reshapevarlist'", "`var'_", "", .) 
-           gen `var' = .
-           forvalues x=1/84 {
-                local currvar : word `x' of `reshapevarlist'
-                replace `var' = `currvar' if mod(_n, 84) == `x'
-                local yearmonth : word `x' of `monthyear'
-                replace yearmonth = `yearmonth' if mod(_n, 84) == `x'
-                drop `currvar'
+           ds `var'_*,                  \\\ create a list of all of the vars with each stub
+           local reshapevarlist `r(varlist)'     
+           local monthyear = subinstr("`reshapevarlist'", "`var'_", "", .)   \\\ rmeove the stub so that we can have the yearmonth or j identifier foreach var alone while maintaining their order      
+           gen `var' = .      \\ create an empty version of the stub, this will become the long var
+           forvalues x=1/`copies' {           
+                local currvar : word `x' of `reshapevarlist'         \\\ looping through each of the vars with that stub- pull varname
+                replace `var' = `currvar' if mod(_n, `copies') == `x'      \\\ replace the empty version with the x_th obs of this var for multiples of x
+                local yearmonth : word `x' of `monthyear' \\\ pull out the sub identifier that corresponds with the var we are working on
+                replace yearmonth = `yearmonth' if mod(_n, `copies') == `x'  \\\ replace the empty version with the x_th obs of this var for multiples of x 
+                drop `currvar'     \\ drop the wide versions of the variables
            }
      }
 ```
