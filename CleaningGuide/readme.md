@@ -62,7 +62,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - [Fuzzy merging](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/05%20Fuzzy%20Merge.md) 
 - [Egen](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/06%20Egen.md) 
 
-### Quality Control
+### [Quality Control](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/05%20Quality%20Control)
  - Cleaning data checklist
 
 
