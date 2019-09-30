@@ -60,7 +60,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - [Egen](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/06%20Egen.md) 
 
 ### [Quality Control](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/05%20Quality%20Control)
- - Cleaning data checklist
+ - [Cleaning data checklist](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/Data%20cleaning%20checklist.xlsx)
 
 
 ### [Useful commands (that you should know and use)](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/06%20Useful%20Commands)
