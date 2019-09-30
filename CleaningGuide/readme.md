@@ -54,7 +54,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - [Value labels](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/05%20Value%20Labels.md)  
 - [Variable keep and order](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/06%20Variable%20Keep%20and%20Order.md)
 
-### [ata Aggregation and Outcome Creation
+### [Data Aggregation and Outcome Creation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation)
 - [Merging two datasets](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/01%20Merging%20two%20datasets.md)
 - [Merging across data hierarchies](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/02%20Merging%20across%20data%20hierarchies.md)
 - [Collapsing](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/03%20Collapsing.md)
