@@ -66,7 +66,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
  - Cleaning data checklist
 
 
-### Useful commands (that you should know and use)
+### [Useful commands (that you should know and use)](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/06%20Useful%20Commands)
 - [fillin](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/fillin.md)
 - [labeldup](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labeldup.md)
 - [labelrename](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labelrename.md)
