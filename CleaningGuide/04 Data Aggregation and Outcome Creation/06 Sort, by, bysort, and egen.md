@@ -1,10 +1,15 @@
 # Sort, by, bysort, egen
  
-Note 
-
 ## Sort order
-Quick example showing the order of sorting
+Not only could it be useful, but crucial, to sort your observations in a particular way when cleaning or creating outcomes. 
+
+You can use the `sort` command in Stata to acheive this. Of course you can order your observation based on ordering one variable, but you can go further and sort your data on multiple variables. For example if you have a long dataset that contains two variables person id and survey round and for each person it has three survey rounds, then if you `sort id round` you will sort the data by person and within each person you will sort by the survey rounds. 
+
+1. `sort` sorts observations in ascending order (i.e. lowest to highest)
+2. Missing values in stata are equivalent to infinity and thus will be sorted to the bottom of your sort if they exist
+		
 		````
+		Example of points 1 and 2 above
 		sysuse bplong, clear 
 		sort when patient
 		sort patient when
@@ -13,85 +18,70 @@ Quick example showing the order of sorting
 		sort when patient //where did the missing value get sorted to?
 		restore 
 		````			
+3. You can flip the order you sort by using `gsort` and using a negative sign in front of the variable name (i.e. sort largest to smallest)
 
-
-sort males first (smallest to largest) and then by patient
+		````
+		sysuse bplong, clear 
+		*Use sort to see how it normally sorts males first (smallest to largest)
 			sort sex patient
 			
-			*gsort by gender first so that females are at the top (largest to smallest) and then by patient
-				gsort -sex patient 
-				*Flag the row numbers where the when == before 
-					gen flag_before1 = _n if when == 1
+		*gsort by -sex to see how to sort largest to smallest (Notice the patient order here does not change within gender)
+			gsort -sex patient 
 		
-			*Repeat the gsort from above here 
-				--- 
-				*Flag the row numbers again where the when == before 
-					gen flag_before2 = _n if when == 1
-			
-			assert flag_before1 == flag_before2 /// why does this break?
-			
+		````
+		
+4. If the observations of the variables you sort on are not unique, Stata will randomize their order in a new randomization every time you sort (i.e. you will not get a consistent order if you re-run your code, even in a script)	
+
+		````
+		sysuse bplong, clear 
+		**Notice that gender-patient does not uniquely idenitfy our observations
+			sort sex patient
+		*Flag the row numbers where Stata sorted the "before" observations for each person
+			gen flag_before1 = _n if when == 1
+		*Do the exact same sort as above 
+				sort sex patient
+		*Again flag the row numbers where Stata sorted the "before" observations for each person this time
+			gen flag_before2 = _n if when == 1
+		*Notice that the two flag_before variables are not always equal (i.e. the "before" observation ended up in a different place even though we did the same sort twice)
+		````
+		
+5. You have two options to make sure your sorts are consistent 
+	a. Use the option `stable` to make sure Stata uses the same randomization every time 
+		i. You cannot use this option with `gsort'
+	b. The preferred method is to specify a combination of variables that uniquely identifies your observations. This removes the randomization and makes your sort outcome be exactly what you specify and expect	
 	
-			*Notice that because our sort vars are not unique we could get different sort orders each time -- the order is randomized within identical observations
-			*there are two ways to fix this 
-			*1. use more vars to make the sort unique 
-				sysuse bplong, clear 
-				isid patient sex when //check these are unique 
-				
-				gsort -sex patient when 
-				gen test1 = _n if when == 1
+		```` 
+		sysuse bplong, clear 
+		**Notice that gender-patient does not uniquely idenitfy our observations
+			sort sex patient when
+		*Flag the row numbers where Stata sorted the "before" observations for each person
+			gen flag_before1 = _n if when == 1
+		*Do the exact same sort as above 
+			sort sex patient when
+		*Again flag the row numbers where Stata sorted the "before" observations for each person this time
+			gen flag_before2 = _n if when == 1
+		*Now the flags are always equal
+		````
 
-				gsort -sex patient when 
-				gen test2 = _n if when == 1
-				
-				assert test1 == test2 
-				pause 
-				drop test*
-			
-			*2. Use stable (Cons: cant use with gsort)				
-				sort sex patient, stable
-				gen test1 = _n if when == 1
 
-				sort sex patient, stable  
-				gen test2 = _n if when == 1
-				
-				assert test1 == test2 
-				pause 
-				drop test*
-}		
-{		//b. By, bysort, and egen 
-			*Error
-			by sex : egen sexbp_mean = mean(bp) //try without sorting first
-			
-			*fix it by 
-				*1. sort  manually beforehand
-					sort sex
-					*Now use the previous by statement
-					---
-				*2. use bysort which sorts for you
-					bysort sex (patient) : gen 
-					bysort sex : egen 
-			
-			*Useful gen/egen functions: 
-				*_n :count the observations for each person in order of time 
-					bysort patient (when) : gen time_count = _n
-				
-					assert when == 1 if flag_before == 1
-					assert flag_before == 1 if when == 1
-					assert when == 2 if flag_before == 2
-					assert flag_before == 2 if when == 2
-			
-			*Other useful gens, and egens- pay attention to how missings and observations excluded by the if
-			*also not all egens are used with by
-			help egen 
-			*common egens with by :
-				*count, mean, median, max, min, mode, seq, total 
-			*common gens with by : 
-				*_n, sum 
-			
-			*Note the difference between egen/sum and gen/sum
-				*first use egen and sum
-					bysort patient (when) : egen run_bpe = sum(bp) 
-				*Now use gen and sum 
-					bysort patient (when) : gen run_bpg = sum(bp) 
-				*what is the difference?
-}		
+## By 
+
+You can use the `by` function to create variables within groups, but in order to use `by` you must `sort` before hand. Thus, we recommend to use `bysort` instead. 
+
+## Bysort and gen/egen
+
+`bysort` combined with gen/egen is probably one of the most useful command combinations when cleaning and creating outcomes. 
+
+1. Notice that your data set will be sorted by all the variables (including those in parenthesis) you specify
+2. But you will create new variables by only what variables you specify outside the parenthesis 
+3. Pay attention to whether the function you are using needs to specify `gen` or `egen`
+	a. Notice that `sum` works for both gen and egen (even though it is not in the `egen` documentation and works differently
+		- egen + sum = creates a total for all values specified in the by 
+		- gen + sum = creates a cumulative sum over the observations specified
+
+See `help egen` to read about all of the egen functions
+
+Further: 
+- You can `ssc install egen more` that has even more functions you can use. 
+- You can `ssc install ereplace` to be able to use the egen functions but as a replace, so you don't have to create multiples variables.
+
