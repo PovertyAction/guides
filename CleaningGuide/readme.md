@@ -46,7 +46,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - [Categorical variables and dummy variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/02%20Categorical%20variables%20and%20dummy%20variables.md)
 - [“Specify” Variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/03%20%22Specify%22%20Variables.md)
 
-### Dataset, Value, and Variable Documentation
+### [Dataset, Value, and Variable Documentation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation)
 - [Variable names](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/01%20Variables%20Names.md)
 - [Variable labels](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/02%20Variable%20Labels.md)
 - [Variable notes](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/04%20Variable%20Types%20and%20Formats.md)
