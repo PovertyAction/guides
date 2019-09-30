@@ -24,7 +24,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 
 ## Table of Contents
 
-### Raw survey data management
+### [Raw survey data management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management)
 - [Importing into Stata](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/01%20Importing%20into%20Stata.md)
   - Excel 
 - [Using Stata data files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/02%20Using%20Stata%20Data%20Files.md)
