@@ -26,16 +26,13 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 
 ### [Raw survey data management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management)
 - [Importing into Stata](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/01%20Importing%20into%20Stata.md)
-  - Excel 
 - [Using Stata data files](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/02%20Using%20Stata%20Data%20Files.md)
 - [De-identifying data](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/03%20De-identifying%20data.md)
 - [Replacements](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/04%20Replacements.md)
-  - readreplace 
 - [SurveyCTO split](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/05%20SurveyCTO%20Split.md)
 - [Reshaping data](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/06%20Reshaping.md)
 - [Remove incomplete and test surveys](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/07%20Remove%20Incomplete%20and%20Test%20Surveys.md)
 - [Unique IDs and duplicates](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/08%20Unique%20IDs%20and%20duplicates.md)
-  - String IDs
 - [Checking for consistency in each dataset](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/09%20Checking%20for%20Consistency%20in%20Each%20Dataset.md)
 - [Skips](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/10%20Skips.md)
 - [Logic tests](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/11%20Logic%20Tests.md)
