@@ -1,15 +1,12 @@
 # Raw survey data management
 - Importing into Stata
-  - Excel
 - Using Stata data files
 - Deidentifying
 - Replacements
-  - readreplace
 - SurveyCTO split
 - Reshaping Data
 - Remove Incomplete and Test Surveys
 - Unique IDs and duplicates
-  - String IDs
 - Checking for Consistency in Each Dataset
 - Skips
 - Logic Tests
