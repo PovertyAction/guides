@@ -41,7 +41,7 @@ Once you’ve reached the point of no longer needing PII, you should strip it fr
 - [Logic tests](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/11%20Logic%20Tests.md)
 - [Numerical formats](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/12%20Numerical%20Formats.md)
 
-### Variable Management
+### [Variable Management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/02%20Variable%20Management)
 - [Missing values](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/01%20Missing%20Values.md)
 - [Categorical variables and dummy variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/02%20Categorical%20variables%20and%20dummy%20variables.md)
 - [“Specify” Variables](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/03%20%22Specify%22%20Variables.md)
