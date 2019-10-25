@@ -79,7 +79,10 @@ The code to complete that looks like this:
   
   *Merge on file
   mmerge q_oth using `q_oth_mapping', t(n:1) missing(nomatch)
-  /* Alternatively, merge to the subset of responses with non_missing values and append these files afterwards use "merge m:1 q_oth using `q_oth_mapping'" */
+  /* 
+    Alternatively, merge to the subset of responses with non_missing values and 
+    append these files afterwards using "merge m:1 q_oth using `q_oth_mapping'" 
+  */
   assert _merge == 1 | _merge == 3
   
   *Replace values
