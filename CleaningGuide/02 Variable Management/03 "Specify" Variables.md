@@ -27,8 +27,7 @@ This data flow would like the following. First, the specify reponses are cleaned
   replace q_oth_cl = strtrim(q_oth_cl) // only trim external spaces so "sky blue" does not become "skyblue"
 
   *Save excel file
-  *Create column headers
-  tempfile map
+  tempfile map // create column header
   gen `map' = ""
   lab var `map'  "Mapping"
   lab var q_oth_cl "Other values"
@@ -61,9 +60,8 @@ The code to complete that looks like this:
         -Extended missing values were used if these should have been 
         an extended missing value captured by the survey.
         
-    These values were saved in a file in the Project Folder at 
+    These values were saved in a file in the Project Folder at: 
       ../08_Analysis&Results/01_Cleaning/05_Temp/q_oth_mapped.xlsx
-    
     They will then be merged in and replaced to the individual variables.
   */
   *Load in data and save a tempfile
