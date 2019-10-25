@@ -44,7 +44,7 @@ This results in a table that looks like this:
   | sky blue  | 1  | 
   | ocean blue  | 1  | 
   | navy  | 1  | 
-  | depends on the day  | -88 | 
+  | depends on the day  | -66 | 
   | purple  |  | 
 
 The RA would fill out the mapping column based on the allowed values in the survey. This means that the "Mapping" column would take 1 for the "sky blue" value if the data uses 1 for the survey. If the data uses string values at this point in the cleaning process the "Mapping" column could be filled with "blue." Ensure that this process is reproducible and rule based. Inconsistent mapping of variables does not create clean data. After this table is completed, it can be merged back into the file to save the values. 
