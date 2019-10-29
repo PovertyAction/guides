@@ -19,4 +19,63 @@ Additional information can be added using characteristics, which function simila
 
 For example, a data flow could take labels in each language from a SurveyCTO form and assign them as characteristics to each variable produced by the survey in the following:
 
-
+````
+   *Import SurveyCTO
+   import excel using "form.xlsx", first
+   
+   *Keep variables with labels
+   keep name label_english label_spanish label_swahili
+   ren label_* * // rename to remove "label_" prefix from all variables
+   
+   *Only keep variables with non_missing
+   qui ds label_* // get list of label variables
+   loc languages `r(varlist)'
+   egen has_lab = rownonmis(`languages'),strok
+   keep if has_lab >= 1 & mi(has_lab) // keep only rows with has_lab
+   
+   *Save variables and language names
+   loc varnames // init empty
+   forval i = 1(1)_N {
+      loc name = name[`i'] // save name of variable
+      
+      *Save labels as locals
+      loc j = 1 // init counter at start
+      foreach language of local languages {
+         loc `name'_`j' = `language'[`i']
+         loc ++j
+      }
+      // end foreach language of local langauges
+      
+      *save local of names to add question text to 
+      loc varnames `varnames' `name'
+   }
+   // end forval i = 1(1)_N
+   
+   *Load data
+   use survey.dta, clear
+   
+   *Loop through names to add characteristics
+   foreach name of local varnames {
+      ds `name'* // collect names that are inclusive of repeat groups
+      loc varl `r(varlist)'
+      
+      foreach var of local varl {
+     
+      *Confirm only the variable or the repeat group
+      cap assert "`var'" == "`name'" | regexm("`var'","^`name'[0-9][0-9]?$")
+      if _rc continue // skip if "`name'" is a prefix
+      
+         *add characteristic as a named language
+         loc j = 1 
+         foreach language of local languages {
+            char define `var'[`language'] "`name'_`j'"
+            loc ++j
+         }
+         // end foreach language of local languages
+         
+      }
+      // end foreach var of local varl
+      
+   }
+   // end foreach name of local names
+````
