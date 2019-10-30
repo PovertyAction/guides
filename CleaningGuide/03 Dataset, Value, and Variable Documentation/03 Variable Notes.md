@@ -35,7 +35,7 @@ For example, a data flow could take labels in each language from a SurveyCTO for
    
    *Save variables and language names
    loc varnames // init empty
-   forval i = 1(1)_N {
+   forval i = 1(1)`=_N' {
       loc name = name[`i'] // save name of variable
       
       *Save labels as locals
