@@ -1,8 +1,6 @@
 # Numerical Formats
 
-It's easy to forget that Stata code is operating a computer with very different rules for counting and numbers than we have in the real world. Ado (the language of .do files) allows for a high-level of what computer scientists call [abstraction]([https://en.wikipedia.org/wiki/Abstraction_layer), where the programmer do not have to explicitly command the computer to do low-level tasks like allocating memory, defining where data should be stored, or how the computer should round values that can't be precisely displayed in binary. This is rarely important, but there are a few cases where it is highly relevant for us. These cases are: 
-
-If you don't read any more the key takeaways are that:
+It's easy to forget that Stata code is operating a computer with very different rules for counting and numbers than we have in the real world. Ado (the language of .do files) allows for a high-level [abstraction](https://en.wikipedia.org/wiki/Abstraction_layer), where the programmer does not have to explicitly command the computer to do low-level tasks like allocating memory, defining where data should be stored, or how the computer should round values that can't be precisely displayed in binary. This is rarely important, but there are a few cases where these processes, like precision of stored data, is highly relevant for statistical tasks and may need to be specified. These cases are: 
 - IDs should be stored as string variables or have less than 8 digits if the storage type of the variable is a float
 - Asserts should only compare similar storage types.
   - All values in stata (e.g. `1` or `` `r(N)'``) are treated as doubles
