@@ -30,7 +30,7 @@ assertion is false
 r(9);
 ````
 
-Stata isn't making a mistake here. This is the result of .1 not having an exact value in binary (base 2 v. base 10). Since Stata does all calculations in double precision, the rounded value of .1 is different at float precision v. double precision. The code that follows shows a few ways to compare these values exactly. 
+Stata isn't making a mistake here. This is the result of .1 not having an exact value in binary (base 2 v. base 10). Since Stata does all calculations in double precision, the rounded value of .1 is different at float precision than double precision. The code that follows shows a few ways to compare these values exactly. 
 
 ````
 . ds x, d
@@ -62,4 +62,4 @@ There are a number of concrete ways to avoid this, as well as a lot written on h
 
 It's generally good practice to reduce the size of files using `compress` or by generating values in the smallest format such as  `gen byte dummy = (q1 == "Yes")` when the data are larger or if you are performing commands that are computationally intensive for Stata (various types of regressions, reshaping, etc.). 
 
-If you are interested in more details, Stata Corp's blog has a few good articles on [numerical precision](https://blog.stata.com/2011/06/17/precision-yet-again-part-i/) and why [this](https://blog.stata.com/2011/06/23/precision-yet-again-part-ii/) happens in computing, as well as the [specific digits](https://www.stata.com/support/faqs/data-management/float-data-type/) that float precision losses values.
+If you are interested in more details, Stata Corp's blog has a few good articles on [numerical precision](https://blog.stata.com/2011/06/17/precision-yet-again-part-i/) and why [this](https://blog.stata.com/2011/06/23/precision-yet-again-part-ii/) happens in computing, as well as the [specific digits](https://www.stata.com/support/faqs/data-management/float-data-type/) that float precision loses values.
