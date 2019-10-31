@@ -4,9 +4,13 @@ Below we have listed some frequently overlooked, underated commands we enjoy usi
 
 This is a simple to use, but yet powerful command. Frequently in cleaning data sets, you will have an unbalanced panel, i.e. you are missing an observation for one person for some time periods. For example, imagine you have a dataset of your sample that is supposed to have one observation for each survey round such as the baseline and two endlines. However, as is common, some people were not found in the endline surveys and thus there is no observation for them at that endline. You can use this command to create all of the pairwise combinations of values of two variables i.e. you would have every survey round observation for every person. 
 
-## `labedup`
+## `labeldup`
+
+`labeldup` is a user-written command that compares value labels which have duplicate contents. For example, if in your dataset the variable `q1` has a value label named `q1_label` with `0 "No" 1 "Yes"` and the variable `q2` has the same value label (the SurveyCTO standard). By using `labeldup, select`, the `q1` and `q2` will be combined to a single value label that describes both variables. This is an easy way to cut down on duplicate information in value labels.
 
 ## `labelrename`
+
+This user-written command allows you to rename value labels using similar syntax to the `rename` command. Stata does not allow you to rename value labels using the `label values` command. This command adds that functionality with the similar syntax as the `rename` comman. One difference is that no wildcards are allowed.
 
 ## `levelsof`
 
