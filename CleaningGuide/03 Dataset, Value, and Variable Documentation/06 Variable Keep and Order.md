@@ -9,11 +9,11 @@ Any do file that saves data should have code that identifies the variables saved
   sort hhid 
 
   *Create a local of variables
-	loc vars 		    ///
-	hhid enum_id 	            /// ID Variables
+	loc vars 		   			 ///
+	hhid enum_id 	            			/// ID Variables
 	cluster survey_date form_id 			            /// File source variables
-	treatment scto_rand 		 /// Treatment assignment information
-	bl_hhh_age bl_hhh_female bl_hhh_educ bl_hh_size			/// Baseline Demographics of household head
+	treatment scto_rand 		 		/// Treatment assignment information
+	bl_hhh_age bl_hhh_female bl_hhh_educ bl_hh_size			/// Baseline semos
 	bl_cons_veg_* bl_cons_meat_* bl_cons_purch_* bl_cons_alc	/// Consumption
 	bl_loan_size bl_loan_exp_pay_m* bl_loan_miss_m* loa        /// Loan information
 	bl_msf bl_otaf  					// Lender Fees
