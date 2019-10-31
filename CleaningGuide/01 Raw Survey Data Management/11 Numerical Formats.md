@@ -1,6 +1,6 @@
 # Numerical Formats
 
-It's easy to forget that Stata code is operating a computer with very different rules for counting and numbers than we have in the real world. Ado (the language of .do files) allows for a high-level of what computer scientists call [abstraction]([https://en.wikipedia.org/wiki/Abstraction_layer), where the programmer do not have to explicitly command the computer to do low-level tasks like allocating memory, defining where data should be stored, or how the computer should round values that can't be precisely displayed in binary. This is rarely important, but there are a few cases where it is highly relevant for us. These cases are generally 
+It's easy to forget that Stata code is operating a computer with very different rules for counting and numbers than we have in the real world. Ado (the language of .do files) allows for a high-level of what computer scientists call [abstraction]([https://en.wikipedia.org/wiki/Abstraction_layer), where the programmer do not have to explicitly command the computer to do low-level tasks like allocating memory, defining where data should be stored, or how the computer should round values that can't be precisely displayed in binary. This is rarely important, but there are a few cases where it is highly relevant for us. These cases are: 
 
 If you don't read any more the key takeaways are that:
 - IDs should be stored as string variables or have less than 8 digits if the storage type of the variable is a float
@@ -8,7 +8,7 @@ If you don't read any more the key takeaways are that:
   - All values in stata (e.g. `1` or `` `r(N)'``) are treated as doubles
 - Merges that do not match IDs across datasets and display bugs (e.g. 1.0000000784732907 in Excel) can be due to the storage type of the variables or values
 
-## What Stata is doing
+## Stata's process
 
 Variables in Stata have storage formats and display formats. Storage formats describe how Stata is storing the variable in the computer memory -- what the data are -- and display formats describes the default way that the information is presented to a user. Type `help format` in Stata to get more information on how variables or values were displayed.
 
@@ -57,6 +57,8 @@ Although this seems very abstract and of limited relevance, this will cause prob
 - IDs have different storage types (one is a float and one is a double for example) in a merge. Stata will not prevent you from making that merge, but will not be able to match the IDs that the programmer intended to be the same.
 - Numeric IDs will no longer be unique when they have more digits than their storage type can hold (16 for doubles). No numeric IDs will be unique if they have more than 17 digits, especially if the last digits are changing for individuals that should be unique. It's best to store IDs as strings or keep ID values at the minimum length needed.
 - `assert`s that compare a scalar (`r(mean)`) to a variable stored as a float may not be accurate. This can be corrected by using functions like `inrange()` or `float()` as part of the `assert`.
+
+## Dataset Size & Memory Usage 
 
 There are a number of concrete ways to avoid this, as well as a lot written on how this affects computation in broaded computer science. Memory conservation is generally not relevant for statistical programming with small N survey data that we normally work with in IPA. However this can be the relevant in large datasets where using memory on extraneous digits will slow basic computations. Administrative data with observations in the hundred thousands to millions is a prime example of this. 
 
