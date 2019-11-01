@@ -24,9 +24,9 @@ First, you could do this in a manual way by saving code and output in dated file
 - [Remove incomplete and test surveys](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/07%20Remove%20Incomplete%20and%20Test%20Surveys.md)
 - [Unique IDs and duplicates](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/08%20Unique%20IDs%20and%20duplicates.md)
 - [Checking for consistency in each dataset](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/09%20Checking%20for%20Consistency%20in%20Each%20Dataset.md)
-- [Skips](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/10%20Skips.md)
-- [Logic tests](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/11%20Logic%20Tests.md)
-- [Numerical formats](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/12%20Numerical%20Formats.md)
+- [Skips](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/09%20Skips.md)
+- [Logic tests](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/10%20Logic%20Tests.md)
+- [Numerical formats](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/11%20Numerical%20Formats.md)
 
 ### [Variable Management](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/02%20Variable%20Management)
 - [Missing values](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/02%20Variable%20Management/01%20Missing%20Values.md)
