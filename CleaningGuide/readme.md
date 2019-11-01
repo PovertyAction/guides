@@ -54,5 +54,4 @@ First, you could do this in a manual way by saving code and output in dated file
 
 ### [Useful commands (that you should know and use)](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/06%20Useful%20Commands)
 - [fillin](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/fillin.md)
-- [mmerge](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/mmerge.md)
 
