@@ -25,7 +25,7 @@ sysuse bplong, clear
 *Use sort to see how it normally sorts males first (smallest to largest)
 	sort sex patient
 
-*gsort by -sex to see how to sort largest to smallest (Notice the patient order here does not change within gender)
+*gsort by -sex to see how to sort largest to smallest (Notice the patient order does not change within gender)
 	gsort -sex patient 	
 ````
 		
