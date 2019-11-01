@@ -36,8 +36,8 @@ First, you could do this in a manual way by saving code and output in dated file
 ### [Dataset, Value, and Variable Documentation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation)
 - [Variable names](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/01%20Variables%20Names.md)
 - [Variable labels](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/02%20Variable%20Labels.md)
-- [Variable notes](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/04%20Variable%20Types%20and%20Formats.md)
-- [Variable types and formats](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/04%20Variable%20Types%20and%20Formats.md)
+- [Variable notes](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/03%20Variable%20Types%20and%20Formats.md)
+- [Variable types and date formats](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/04%20Variable%20Types%20and%20Date%20Formats.md)
 - [Value labels](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/05%20Value%20Labels.md)  
 - [Variable keep and order](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/03%20Dataset%2C%20Value%2C%20and%20Variable%20Documentation/06%20Variable%20Keep%20and%20Order.md)
 
