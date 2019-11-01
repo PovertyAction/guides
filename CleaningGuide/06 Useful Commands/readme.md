@@ -1,4 +1,6 @@
-Below we have listed some frequently overlooked, underated commands we enjoy using and will make your life a lot easier if you know about them. Here we provide a quick summary of what the commands do. Where we felt appropriate there is a page dedicated to specific commands that provides more examples of our common uses tips and tricks, and things to look out for when using the command.  For full documentation simply type `help [commandname]` in Stata to read all about available options and examples for usage.
+Below we have listed some frequently overlooked commands that we enjoy using. They will make your life a lot easier if you know about them. We provide a quick summary of what the commands do and where they can be used. 
+
+Where we appropriate, there is a page dedicated to specific commands that provides more examples of our common uses tips and tricks, and potential concerns to be aware of when using these particular command.  For full documentation simply type `help [commandname]` in Stata to read all about available options and examples for usage.
 
 ## `fillin`
 
@@ -18,20 +20,30 @@ This command will provide you with a list of all of the unique values of a varia
 
 ## `lookfor`
 
+This command searches across all variable names and variable labels, and allows for searching for more than one string or a phrase through the use of `"[string]"`. Since `lookfor` searches across both variable names and variable labels at the same time, it will return a different set of results than `ds` can.
+
 ## `missings`
 
 This is not a built-in Stata command and thus you will need to type `ssc install missings` to get this command before you can use it or read the help file.
 
-This group of commands allows for several ways to investigate the missing values in variables. Missing values are typically forgotten about or ignored, but that is a big mistake. They can mess with your cleaning and analysis greatly and you should be aware of the missing values in your dataset. This command includes ways to report, list, tag, and drop missing values. 
+This group of commands allows for several ways to investigate the missing values in variables. Missing values are typically forgotten about or ignored, but that is a big mistake. They can complicate cleaning and analysis greatly. You should be aware of the missing values and variables in your dataset. This command includes ways to report, list, tag, and drop missing values and variables. 
 
 A very helpful command within this group is `missings dropvars` which allows you to eliminate variables that are missing on all observations. This is much easier than looping through vars and obs to assert they are missing to drop them. 
 
 ## `mmerge`
 
+This is not a built-in Stata command and can be installed by typing `ssc install mmerge`.
 
+`mmerge` provides additional options for `merge` that make merging datasets more user friendly by removing a signfiicant amount of preprocessing work for complex datasets:
+  - It allows for missing values in the match variable and let's the user determine how they are treated with the `missing()` option.
+  - It allows for differing merge variable names with the `umatch()` option
+  - It allows for all merged variables from the using file to be prefixed as part of the merge with the `uname()` option
+  - It stores shared variable names that are not merged in a local `r(common)'
+
+There are a number of other options and syntax changes. You can see these by typing `help mmerge` once `mmerge` is installed. 
 
 ## `return list`
 
-
+This command allows you to see all of the stored results in working memory and their value. For example, if you ran `summarize [variarble]`, the `return list` command would show all of the scalars stored by `summarize`. In this case that would be `r(N)`, `r(sum_w)`, and `r(sum)`. Similar commands also allow you to see estimation and system commands using `ereturn list` and `creturn list`. The help file (`help return list`) shows more options.
 
 
