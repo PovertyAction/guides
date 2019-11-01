@@ -58,7 +58,7 @@ Although this seems very abstract and of limited relevance, this will cause prob
 
 ## Dataset Size & Memory Usage 
 
-There are a number of concrete ways to avoid this, as well as a lot written on how this affects computation in broaded computer science. Memory conservation is generally not relevant for statistical programming with small N survey data that we normally work with in IPA. However this can be the relevant in large datasets where using memory on extraneous digits will slow basic computations. Administrative data with observations in the hundred thousands to millions is a prime example of this. 
+There are a number of concrete ways to avoid this, as well as a lot written on how this affects computation in broader computer science. Memory conservation is generally not relevant for statistical programming with small N survey data that we normally work with in IPA. But this can be the relevant in large datasets where using memory on extraneous digits will slow basic computations substantively. Administrative data with observations in the hundreds of thousands to millions is an example of this. 
 
 It's generally good practice to reduce the size of files using `compress` or by generating values in the smallest format such as  `gen byte dummy = (q1 == "Yes")` when the data are larger or if you are performing commands that are computationally intensive for Stata (various types of regressions, reshaping, etc.). 
 
