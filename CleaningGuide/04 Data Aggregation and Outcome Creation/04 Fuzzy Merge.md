@@ -3,8 +3,7 @@ Usually when you `merge`, you have a unique ID — or at least enough of one tha
 
 Fuzzy matching refers to the technique of finding strings that match a pattern approximately or based on probabilities rather than exactly. Commands that use this type of algorithms will typically give out probabilities of matches and should only be used when exact matching is not an option. If you are thinking about using one of these commands check with your manager to see if there is any other way to do this.
 
-There are a few commands that can help with fuzzy matching in Stata: 
-`Reclink`
+There are a few commands that can help with fuzzy matching in Stata: `reclink`
 - One option for this is reclink, an SSC user-written Stata program that implements “fuzzy matching.” (Type `ssc install reclink` in Stata to install it.) Instead of a unique ID, you specify one or more lists of variables that tilt the evidence of a match in one direction or another. For example, two ages of 25 and 26 are a closer match than 35 and 65. reclink even supports string matching, so, for example, you can try using name variables in the linkage even if the variables aren’t perfectly clean. (That said, do try some cleaning beforehand: standardize letter case, etc. See the IPA high intermediate Stata training for more on string cleaning.)
 `reclink` is awesome, but it isn’t flawless. Previous RAs have run into the following issues. Each bullet below describes a problem along with the attempted solutions and whether they succeeded. 
 - The variable specified to `idusing()` should never be in the master dataset. If this is the case,` _merge match U*` should be right. Also, unless the user doesn't care about the values of shared variables from the using dataset, the two datasets shouldn't share any variable names except for the variables for matching
