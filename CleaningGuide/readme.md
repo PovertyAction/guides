@@ -54,8 +54,5 @@ First, you could do this in a manual way by saving code and output in dated file
 
 ### [Useful commands (that you should know and use)](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/06%20Useful%20Commands)
 - [fillin](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/fillin.md)
-- [labeldup](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labeldup.md)
-- [labelrename](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/labelrename.md)
 - [mmerge](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/mmerge.md)
-- [retlist](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/06%20Useful%20Commands/retlist.md)
 
