@@ -43,11 +43,10 @@ First, you could do this in a manual way by saving code and output in dated file
 
 ### [Data Aggregation and Outcome Creation](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation)
 - [Merging two datasets](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/01%20Merging%20two%20datasets.md)
-- [Merging across data hierarchies](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/02%20Merging%20across%20data%20hierarchies.md)
-- [Collapsing](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/03%20Collapsing.md)
-- [Appending](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/04%20Appending.md)
-- [Fuzzy merging](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/05%20Fuzzy%20Merge.md) 
-- [Egen](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/06%20Egen.md) 
+- [Collapsing](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/02%20Collapsing.md)
+- [Appending](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/03%20Appending.md)
+- [Fuzzy merging](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/04%20Fuzzy%20Merge.md) 
+- [Sort, by, bysort, egen](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/05%20Sort%2C%20by%2C%20bysort%2C%20and%20egen.md) 
 
 ### [Quality Control](https://github.com/PovertyAction/guides/tree/master/CleaningGuide/05%20Quality%20Control)
  - [Cleaning data checklist](https://github.com/PovertyAction/guides/blob/master/CleaningGuide/05%20Quality%20Control/Data%20cleaning%20checklist.xlsx)
