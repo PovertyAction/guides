@@ -1,4 +1,4 @@
-# Checking for Unique and Complete Observations in Each Dataset
+# Data Aggregation
 
 1. Merging two Datasets
 2. Merging across data hierarchies 
