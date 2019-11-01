@@ -18,7 +18,7 @@ sysuse bplong, clear
 	sort when patient //where did the missing value get sorted to?
 restore 
 ````			
-3. You can flip the order you sort by using `gsort` and using a negative sign in front of the variable name (i.e. sort largest to smallest)
+3. You can flip the order you sort by using `gsort` and using a negative sign in front of the variable name (i.e. sort largest to smallest
 
 ````
 sysuse bplong, clear 
@@ -33,14 +33,15 @@ sysuse bplong, clear
 ````
 sysuse bplong, clear 
 **Notice that gender-patient does not uniquely idenitfy our observations
-	sort sex patient
+sort sex patient
 *Flag the row numbers where Stata sorted the "before" observations for each person
-	gen flag_before1 = _n if when == 1
+gen flag_before1 = _n if when == 1
 *Do the exact same sort as above 
-		sort sex patient
+sort sex patient
 *Again flag the row numbers where Stata sorted the "before" observations for each person this time
-	gen flag_before2 = _n if when == 1
-*Notice that the two flag_before variables are not always equal (i.e. the "before" observation ended up in a different place even though we did the same sort twice)
+gen flag_before2 = _n if when == 1
+/* Notice that the two flag_before variables are not always equal i.e. the "before" observation
+ended up in a different place even though we did the same sort twice */
 ````		
 5. You have two options to make sure your sorts are consistent 
 	a. Use the option `stable` to make sure Stata uses the same randomization every time 
@@ -49,13 +50,13 @@ sysuse bplong, clear
 ```` 
 sysuse bplong, clear 
 **Notice that gender-patient does not uniquely idenitfy our observations
-	sort sex patient when
+sort sex patient when
 *Flag the row numbers where Stata sorted the "before" observations for each person
-	gen flag_before1 = _n if when == 1
+gen flag_before1 = _n if when == 1
 *Do the exact same sort as above 
-	sort sex patient when
+sort sex patient when
 *Again flag the row numbers where Stata sorted the "before" observations for each person this time
-	gen flag_before2 = _n if when == 1
+gen flag_before2 = _n if when == 1
 *Now the flags are always equal
 ````
 ## By 
