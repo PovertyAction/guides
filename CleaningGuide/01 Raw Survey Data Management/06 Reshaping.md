@@ -12,7 +12,7 @@ For more guidance on what “wide” and “long” datasets are, and how to res
 
 
 ## Alternative to Reshaping
-Reshaping is a very computationally intensive command and if you are dealing with a large data set you will quickly find that using `reshape` can take an excessively long time or even break you session. There is an alternative way to manually code a `reshape` using `expand` and `replace`, that has the benefits of running much faster and it could help you to gain a deeper understanding of how a `reshape` transforms your data structure. 
+Reshaping is a very computationally intensive command and if you are dealing with a large data set you will quickly find that using `reshape` can take an excessively long time or even break the current Stata session. There is an alternative way to manually code a `reshape` using `expand` and `replace`, that has the benefits of running much faster. It also provides an understanding of how a `reshape` transforms your data structure. 
 
 Going from a wide dataset by person to a long datset by person-month. The variables we want to reshape are income and expenditures.
 
