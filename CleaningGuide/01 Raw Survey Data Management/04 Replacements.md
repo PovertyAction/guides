@@ -13,7 +13,10 @@ For every replacement you make to your dataset, you must record:
 
 One way to make replacements is using the `replace` command if the `key` variable matches the observation.
 
-``` replace income = 1000 if key == "uuid:2b2763e1-71b6-4e1e-8023-c15cdf7fa39d" // enum confirmed they added an extra zero```
+```
+*enum confirmed they added an extra zero to income
+replace income = 1000 if key == "uuid:2b2763e1-71b6-4e1e-8023-c15cdf7fa39d" 
+```
 
 If you are making multiple replacements, this method can create long datasets and make it difficult to keep track of which replacements have been made. It can also lead to PII appearing in your do files if you are making replacements on PII data or sensitive data. To avoid encrypting your datasets, consider using user-written commands `readreplace` or `ipacheckreadreplace` (ipacheckreadreplace is a wrapper for readreplace). Both commands use an Excel file as an input sheet, where all replacements, notes, original values, and replacements are logged. `ipacheckreadreplace` has a [template replacements Excel file](https://github.com/PovertyAction/high-frequency-checks/blob/master/xlsx/hfc_replacements.xlsm) that you can download when you run the [ipacheck command](https://github.com/PovertyAction/high-frequency-checks). 
 
