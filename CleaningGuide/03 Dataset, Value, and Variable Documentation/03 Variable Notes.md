@@ -21,18 +21,23 @@ For example, a data flow could take labels in each language from a SurveyCTO for
 
 ````
    *Import SurveyCTO
-   import excel using "form.xlsx", first
+   import excel using "Baseline Household Survey.xlsx", first clear
    
    *Keep variables with labels
-   keep name label_english label_spanish label_swahili
-   ren label_* * // rename to remove "label_" prefix from all variables
+   keep type name label labelbangla relevance
+   ren label labelenglish
+   ren label* * // rename to remove "label_" prefix from all variables
    
+   *Remove variables not exported to Stata
+   drop if inlist(type, "begin group", "end group", "image", "begin repeat", "end repeat")
+   drop type
+
    *Only keep variables with non_missing
-   qui ds label_* // get list of label variables
-   loc languages `r(varlist)'
-   egen has_lab = rownonmis(`languages'),strok
-   keep if has_lab >= 1 & mi(has_lab) // keep only rows with has_lab
-   
+   ds name, not // get list of label variables
+   loc languages `r(varlist)' relevance
+   egen has_lab = rownonmiss(`languages'), strok
+   keep if has_lab >= 1 & !mi(has_lab) // keep only rows with has_lab
+
    *Save variables and language names
    loc varnames // init empty
    forval i = 1(1)`=_N' {
@@ -50,7 +55,7 @@ For example, a data flow could take labels in each language from a SurveyCTO for
       loc varnames `varnames' `name'
    }
    // end forval i = 1(1)_N
-   
+
    *Load data
    use survey.dta, clear
    
@@ -68,7 +73,7 @@ For example, a data flow could take labels in each language from a SurveyCTO for
          *add characteristic as a named language
          loc j = 1 
          foreach language of local languages {
-            char define `var'[`language'] "`name'_`j'"
+            char define `var'[`language'] "``name'_`j''"
             loc ++j
          }
          // end foreach language of local languages
