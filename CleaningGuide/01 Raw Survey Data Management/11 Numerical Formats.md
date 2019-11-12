@@ -1,3 +1,11 @@
+---
+layout: default
+title: Numerical Formats
+nav_order: 11
+parent: Raw Data Management
+has_children: false
+---
+
 # Numerical Formats
 
 It's easy to forget that Stata code is operating a computer with very different rules for counting and numbers than we have in the real world. Ado (the language of .do files) allows for a high-level [abstraction](https://en.wikipedia.org/wiki/Abstraction_layer), where the programmer does not have to explicitly command the computer to do low-level tasks like allocating memory, defining where data should be stored, or how the computer should round values that can't be precisely displayed in binary. This is rarely important, but there are a few cases where these processes, like precision of stored data, is highly relevant for statistical tasks and may need to be specified. These cases are: 

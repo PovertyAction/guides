@@ -1,3 +1,11 @@
+---
+layout: default
+title: Variable Names
+nav_order: 1
+parent: Dataset, Value, and Variable Documentation
+has_children: false
+---
+
 # Variables Names
 If you are using SurveyCTO data, variable names and labels should be automatically generated for you upon import (as long as you use the SurveyCTO import template) . If you are using other data or not using this template then you will need to rename your variables. 
 

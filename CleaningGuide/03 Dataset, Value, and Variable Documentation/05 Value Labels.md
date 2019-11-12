@@ -1,3 +1,11 @@
+---
+layout: default
+title: Value Labels
+nav_order: 5
+parent: Dataset, Value, and Variable Documentation
+has_children: false
+---
+
 # Value Labels
 For multiple choice variables (also known as categorical variables or enumerated types), the raw data will often show the string values for the selected response. For instance, you may see “male” and “female” displayed as possible responses to the variable gender. When doing calculations, however, you’ll need these variables to be numeric (in the float or long format) – if they are not already exported this way by SurveyCTO. It is helpful to preserve the extra information the strings capture by using “value labels.” You can define a value label such as gender, which would assign “female” to 0 and “male” to 1 (see `help label` for how to do this). It is very important to label these values since many programs will use information on whether a variable has value labels in order to identify it as a categorical variable, as opposed to a continuous numeric variable.
 

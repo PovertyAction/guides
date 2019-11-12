@@ -1,3 +1,11 @@
+---
+layout: default
+title: Reshaping
+nav_order: 6
+parent: Raw Data Management
+has_children: false
+---
+
 # Reshaping
 
 ## SurveyCTO Data
@@ -17,23 +25,30 @@ Reshaping is a very computationally intensive command and if you are dealing wit
 Going from a wide dataset by person to a long datset by person-month. The variables we want to reshape are income and expenditures.
 
 ```
-ds income*          \\\store all of the income_MMYYYY variables into a local to count how many we are reshaping 
-local copies : word count `r(varlist)'  \\ the number of vars with the same stub per stub
-expand `copies'      \\we need to create as many of each of our observations as as many vars we want to reshape
+  *store all of the income_MMYYYY variables into a local to count how many we are reshaping
+  ds income*           
+  local copies : word count `r(varlist)'  \\ the number of vars with the same stub per stub
+  expand `copies'      \\we need to create as many of each of our observations as as many vars we want to reshape
 
-gen yearmonth = .        \\create an empty var that will hold the sub-group identifier (this is the j var in reshape)
-     foreach var in  income expenditures {
-           ds `var'_*,                  \\\ create a list of all of the vars with each stub
-           local reshapevarlist `r(varlist)'     
-           local monthyear = subinstr("`reshapevarlist'", "`var'_", "", .)   \\\ rmeove the stub so that we can have the yearmonth or j identifier foreach var alone while maintaining their order      
-           gen `var' = .      \\ create an empty version of the stub, this will become the long var
-           forvalues x=1/`copies' {           
-                local currvar : word `x' of `reshapevarlist'         \\\ looping through each of the vars with that stub- pull varname
-                replace `var' = `currvar' if mod(_n, `copies') == `x'      \\\ replace the empty version with the x_th obs of this var for multiples of x
-                local yearmonth : word `x' of `monthyear' \\\ pull out the sub identifier that corresponds with the var we are working on
-                replace yearmonth = `yearmonth' if mod(_n, `copies') == `x'  \\\ replace the empty version with the x_th obs of this var for multiples of x 
-                drop `currvar'     \\ drop the wide versions of the variables
-           }
-     }
+  *Then create a list of all of the vars with each stub and manually expand
+  gen yearmonth = .        \\create an empty var that will hold the sub-group identifier (this is the j var in reshape)
+  foreach var in  income expenditures {
+    ds `var'_*,                  
+    local reshapevarlist `r(varlist)'   
+
+    *remove the stub so that we can have the yearmonth or j identifier foreach var alone while maintaining their order        
+    local monthyear = subinstr("`reshapevarlist'", "`var'_", "", .)   
+       
+    *create an empty version of the stub, this will become the long var
+    gen `var' = .      
+       
+    forvalues x=1/`copies' {           
+      local currvar : word `x' of `reshapevarlist'         \\ looping through each of the vars with that stub- pull varname
+      replace `var' = `currvar' if mod(_n, `copies') == `x'      \\ replace the empty version with the x_th obs of this var for multiples of x
+      local yearmonth : word `x' of `monthyear' \\\pull out the sub identifier that corresponds with the var we are working on
+      replace yearmonth = `yearmonth' if mod(_n, `copies') == `x'  \\ replace the empty version with the x_th obs of this var for multiples of x 
+      drop `currvar'     \\ drop the wide versions of the variables
+    }
+  }
 ```
 

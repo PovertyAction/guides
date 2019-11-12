@@ -1,5 +1,7 @@
 # Jekyll background
 _site/
+.jekyll-cache/
+.jekyll-metadata/
 
 # MR Sublime workspace for guides
 guides.sublime-project

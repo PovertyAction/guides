@@ -1,3 +1,11 @@
+---
+layout: default
+title: Sort, by, bysort, egen
+nav_order: 5
+has_children: false
+parent: Data Aggregration
+---
+
 # Sort, by, bysort, egen
  
 ## Sort order

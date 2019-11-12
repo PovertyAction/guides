@@ -1,3 +1,11 @@
+---
+layout: default
+title: Appending 
+nav_order: 3
+has_children: false
+parent: Data Aggregration
+---
+
 # Appending
 If you have two files that contain the same variables, but different observations, you will most-likely want to append these two files to create a complete dataset. For example, if you have one dataset of adults and another with just children from your survey, or females in one file and males in another, you will append the two datasets into one.  In appending datasets, it is important to pay attention to variable names and types. 
 

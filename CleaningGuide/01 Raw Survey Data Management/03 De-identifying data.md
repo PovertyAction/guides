@@ -1,3 +1,11 @@
+---
+layout: default
+title: De-identifying Data
+nav_order: 3
+parent: Raw Data Management
+has_children: false
+---
+
 # De-identifying Data
 
 You should already be familiar with IPA’s data security protocols surrounding personally identifying information (PII).
