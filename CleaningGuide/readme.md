@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Cleaning Guide"
+nav_order: 1
+has_children: true
+---
+
 # Data Cleaning
 
 Once you have a dataset from the field (if using survey data) or from an existing repository (if using administrative data), the first step is to clean the data. Below are some common cleaning tasks, although please note they are not mean to be comprehensive, since every dataset will have its own idiosyncrasies that need to be treated on a case-by-case basis. Nonetheless, the end goal is always the same: come time for analysis, you should have a dataset that fully, accurately and cleanly represents all the information that was collected. 
