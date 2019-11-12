@@ -2,7 +2,7 @@
 layout: default
 title: Remove Incomplete and Test Surveys
 nav_order: 7
-parent: Raw Data Management
+parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
 ---

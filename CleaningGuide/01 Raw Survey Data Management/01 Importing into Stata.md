@@ -2,7 +2,7 @@
 layout: default
 title: Importing into Stata
 nav_order: 1
-parent: Raw Data Management
+parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
 ---

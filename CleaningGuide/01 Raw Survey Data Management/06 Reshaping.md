@@ -2,7 +2,7 @@
 layout: default
 title: Reshaping
 nav_order: 6
-parent: Raw Data Management
+parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
 ---

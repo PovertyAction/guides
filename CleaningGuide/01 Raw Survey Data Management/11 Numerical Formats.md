@@ -2,7 +2,7 @@
 layout: default
 title: Numerical Formats
 nav_order: 11
-parent: Raw Data Management
+parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
 ---
