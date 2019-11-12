@@ -1,4 +1,5 @@
+# Home
 
-# guides
+IPA & GPRL guides are stored on this site. 
 
-IPA & GPRL guides are stored here.
+Please contact researchsupport@poverty-action.org if you have any questions or comments.
