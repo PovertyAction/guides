@@ -3,6 +3,7 @@ layout: default
 title: Using Stata Data Files
 nav_order: 2
 parent: Raw Data Management
+grand_parent: Cleaning Guide
 has_children: false
 ---
 

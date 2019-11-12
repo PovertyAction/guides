@@ -3,6 +3,7 @@ layout: default
 title: Variable Names
 nav_order: 1
 parent: Dataset, Value, and Variable Documentation
+grand_parent: Cleaning Guide
 has_children: false
 ---
 

@@ -3,6 +3,7 @@ layout: default
 title: Unique IDs and Duplicates
 nav_order: 8
 parent: Raw Data Management
+grand_parent: Cleaning Guide
 has_children: false
 ---
 

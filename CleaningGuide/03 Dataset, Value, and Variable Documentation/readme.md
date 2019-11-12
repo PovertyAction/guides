@@ -1,3 +1,11 @@
+---
+layout: default
+title: Dataset, Value, and Variable Documentation 
+nav_order: 3
+parent: Cleaning Guide
+has_children: true
+---
+
 # Dataset, Value, and Variable Documentation 
 
 1. Variable Names 

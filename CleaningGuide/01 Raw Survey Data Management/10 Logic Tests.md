@@ -3,6 +3,7 @@ layout: default
 title: Logic Tests
 nav_order: 10
 parent: Raw Data Management
+grand_parent: Cleaning Guide
 has_children: false
 ---
 

@@ -4,6 +4,7 @@ title: Merging Two Datasets
 nav_order: 1
 has_children: false
 parent: Data Aggregration
+grand_parent: Cleaning Guide
 ---
 
 # Merging two datasets

@@ -3,6 +3,7 @@ layout: default
 title: SurveyCTO Split
 nav_order: 5
 parent: Raw Data Management
+grand_parent: Cleaning Guide
 has_children: false
 ---
 

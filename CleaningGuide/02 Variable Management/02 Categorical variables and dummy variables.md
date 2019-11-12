@@ -3,6 +3,7 @@ layout: default
 title: Categorical Variables and Dummy Variables
 nav_order: 2
 parent: Variable Management
+grand_parent: Cleaning Guide
 has_children: false
 ---
 

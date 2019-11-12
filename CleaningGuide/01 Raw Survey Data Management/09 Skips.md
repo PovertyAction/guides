@@ -3,6 +3,7 @@ layout: default
 title: Skips
 nav_order: 9
 parent: Raw Data Management
+grand_parent: Cleaning Guide
 has_children: false
 ---
 

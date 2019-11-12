@@ -4,6 +4,7 @@ title: Sort, by, bysort, egen
 nav_order: 5
 has_children: false
 parent: Data Aggregration
+grand_parent: Cleaning Guide
 ---
 
 # Sort, by, bysort, egen
