@@ -1,6 +1,4 @@
----
-layout: default
-title: Guides
----
 
 # guides
+
+IPA & GPRL guides are stored here.
