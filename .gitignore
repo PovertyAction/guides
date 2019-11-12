@@ -4,7 +4,7 @@ _site/
 .jekyll-metadata/
 
 #/archive folder
-/archive/*
+archive/*
 
 # MR Sublime workspace for guides
 guides.sublime-project
