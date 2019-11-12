@@ -1,10 +1,7 @@
 # ! Michael Rosenbaum 0.0.1 2019 11 12
+title: "Guides"
 
-## Metadata
-title: Guides
-
-
-## Theme info
+# Theme info
 remote_theme: pmarsceill/just-the-docs
 
 # Search
@@ -12,6 +9,6 @@ search_enabled: true
 # Enable support for hyphenated search words:
 search_tokenizer_separator: /[\s/]+/
 
-## Link behavior 
+# Link behavior 
 # This allows to link to subpages
 heading_anchors: true
