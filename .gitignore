@@ -1,2 +1,6 @@
+# Jekyll background
+_site/
+
+# MR Sublime workspace for guides
 guides.sublime-project
 guides.sublime-workspace
