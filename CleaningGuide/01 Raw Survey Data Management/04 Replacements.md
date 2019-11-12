@@ -1,3 +1,11 @@
+---
+layout: default
+title: Replacements
+nav_order: 4
+parent: Raw Data Management
+has_children: false
+---
+
 # Replacements
 
 As you are collecting data, there will inevitably be errors in your data that need to be manually corrected. It is important to always maintain the raw dataset with the original collected data. Once you have confirmed that a value in your dataset is incorrect and needs to be changed, this replacement should be made and saved in a new dataset, before you have done any other necessary cleaning. 

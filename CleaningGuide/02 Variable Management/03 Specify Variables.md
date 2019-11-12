@@ -1,13 +1,21 @@
+---
+layout: default
+title: Specify Variables
+nav_order: 3
+parent: Variable Management
+has_children: false
+---
+
 # "Specify" Variables
 Survey questions may have a “specify” option, in which the respondent explains their answer or gives an alternate answer not available on the list of choices for that question. These are often triggered by an "other" response. In the raw dataset, alongside the original variable will be a “specify” variable that shows the comments for that question. You, or the field RA (or someone else familiar with the survey) will sometimes need to read through these specify answers and then recode the original variable accordingly. (“Specify” variables are also called other/specify variables, “other” variables, and free-text variables.)
 
 For example, if a question asked for someone’s favorite color, giving the options of blue, red, yellow, green, and other. If someone answered “other” and then wrote “sky blue” for their answer, you would want to recode the original variable for favorite color to say “blue” instead of “other”. However, if someone wrote “purple” you could leave their response as is (or, if enough people wrote purple, you could add another category to the variable).
 
 Particularly for large surveys, this can be a hassle. One helpful approach is to do the following:
--	First clean each string variable so that similar answers will show the same value. Use string functions like `lower()`, `trim()`, and `itrim()' to convert answers like “PUR PlE”, “ Purple” and “purple” to all be “purple”.
+-	First clean each string variable so that similar answers will show the same value. Use string functions like `lower()`, `trim()`, and `itrim()` to convert answers like “PUR PlE”, “ Purple” and “purple” to all be “purple”.
 -	For each specify variable, collapse the dataset into unique answers (for example, if three people wrote “purple” the collapsed dataset would only show “purple” once).
 -	Store those unique answers into a spreadsheet with another column that shows what variable the answer corresponds to. Then, leave one column blank, which you (or a field RA) will eventually fill in with the value from the original variable that the response corresponds to (if it should be recoded). For instance, next to “purple” you would put nothing, but next to “sky blue” you would put 1 if 1 corresponded to the "blue" answer option.
--	Write code to merge the manual corrections from the excel file back into the do file, instead of running this as a series of `replace` or ``if `var' == "sky blue" | `var' == "ocean blue" | `var' == ...`` commands in the do file.
+-	Write code to merge the manual corrections from the excel file back into the do file, instead of running this as a series of `replace` or `` if `var' == "sky blue" | `var' == "ocean blue" | `var' == ... `` commands in the do file.
 
 Make sure you save do files and documents so that this process can be replicated and understood by someone else in the future.
 

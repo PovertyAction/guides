@@ -1,3 +1,11 @@
+---
+layout: default
+title: Collapsing
+nav_order: 2
+has_children: false
+parent: Data Aggregration
+---
+
 # Collapsing
 
 You can use `collapse` when you want to create summary statistics of your data, or some of your variables. Note that collapse works by replacing your data with the summary statistics of each variable that you request. If you are familiar with `egen`, you can think of `collapse` as equivalent to `egen`, except than rather making a new variable it replaces your variables. Additionally, any variables you don't specify will be dropped. This means this command erases your data. Because of this destructive nature there are several best practices to use around collapse. 

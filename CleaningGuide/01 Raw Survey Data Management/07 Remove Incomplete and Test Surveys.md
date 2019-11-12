@@ -1,3 +1,11 @@
+---
+layout: default
+title: Remove Incomplete and Test Surveys
+nav_order: 7
+parent: Raw Data Management
+has_children: false
+---
+
 # Remove Incomplete and Test Surveys
 Sometimes incomplete surveys will sneak into the raw datasets, either because they weren’t removed from the paper stack of surveys of because someone uploaded them to the server. 
 

@@ -1,3 +1,11 @@
+---
+layout: default
+title: Using Stata Data Files
+nav_order: 2
+parent: Raw Data Management
+has_children: false
+---
+
 # Using Stata Data Files
 
 Stata data files are saved with the extension ".dta". This means the file is ready to use in Stata and unlike data saved in, for example, an excel file, you do not need to import this into Stata. 

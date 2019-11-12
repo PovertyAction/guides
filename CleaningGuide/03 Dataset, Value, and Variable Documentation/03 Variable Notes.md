@@ -1,3 +1,11 @@
+---
+layout: default
+title: Variable Notes
+nav_order: 3
+parent: Dataset, Value, and Variable Documentation
+has_children: false
+---
+
 # Variable Notes
 ## `notes`
 Sometimes you will want to attach information or other labeling that is longer than Stata allows (labels are capped at 80 characters). If this is the case, you can store the full desired label into the variable notes (type `help notes` in Stata for description of these). Notes can describe variables or the dta file.

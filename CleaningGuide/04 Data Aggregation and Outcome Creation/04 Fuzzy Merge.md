@@ -1,3 +1,11 @@
+---
+layout: default
+title: Fuzzy Merge
+nav_order: 4
+has_children: false
+parent: Data Aggregration
+---
+
 # Fuzzy Merge
 Usually when you `merge`, you have a unique ID — or at least enough of one that you can salvage. Sometimes, however, no unique identifier was collected, and you’re left searching for alternative ways to link two datasets. The most obvious way to do this is to try and match on names or other string variables. However, small misspellings in these variables can easily result in mismatches. There are a few ways to deal with this. The best way would be to remove the most obvious sources of mismatches (like spaces, capital letters, etc.) check how many names match perfectly and try to match the one that don’t manually. This might be time consuming but should be the first alternative to try. Only when this is impossible, or the amount of data makes it extremely difficult you should try one of the following options.
 

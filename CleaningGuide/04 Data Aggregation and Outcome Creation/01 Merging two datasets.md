@@ -1,3 +1,11 @@
+---
+layout: default
+title: Merging Two Datasets
+nav_order: 1
+has_children: false
+parent: Data Aggregration
+---
+
 # Merging two datasets
 You may also need to merge two or more datasets together, if they are split by variables and contain the same observations. For example, you may have variables that were split between two datasets by the survey program. Be sure that both datasets have a unique ID and be extra careful to specify whether the merge is one-to-one or one-to-many (although you will receive an error if you do the wrong merge type so you don't have to worry too much about this causes problems). You should also check that your two datasets do not have any variables with the same names. When you perform a merge, if you have the same variable in both datasets, Stata will automatically keep the master data as authority. You can change this assumption by using the `update` and/or `replace` options to use the using values. However, it probably makes more sense to rename one of the variables and keep both. 
 

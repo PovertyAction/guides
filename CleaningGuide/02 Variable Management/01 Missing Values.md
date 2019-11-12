@@ -1,3 +1,11 @@
+---
+layout: default
+title: Missing Values
+nav_order: 1
+parent: Variable Management
+has_children: false
+---
+
 # Missing Values
 For a number of reasons, variables will have missing values for certain observations. It is helpful to have the data reflect why these values are missing, particularly for numeric variables. For instance, you may want to know whether someone didn’t answer a question about business revenues because the question was skipped (e.g., they weren’t business owners) or whether it was because they could not remember.
 
