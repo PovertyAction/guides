@@ -7,23 +7,20 @@ grand_parent: Cleaning Guide
 has_children: false
 ---
 
-
 ## Importing into Stata
-Data comes in many forms, from raw text (.txt) files to multi-sheet Excel (.xls and .xlsx) files. Importing data into Stata is necessary if the data is not already in Stata format (.dta file). In general, you should be able to use Stata’s functions and loops to efficiently import data. Stata can import most data formats. If your project’s data was collected using a platform like SurveyCTO, the raw data will come in .csv format. See the data collection folder for detailed instructions on importing SurveyCTO data. 
+Data comes in many forms, from raw text (.txt) files to multi-sheet Excel (.xls and .xlsx) files. Importing data into Stata is necessary if the data is not already in Stata format (.dta file). In general, you should be able to use Stata’s functions and loops to efficiently import data. Stata can import most data formats. If your project’s data was collected using a platform like SurveyCTO, the raw data will come in .csv format and the SurveyCTO server will provide a do file that imports the raw .csv data into the Stata .dta format. 
 
 ## Importing different file types 
-In Stata 13 and beyond, the `import` command can import CSV files, excel files, and more depending on the option used (delimited for CSV, excel for excel), and `export` does the same for exporting. If you are new to using `import` or are importing a file type you have not seen before, it can be helpful to use the drop-down menu by clicking “File>Import” and then selecting the appropriate file type. Once you do this, you will be able to copy the specific command syntax directly from the command prompt or review window in Stata to your do-file. 
+In Stata 13 and beyond, the `import` command can import CSV files, excel files, and more depending on the option used (delimited for CSV, excel for excel), and `export` does the same for exporting. The `import excel` and `import delimited` commands provide a number of options that allow for a large amount of control of importing including from where in the workbook data should be imported from and how data should be saved. See `help import` for details on these options. 
 
-Note that it is often a good idea when using the `insheet` command, to use the option names and have your dataset have the same variable names at those at the top of the raw dataset.
+If you are new to using `import` are importing a file type you have not seen before, it can be helpful to use the drop-down menu by clicking “File>Import” and then selecting the appropriate file type. Once you do this, you will be able to copy the specific command syntax directly from the command prompt or review window in Stata to your do-file. 
+
+The `insheet` command remains an alternative for .csv, .tsv, and .txt files. It performes differently than `import delimited` and can be useful for some forms of data, but `import delimited` should be used preferentially. One thing to note is that it is often a good idea when using the `insheet` command, to use the option names and have your dataset have the same variable names at those at the top of the raw dataset.
 
 ## Importing multiple files at once
-A useful function for importing multiple files within a folder is the dir extended macro function. You can find documentation on this by typing `help extended_fcn` in Stata.  This function allows you to store all the names of the files in a folder in a local so you can loop through them for importing. See example code of this process below. 
+A useful function for importing multiple files within a folder is the `dir` extended macro function. You can find documentation on this by typing `help extended_fcn` in Stata.  This function allows you to store all the names of the files in a folder in a local so you can loop through them for importing. See example code of this process below. 
 
 ````
-*Delete and re-create an output folder for your new data 
-rmdir "filepath/dtafiles"
-mkdir "filepath/dtafiles"	
-
 *This stores all files with the extension .xlsx in the "$raw" data folder into a local "files"
 local files: dir "$raw" files "*.xlsx", respectcase 
    
@@ -56,5 +53,7 @@ foreach file in `files' {
 	 save "filepath/dtafiles/`cleanfilename'_raw.dta", replace
 }	
 ````
+Note that the new .dta files are no longer saved in the same folder that your raw excel, csv, or any other type of files were saved in. As the imported data are no longer raw, they should be saved in either a temporary or data folder.
 
-Once you import your data into Stata, these new .dta files are no longer considered a raw dataset, and you should not save them back into the same folder that your raw excel, csv, or any other type of files were saved in. It can be helpful to go ahead and set up a "dta" or "temp" folder for you to save these intermediate data files before you start.  As done in the previous example, you can create a folder to save your files in directly in your script by using `mkdir "filepath"`. So that you aren't recreating a file that is already there, you can either do `cap mkdir "filepath"` or use `rmdir "filepath"` to remove the folder first. 
+It can be helpful set up a "dta" or "temp" folder for you to save these intermediate data files before you start. To do so, you can create a folder to save your files in directly in your script by using `mkdir "filepath"`. If the directory already exists, this will create an error. One solution is to use the `capture` command and type `cap mkdir "filepath"` which will suppress the error. We recommend avoiding `capture` in most situations.
+
