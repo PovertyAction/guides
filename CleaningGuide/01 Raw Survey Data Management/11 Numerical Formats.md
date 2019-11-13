@@ -9,7 +9,7 @@ has_children: false
 
 # Numerical Formats
 
-It's easy to forget that Stata code is operating a computer with very different rules for counting and numbers than we have in the real world. Ado (the language of .do files) allows for a high-level [abstraction](https://en.wikipedia.org/wiki/Abstraction_layer), where the programmer does not have to explicitly command the computer to do low-level tasks like allocating memory for data, ordering tasks, or defining how the computer should round values that can't be precisely displayed in binary. This is rarely important, but there are a few cases where these processes, like precision of stored data, is highly relevant for statistical tasks and may need to be specified. These cases are: 
+It's easy to forget that Stata code is operating a computer with very different rules for counting and numbers than we have in the real world. Ado (the language of .do files) allows for a high-level [abstraction](https://en.wikipedia.org/wiki/Abstraction_layer), where the programmer does not have to explicitly command the computer to do low-level tasks like allocating memory for data, ordering tasks, or defining how the computer should round values that can't be precisely displayed in binary. This is rarely important, but there are a few cases where these processes, like precision of stored data, is highly relevant for statistical tasks and may need to be specified. The most relevant cases are: 
 - IDs should be stored as string variables or have less than 8 digits if the storage type of the variable is a float
 - Asserts should only compare similar storage types.
   - All values in stata (e.g. `1` or `` `r(N)'``) are treated as doubles
@@ -17,9 +17,9 @@ It's easy to forget that Stata code is operating a computer with very different 
 
 ## Stata's process
 
-Variables in Stata have storage formats and display formats. Storage formats describe how Stata is storing the variable in the computer memory -- what the data are -- and display formats describes the default way that the information is presented to a user. Type `help format` in Stata to get more information on how variables or values were displayed.
+Variables in Stata have storage formats and display formats. Storage formats describe how Stata is storing the variable in the computer memory -- what the data are -- and display formats describes the default way that the information is presented to a user. Type `help format` in Stata to get more information on how variables or values are displayed.
 
-Stata has five storage formats for numerical variables that take up different amount of memory. These formats store information to a certian degree of accuracy before rounding.  The first three types (`byte`, `int`, and `long`) in the table below can only be used for integers. `float` and `double` are the standard type. There is a trade-off for increased precision. More precise storage formats take up more memory. This will make the file larger and slow down Statas processes when the data are being used.
+Stata has five storage formats for numerical variables that take up different amount of memory. These formats store information to a certian degree of accuracy before rounding.  The first three types (`byte`, `int`, and `long`) in the table below can only be used for integers. `float` and `double` are the standard type. There is a trade-off for increased precision. More precise storage formats take up more memory. This will make the file larger and slow down Stata's processes when the data are being used.
 
 | Type | Maximum digits of accuracy | Bytes of memory for a single value|
 | ---- | ----- |--------- |
