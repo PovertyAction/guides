@@ -29,17 +29,21 @@ Stata has five storage formats for numerical variables that take up different am
 | `float`  | 7  | 4|
 | `double`  | 16  | 8|
 
-This is extremely relevant when exact equivalence matters. Stata will always conduct functions in double precision (at about 16 digits of precision). Imagine that you are comparing a variable `x` and a number `.1 `. Stata defaults to generating varaibles as floats to conserve memory. To process a calculation, Stata will transform the float `x` into a double and compare that value to the `.1` rounded to a double. This causes results that we may not expect for numbers, like `.1` that aren't exactly stored in binary:
+This is extremely relevant when exact equivalence matters. Stata will always conduct functions in double precision (at about 16 digits of precision). Imagine that you are comparing a variable `x` and a number `.1 `. Stata defaults to generating varaibles as floats to conserve memory. To process a calculation, Stata will transform the float `x` into a double and compare that value to the `.1` rounded to a double. This causes results that we may not expect for numbers, like `.1`, that aren't stored exacty in binary:
 
 ````
 . set obs 1
 . gen x = .1
 . assert x == .1
-assertion is false
-r(9);
+  assertion is false
+  r(9);
+. di "`=float(.1)'"
+  .1000000014901161
+. di "`=.1'"
+  .1
 ````
 
-Stata isn't making a mistake here. This is the result of .1 not having an exact value in binary (base 2 v. base 10). Since Stata does all calculations in double precision, the rounded value of .1 is different at float precision than double precision. The code that follows shows a few ways to compare these values exactly. 
+Stata is not making a mistake here. This is the result of .1 not having an exact value in binary (base 2 v. base 10). Since Stata does all calculations in double precision, the rounded value of .1 is different at float precision than double precision. The code that follows shows a few ways to compare these values exactly. 
 
 ````
 . ds x, d
@@ -50,12 +54,12 @@ variable name   type    format     label      variable label
 x               float   %9.0g       
 
 . assert x == float(.1) // Force Stata to round double(.1) to float(.1)
-.
+
 . assert `: di x[1]' == .1 // force Stata to display the first and only value of x in a double format
-.
+
 . gen double y = .1 // generate a new variable at double precision
 . assert y == .1
-.
+
 ````
 
 This would not be a problem for a value that can be stored exactly such as `1`.
@@ -67,8 +71,8 @@ Although this seems very abstract and of limited relevance, this will cause prob
 
 ## Dataset Size & Memory Usage 
 
-There are a number of concrete ways to avoid this, as well as a lot written on how this affects computation in broader computer science. Memory conservation is generally not relevant for statistical programming with small N survey data that we normally work with in IPA. But this can be the relevant in large datasets where using memory on extraneous digits will slow basic computations substantively. Administrative data with observations in the hundreds of thousands to millions is an example of this. 
+There are a number of concrete ways to avoid this, as well as a lot written on how this affects computation. Memory conservation is generally not relevant for statistical programming with small N survey data that we normally work with at IPA. But this can be the relevant in large datasets where using memory on extraneous digits will slow basic computations substantively. Administrative data with observations in the hundreds of thousands to millions is an example of this that is relevant for many IPA projects. 
 
-It's generally good practice to reduce the size of files using `compress` or by generating values in the smallest format such as  `gen byte dummy = (q1 == "Yes")` when the data are larger or if you are performing commands that are computationally intensive for Stata (various types of regressions, reshaping, etc.). 
+It's generally good practice to reduce the size of files using `compress` or by generating values in the smallest format such as  `gen byte dummy = (q1 == "Yes")`, especially when the data are larger or if you are performing commands that are computationally intensive for Stata (various regressions, reshaping, etc.). 
 
 If you are interested in more details, Stata Corp's blog has a few good articles on [numerical precision](https://blog.stata.com/2011/06/17/precision-yet-again-part-i/) and why [this](https://blog.stata.com/2011/06/23/precision-yet-again-part-ii/) happens in computing, as well as the [specific digits](https://www.stata.com/support/faqs/data-management/float-data-type/) that float precision loses values.
