@@ -1,9 +1,6 @@
 ---
 layout: default
 title: Quality Control
-nav_order: 6
-parent: Cleaning Guide
-has_children: true
 nav_exclude: true
 ---
 
