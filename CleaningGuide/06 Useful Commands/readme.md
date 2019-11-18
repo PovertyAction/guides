@@ -76,4 +76,9 @@ There are a number of other options and syntax changes. You can see these by typ
 
 This command allows you to see all of the stored results in working memory and their value. For example, if you ran `summarize [variarble]`, the `return list` command would show all of the scalars stored by `summarize`. In this case that would be `r(N)`, `r(sum_w)`, and `r(sum)`. Similar commands also allow you to see estimation and system commands using `ereturn list` and `creturn list`. The help file (`help return list`) shows more options.
 
+## `sencode`
+
+This is not a built-in Stata command and can be installed by typing `ssc install sencode`.
+
+`sencode` makes a number of improvements on the Stata command `encode` by including a options that allow you to replace the string variable with the numeric variable and set the order of encded values in a user-specified ways, among other user-friendly additions.
 
