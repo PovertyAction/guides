@@ -9,7 +9,7 @@ Below we have listed some frequently overlooked commands that we enjoy using. Th
 
 Where we appropriate, there is a page dedicated to specific commands that provides more examples of our common uses tips and tricks, and potential concerns to be aware of when using these particular command.  For full documentation simply type `help [commandname]` in Stata to read all about available options and examples for usage.
 
-## `fillin`
+## fillin
 
 This is a simple to use, but yet powerful command. Frequently in cleaning data sets, you will have an unbalanced panel, i.e. you are missing an observation for one person for some time periods. For example, imagine you have a dataset of your sample that is supposed to have one observation for each survey round such as the baseline and two endlines. However, as is common, some people were not found in the endline surveys and thus there is no observation for them at that endline. You can use this command to create all of the pairwise combinations of values of two variables i.e. you would have every survey round observation for every person. 
 
@@ -43,23 +43,23 @@ A couple things to note:
   replace Gender = Gender[_n-1] if ID == ID[_n-1] & _fillin == 1 
   ```
 
-## `labeldup`
+## labeldup
 
 `labeldup` is a user-written command that compares value labels which have duplicate contents. For example, if in your dataset the variable `q1` has a value label named `q1_label` with `0 "No" 1 "Yes"` and the variable `q2` has the same value label (the SurveyCTO standard). By using `labeldup, select`, the `q1` and `q2` will be combined to a single value label that describes both variables. This is an easy way to cut down on duplicate information in value labels.
 
-## `labelrename`
+## labelrename
 
 This user-written command allows you to rename value labels using similar syntax to the `rename` command. Stata does not allow you to rename value labels using the `label values` command. This command adds that functionality with the similar syntax as the `rename` comman. One difference is that no wildcards are allowed.
 
-## `levelsof`
+## levelsof
 
 This command will provide you with a list of all of the unique values of a variable. This comes in handy all of the time when cleaning. A very helpful option that comes with this command is `local()` in which you can store the list of values as a local. This makes looping through all of the values of a variable possible and easy. 
 
-## `lookfor`
+## lookfor
 
 This command searches across all variable names and variable labels, and allows for searching for more than one string or a phrase through the use of `"[string]"`. Since `lookfor` searches across both variable names and variable labels at the same time, it will return a different set of results than `ds` can.
 
-## `missings`
+## missings
 
 This is not a built-in Stata command and thus you will need to type `ssc install missings` to get this command before you can use it or read the help file.
 
@@ -67,7 +67,7 @@ This group of commands allows for several ways to investigate the missing values
 
 A very helpful command within this group is `missings dropvars` which allows you to eliminate variables that are missing on all observations. This is much easier than looping through vars and obs to assert they are missing to drop them. 
 
-## `mmerge`
+## mmerge
 
 This is not a built-in Stata command and can be installed by typing `ssc install mmerge`.
 
@@ -79,11 +79,11 @@ This is not a built-in Stata command and can be installed by typing `ssc install
 
 There are a number of other options and syntax changes. You can see these by typing `help mmerge` once `mmerge` is installed. 
 
-## `return list`
+## return list
 
 This command allows you to see all of the stored results in working memory and their value. For example, if you ran `summarize [variarble]`, the `return list` command would show all of the scalars stored by `summarize`. In this case that would be `r(N)`, `r(sum_w)`, and `r(sum)`. Similar commands also allow you to see estimation and system commands using `ereturn list` and `creturn list`. The help file (`help return list`) shows more options.
 
-## `sencode`
+## sencode
 
 This is not a built-in Stata command and can be installed by typing `ssc install sencode`.
 
