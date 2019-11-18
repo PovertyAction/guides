@@ -1,3 +1,10 @@
+---
+layout: default
+title: Useful Commands
+nav_order: 5
+parent: Cleaning Guide
+---
+
 Below we have listed some frequently overlooked commands that we enjoy using. They will make your life a lot easier if you know about them. We provide a quick summary of what the commands do and where they can be used. 
 
 Where we appropriate, there is a page dedicated to specific commands that provides more examples of our common uses tips and tricks, and potential concerns to be aware of when using these particular command.  For full documentation simply type `help [commandname]` in Stata to read all about available options and examples for usage.
