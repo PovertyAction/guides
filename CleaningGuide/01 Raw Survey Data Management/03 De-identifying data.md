@@ -15,7 +15,7 @@ Personally Identifiable Information (PII) is any data point or combination of da
 
 Examples of individual data points of PII include names, GPS coordinates, national identification numbers and addresses. Depending on the context, certain combinations of demographic data points qualify as PII so long as they can identify an individual or household with a reasonable degree of certainty. For example, the combination of village name, birth date, gender might be identifiable in small communities. Requirements and recommendations around PII apply equally to PII that consist of singular data points and those that consist of combinations of data points.
 
-All PII must remain encrypted in storage and securely transmitted between devices. The only people who can access PII data must be both on the IRB-approved research protocol and referenced in the informed consent. For more information, see [IPA's protocols surrounding PII](https://github.com/PovertyAction/guides.github.io/edit/master/CleaningGuide/01%20Raw%20Survey%20Data%20Management/03%20De-identifying%20data.md)
+All PII must remain encrypted in storage and securely transmitted between devices. The only people who can access PII data must be both on the IRB-approved research protocol and referenced in the informed consent. For more information, see [IPA's protocols surrounding PII](https://povertyaction.force.com/support/s/article/IPA-Protocol-Data-and-Device-Security)
 
 ## When to remove PII
 
