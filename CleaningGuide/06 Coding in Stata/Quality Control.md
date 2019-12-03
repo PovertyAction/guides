@@ -1,7 +1,9 @@
 ---
 layout: default
 title: Quality Control
-nav_exclude: true
+parent: Coding in Stata
+grand_parent: Cleaning Guide
+nav_order: 3
 ---
 
 # Quality Control 
