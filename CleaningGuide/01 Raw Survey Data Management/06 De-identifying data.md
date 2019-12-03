@@ -1,7 +1,7 @@
 ---
 layout: default
 title: De-identifying Data
-nav_order: 3
+nav_order: 6
 parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
