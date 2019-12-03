@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Unique IDs and Duplicates
-nav_order: 8
+nav_order: 5
 parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
