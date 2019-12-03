@@ -18,7 +18,7 @@ Survey CTO includes the full text of the question from the survey instrument as 
 If variable labels have been changed or converted as part of a data transformation, notes can be converted into labels by looping through variables and using the stored local for notes:
 ````stata        
 *Loop through each variable in the varlist VARIABLES
-    foreach var of varlist VARIABLES {
+foreach var of varlist VARIABLES {
     label var `var' ``var'[note1]'
 }
 ````
