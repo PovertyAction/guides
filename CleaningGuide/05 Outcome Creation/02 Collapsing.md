@@ -3,7 +3,7 @@ layout: default
 title: Collapsing
 nav_order: 2
 has_children: false
-parent: Data Aggregration
+parent: Outcome Creation
 grand_parent: Cleaning Guide
 ---
 
