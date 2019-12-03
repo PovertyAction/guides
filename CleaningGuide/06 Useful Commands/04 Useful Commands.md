@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Useful Commands
-nav_order: 5
-parent: Cleaning Guide
+nav_order: 4
+grand_parent: Cleaning Guide
+parent: Coding in Stata
 ---
 
 Below we have listed some frequently overlooked commands that we enjoy using. They will make your life a lot easier if you know about them. We provide a quick summary of what the commands do and where they can be used. 
