@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Sort, by, bysort, egen
-nav_order: 5
+nav_order: 1
 has_children: false
-parent: Data Aggregration
+parent: Outcome Creation
 grand_parent: Cleaning Guide
 ---
 
@@ -17,7 +17,7 @@ You can use the `sort` command in Stata to acheive this. Of course you can order
 1. `sort` sorts observations in ascending order (i.e. lowest to highest)
 2. Missing values in stata are equivalent to infinity and thus will be sorted to the bottom of your sort if they exist
 		
-````
+```
 *Example of points 1 and 2 above
 sysuse bplong, clear 
 	sort when patient
@@ -26,20 +26,20 @@ sysuse bplong, clear
 	replace when = . if _n == 25
 	sort when patient //where did the missing value get sorted to?
 restore 
-````			
+```			
 3. You can flip the order you sort by using `gsort` and using a negative sign in front of the variable name (i.e. sort largest to smallest
 
-````
+```
 sysuse bplong, clear 
 *Use sort to see how it normally sorts males first (smallest to largest)
 	sort sex patient
 
 *gsort by -sex to see how to sort largest to smallest (Notice the patient order does not change within gender)
 	gsort -sex patient 	
-````
+```
 		
 4. If the observations of the variables you sort on are not unique, Stata will randomize their order in a new randomization every time you sort (i.e. you will not get a consistent order if you re-run your code, even in a script)	
-````
+```
 sysuse bplong, clear 
 **Notice that gender-patient does not uniquely idenitfy our observations
 sort sex patient
@@ -51,12 +51,12 @@ sort sex patient
 gen flag_before2 = _n if when == 1
 /* Notice that the two flag_before variables are not always equal i.e. the "before" observation
 ended up in a different place even though we did the same sort twice */
-````		
+```		
 5. You have two options to make sure your sorts are consistent 
 	a. Use the option `stable` to make sure Stata uses the same randomization every time 
 		i. You cannot use this option with `gsort'
 	b. The preferred method is to specify a combination of variables that uniquely identifies your observations. This removes the randomization and makes your sort outcome be exactly what you specify and expect	
-```` 
+``` 
 sysuse bplong, clear 
 **Notice that gender-patient does not uniquely idenitfy our observations
 sort sex patient when
@@ -67,7 +67,7 @@ sort sex patient when
 *Again flag the row numbers where Stata sorted the "before" observations for each person this time
 gen flag_before2 = _n if when == 1
 *Now the flags are always equal
-````
+```
 ## By 
 
 You can use the `by` function to create variables within groups, but in order to use `by` you must `sort` before hand. Thus, we recommend to use `bysort` instead. 
