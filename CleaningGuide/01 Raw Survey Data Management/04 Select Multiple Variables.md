@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SurveyCTO Split
-nav_order: 5
+nav_order: 4
 parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
@@ -13,8 +13,7 @@ Some surveys questions have the option of “check all that apply”, meaning th
 
 For analysis purposes, it’s usually best to split these variables into binary variables, one for each possible choice (A, B, C, D, or E), as well as one for each combination of choices. The IPA-written `stringdum` function can help converting these variables to a more useful form, including separate dummies for each option, variables that count the number of times each option is selected, and several options for naming conventions. The `split` command can also convert these variables, by parsing the variable on spaces. This splits the variable into a new variable after each space (see `help split`). If this is not sufficient, Stata has a number of string functions (`help string functions`). You can also use the `regexm` fuction to accomplish this, which uses [regular expressions](https://www.stata.com/support/faqs/data-management/regular-expressions/). Below is an example script using both split and regexm to accomplish cleaning a select multiple question manually.
 
-## Resource
-````
+```
 * Create a local of all string variables
 qui ds _all, has(type string)                     
 foreach var in `r(varlist)' {                          
@@ -77,4 +76,4 @@ foreach var in `r(varlist)' {
     replace `var'=.r if `var'==-999
     replace `var'=.v if `var'==-444
 }
-````
+```
