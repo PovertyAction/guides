@@ -1,15 +1,15 @@
 ---
 layout: default
 title: Variable Types and Date Formats
-nav_order: 4
-parent: Dataset, Value, and Variable Documentation
+nav_order: 5
+parent: Variable Management
 grand_parent: Cleaning Guide
 has_children: false
 ---
 
 # Variable Types and Date Formats
 
-### Storage Types
+## Storage Types
 
 Every variable is stored in memory either as a string (text) or numeric. 
 
@@ -19,7 +19,7 @@ String variables storage types are identified by their character length (`str4` 
 
 A variable's format controls how the data is displayed. This is can be used to format numeric variables to display with commas or a specific number of decimal points. For details on the corresponding formats for each variable type and how to format variables, type `help format` or see IPA's high intermediate Stata training materials. In short, it’s important to match the displayed format to the content, especially for outputs.
 
-### Dates
+## Dates
 Dates are especially complex to work with in Stata. Stata stores dates as a numeric variable that captures either the number of days, months, quarters, or years since January 1, 1960. It is important to know that dates can also have a time component (datetimes), and are then stored as the number of milliseconds since January 1, 1960. These formats are numeric, but once they are stored as a date in Stata a number of special stata functions can be applied to them to help with calculations that relate to dates and time. For more information see `h datetime translation`.
 
 Survey CTO defaults to storing date variables as strings when importing them to Stata, except for the SurveyCTO datetime metadata: `starttime` `endtime` and `submissiondate` which are stored as date variables. It’s advantageous to convert these variables to a proper date format, as it allows for various logical and mathematical calculations. For example, you could count the number of days between a survey start date and submission date, or the number of minutes between the survey was started and completed. 
