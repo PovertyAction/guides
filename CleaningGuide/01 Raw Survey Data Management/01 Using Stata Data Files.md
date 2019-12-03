@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Using Stata Data Files
-nav_order: 2
-parent: Raw Survey Data Management
+nav_order: 1
+parent: Coding in Stata
 grand_parent: Cleaning Guide
 has_children: false
 ---
