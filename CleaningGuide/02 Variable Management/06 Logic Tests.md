@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Logic Tests
-nav_order: 10
-parent: Raw Survey Data Management
+nav_order: 6
+parent: Variable Management
 grand_parent: Cleaning Guide
 has_children: false
 ---
