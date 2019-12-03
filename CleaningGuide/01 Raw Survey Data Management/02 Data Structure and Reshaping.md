@@ -1,13 +1,11 @@
 ---
 layout: default
-title: Reshaping
-nav_order: 6
+title: Data Structure and Reshaping
+nav_order: 2
 parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
 ---
-
-# Reshaping
 
 ## SurveyCTO Data
 When downloading from SurveyCTO, you can choose whether to export the data in wide or long format.
@@ -18,10 +16,8 @@ Wide data, on the other hand, saves you the process of merging manually, but it 
 
 For more guidance on what “wide” and “long” datasets are, and how to reshape type `help reshape` in Stata.
 
-
-
 ## Alternative to Reshaping
-Reshaping is a very computationally intensive command and if you are dealing with a large data set you will quickly find that using `reshape` can take an excessively long time or even break the current Stata session. There is an alternative way to manually code a `reshape` using `expand` and `replace`, that has the benefits of running much faster. It also provides an understanding of how a `reshape` transforms your data structure. 
+Reshaping is a very computationally intensive command. If you are dealing with a large data set you will quickly find that using `reshape` can take an excessively long time or even break the current Stata session. There is an alternative way to manually code a `reshape` using `expand` and `replace`, that has the benefits of running much faster. It also provides an understanding of how a `reshape` transforms your data structure. 
 
 Going from a wide dataset by person to a long datset by person-month. The variables we want to reshape are income and expenditures.
 
