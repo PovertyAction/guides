@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Replacements
-nav_order: 4
+nav_order: 3
 parent: Raw Survey Data Management
 grand_parent: Cleaning Guide
 has_children: false
