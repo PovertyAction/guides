@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Remove Incomplete and Test Surveys
-nav_order: 7
-parent: Raw Survey Data Management
-grand_parent: Cleaning Guide
 has_children: false
+nav_exclude: true
+search_exclude: true
 ---
 
 # Remove Incomplete and Test Surveys
