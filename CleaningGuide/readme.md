@@ -3,6 +3,7 @@ layout: default
 title: "Cleaning Guide"
 nav_order: 1
 has_children: true
+has_toc: false
 ---
 
 # Data Cleaning
@@ -21,7 +22,7 @@ At a high-level, the process that data goes through from when it is generated, i
 
 This entire process is called a data flow. At GPRL and IPA, we think of the steps in the data flow that take place in statistical software in four steps:
 
-![Data Flow](https://github.com/PovertyAction/guides.github.io/blob/master/CleaningGuide/DGP_CleanDataHighlight.PNG)
+![Data Flow](https://github.com/PovertyAction/guides.github.io/blob/master/CleaningGuide/DGP_CleanDataHighlight.png)
 
 1.	**Import data** – raw data is imported into a statistical software, corrections are applied, and duplicates observations are removed. 
 2.	**Deidentify data** – personally identifying information (PII) is removed. This includes all individually identifying PII (geographic information, names, addresses, enumerator comments, etc.), as well as group identifying information (a combination of village and birthdate for example). 
