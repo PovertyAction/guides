@@ -16,19 +16,19 @@ One variable can have multiple notes. Notes can be added into variables by typin
 Survey CTO includes the full text of the question from the survey instrument as variable notes (as well as the truncated questions as variable labels) as part of the import do file. These notes will always be in the downloaded language. They will not contain filled values for the respondent that are produced as the result of calculate fields.
 
 If variable labels have been changed or converted as part of a data transformation, notes can be converted into labels by looping through variables and using the stored local for notes:
-````stata        
+```do        
 *Loop through each variable in the varlist VARIABLES
 foreach var of varlist VARIABLES {
     label var `var' ``var'[note1]'
 }
-````
+```
 
 ## char
 Additional information can be added using characteristics, which function similarly to notes. Characteristics (type `help char` in Stata) also describe variables and the dataset itself.  The main difference between the two commands is that the `char` command requires a name for each characteristic. Whereas `note VARIABLE : "Note"` creates the next sequential note (1 if the first note, 2 if the second, etc.), `char` explicitly requires a character name, "charname" in the following code: `char define VARIABLE[charname] "Note"`. This can be useful for saving labels in multiple languages
 
 For example, a data flow could take labels in each language from a SurveyCTO form and assign them as characteristics to each variable produced by the survey in the following:
 
-````stata
+```do
 *Import SurveyCTO
 import excel using "Baseline Household Survey.xlsx", first clear
 
@@ -92,4 +92,4 @@ foreach name of local varnames {
 
 }
 // end foreach name of local names
-````
+```
