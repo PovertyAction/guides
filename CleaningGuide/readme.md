@@ -22,7 +22,7 @@ At a high-level, the process that data goes through from when it is generated, i
 
 This entire process is called a data flow. At GPRL and IPA, we think of the steps in the data flow that take place in statistical software in four steps:
 
-![](https://github.com/PovertyAction/guides.github.io/blob/master/CleaningGuide/DGP_CleanDataHighlight.PNG)
+![](https://raw.githubusercontent.com/PovertyAction/guides.github.io/master/CleaningGuide/DGP_CleanDataHighlight.PNG)
 
 1.	**Import data** – raw data is imported into a statistical software, corrections are applied, and duplicates observations are removed. 
 2.	**Deidentify data** – personally identifying information (PII) is removed. This includes all individually identifying PII (geographic information, names, addresses, enumerator comments, etc.), as well as group identifying information (a combination of village and birthdate for example). 
