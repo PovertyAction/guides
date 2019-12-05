@@ -24,9 +24,9 @@ This entire process is called a data flow. At GPRL and IPA, we think of the step
 
 ![](https://raw.githubusercontent.com/PovertyAction/guides.github.io/master/CleaningGuide/DGP_CleanDataHighlight.PNG)
 
-1.	**Import data** – raw data is imported into a statistical software, corrections are applied, and duplicates observations are removed. 
+1.	**Import data** – all collected data is combined into a format readable by statistical software. In this step, the raw data is imported, corrections from enumerators are applied, and duplicates observations are removed. 
 2.	**Deidentify data** – personally identifying information (PII) is removed. This includes all individually identifying PII (geographic information, names, addresses, enumerator comments, etc.), as well as group identifying information (a combination of village and birthdate for example). 
-3.	**Clean data** – data content, formats, and encoding is standardized. Data consistency is verified and similar datasets are appended to create single datasets used for outcomes.
+3.	**Clean data** – data content, formats, and encoding is standardized. After this, data consistency is verified and similar datasets are appended to create single datasets used to create outcomes.
 4.	**Create outcomes** – individual outcome variables are created from the clean data. Data are merged and appended as part of this project to make a dataset at the level of analysis needed.
 
 Differences in in the data may make it impossible to follow this order exactly. Generally, deidentification should happen as soon as possible in the data flow if the data contains PII.
