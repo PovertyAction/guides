@@ -20,7 +20,7 @@ The `insheet` command remains an alternative for .csv, .tsv, and .txt files. It 
 ## Importing multiple files at once
 A useful function for importing multiple files within a folder is the `dir` extended macro function. You can find documentation on this by typing `help extended_fcn` in Stata.  This function allows you to store all the names of the files in a folder in a local so you can loop through them for importing. See example code of this process below. 
 
-````
+```R
 *This stores all files with the extension .xlsx in the "$raw" data folder into a local "files"
 local files: dir "$raw" files "*.xlsx", respectcase 
    
@@ -52,7 +52,7 @@ foreach file in `files' {
 	 *Save the file with the new clean file name as a dta file
 	 save "filepath/dtafiles/`cleanfilename'_raw.dta", replace
 }	
-````
+```
 Note that the new .dta files are no longer saved in the same folder that your raw excel, csv, or any other type of files were saved in. As the imported data are no longer raw, they should be saved in either a temporary or data folder.
 
 It can be helpful set up a "dta" or "temp" folder for you to save these intermediate data files before you start. To do so, you can create a folder to save your files in directly in your script by using `mkdir "filepath"`. If the directory already exists, this will create an error. One solution is to use the `capture` command and type `cap mkdir "filepath"` which will suppress the error. We recommend avoiding `capture` in most situations.
