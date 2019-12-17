@@ -52,10 +52,11 @@
 //$red-300: #dd2e2e;
 
 //// Set IPA Colors
-$ipa-green: #81B53C
-$ipa-blue: #006EB9
-$black: #000000
-$ipa-orange: E89423
+
+$ipa-green: #81B53C;
+$ipa-blue: #006EB9;
+$black: #000000;
+$ipa-orange: E89423;
 
 //$body-background-color: $white;
 //$sidebar-color: $grey-lt-000;
@@ -65,11 +66,11 @@ $ipa-orange: E89423
 
 //$body-text-color: $grey-dk-100;
 //$search-result-preview-color: $grey-dk-000;
+//$nav-child-link-color: $grey-dk-100;
+//$base-button-color: #f7f7f7;
 $body-heading-color: $ipa-green;
-$nav-child-link-color: $grey-dk-100;
 $link-color: $ipa-blue;
 $btn-primary-color: $ipa-blue;
-//$base-button-color: #f7f7f7;
 
 ////
 //// Spacing
