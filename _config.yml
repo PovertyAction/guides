@@ -12,3 +12,6 @@ search_tokenizer_separator: /[\s/]+/
 # Link behavior 
 # This allows to link to subpages
 heading_anchors: true
+
+# Google Analytics Tracking 
+ga_tracking: UA-6770433-5
