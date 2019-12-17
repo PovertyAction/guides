@@ -17,8 +17,8 @@ heading_anchors: true
 ga_tracking: UA-6770433-5
 
 # Add auxilary links:
-aux_links: "Innovations for Poverty Action": 
+aux_links: 
+  "Innovations for Poverty Action.com": 
     - "https://www.poverty-action.org/"
   "Global Poverty Research Lab": 
     - "https://www.kellogg.northwestern.edu/research/global-poverty-research-lab.aspx"
-    
