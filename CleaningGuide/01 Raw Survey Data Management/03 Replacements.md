@@ -31,7 +31,8 @@ If you are making multiple replacements, this method can create long datasets an
 
 If you are using IPA's Data Management System, this code snippet is included in the master_check do file. You can also use the `ipacheckreadreplace` command in your own code with this format:
 
-```ipacheckreadreplace using "hfc_replacements.xlsm", ///
+```
+ipacheckreadreplace using "hfc_replacements.xlsm", ///
     id("key") ///
     variable("variable") ///
     value("value") ///
