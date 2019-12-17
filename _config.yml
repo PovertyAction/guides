@@ -10,7 +10,6 @@ search_enabled: true
 search_tokenizer_separator: /[\s/]+/
 
 # Link behavior 
-# This allows to link to subpages
 heading_anchors: true
 
 # Google Analytics Tracking 
