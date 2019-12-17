@@ -17,7 +17,7 @@ ga_tracking: UA-6770433-5
 
 # Add auxilary links:
 aux_links: 
-  "Innovations for Poverty Action": 
+  "![](https://raw.githubusercontent.com/PovertyAction/guides.github.io/master/assets/IPA_logo.png)": 
     - "//www.poverty-action.org/"
-  "Global Poverty Research Lab": 
+  "![](https://raw.githubusercontent.com/PovertyAction/guides.github.io/master/assets/GPRL_logo.png)": 
     - "//www.kellogg.northwestern.edu/research/global-poverty-research-lab.aspx"
