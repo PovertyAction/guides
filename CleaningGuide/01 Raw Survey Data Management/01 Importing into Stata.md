@@ -35,7 +35,8 @@ foreach file in `files' {
 
 	**Quality Checks (Optional)
 	*Assert you have the correct number of observations.
-	assert r(N) == number_of_expected_observations
+	qui count
+	assert `r(N)' == [number_of_expected_observations] // If you know the amount of expected observations
 	
 	*Check that what variables you think sould be unique identifiers are indeed unique. 
 	isid unique_id_var
