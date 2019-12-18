@@ -22,27 +22,33 @@ Make sure you save do files and documents so that this process can be replicated
 
 This data flow would like the following. First, the specify reponses are cleaned and saved so that the excel sheet can be modified.
 ````
-  /* MR 10/25/2019:
-    The variable q_oth is the "specify" variable corresponding to
-    the variable q If q == 99, then q_oth has a string value input
-    by the enumerator.
-    
-    First, I standardize strung responses of the q_other variable and
-    then output an excel document with each unique response.
-  */ 
-  *String cleaning
-  gen q_oth_cl = q_oth // create a clean copy to preserve the raw data
-  reaplce q_oth_cl = lower(q_oth_cl) 
-  replace q_oth_cl = strtrim(q_oth_cl) // only trim external spaces so "sky blue" does not become "skyblue"
+/* MR 10/25/2019:
+  The variable q_oth is the "specify" variable corresponding to
+  the variable q If q == 99, then q_oth has a string value input
+  by the enumerator.
+  
+  First, I standardize strung responses of the q_other variable and
+  then output an excel document with each unique response.
+*/ 
+*String cleaning
+gen q_oth_cl = q_oth // create a clean copy to preserve the raw data
+replace q_oth_cl = lower(q_oth_cl) 
+replace q_oth_cl = strtrim(q_oth_cl) // only trim external spaces so "sky blue" does not become "skyblue"
 
-  *Save excel file
-  tempfile map // create column header
-  gen `map' = ""
-  lab var `map'  "Mapping"
-  lab var q_oth_cl "Other values"
+*Save excel file
+tempvar map // create column header
+gen `map' = ""
+lab var `map'  "Mapping"
+lab var q_oth_cl "Other values"
 
-  *Save to temporary file folder in the in the project folder
-  export excel q_oth_cl `map' using "${temp}q_oth.xlsx", firstrow(varl)
+*Save to temporary file folder in the in the project folder
+preserve
+
+  keep q_oth_cl `map'
+  duplicates drop q_oth_cl, force
+  export excel q_oth_cl `map' using "${temp}q_oth.xlsx", firstrow(varl) replace
+
+restore
 ````
 
 This results in a table that looks like this:
@@ -59,52 +65,55 @@ The RA would fill out the mapping column based on the allowed values in the surv
 
 The code to complete that looks like this:
 ````
-  /* MR 10/25/19:
-    For question "q", specified other values were cleaned according to the 
-    following rules: 
-      -Any color response with more than 1% of the sample was
-       added as a category
-      -Specified colors that are a subset of the option (sample)
-      -Non-colors were replaced as missing
-        -Extended missing values were used if these should have been 
-        an extended missing value captured by the survey.
-        
-    These values were saved in a file in the Project Folder at: 
-      ../08_Analysis&Results/01_Cleaning/05_Temp/q_oth_mapped.xlsx
-    They will then be merged in and replaced to the individual variables.
-  */
-  *Load in data and save a tempfile
-  preserve
+/* MR 10/25/19:
+  For question "q", specified other values were cleaned according to the 
+  following rules: 
+    -Any color response with more than 1% of the sample was
+     added as a category
+    -Specified colors that are a subset of the option (sample)
+    -Non-colors were replaced as missing
+      -Extended missing values were used if these should have been 
+      an extended missing value captured by the survey.
+      
+  These values were saved in a file in the Project Folder at: 
+    ../08_Analysis&Results/01_Cleaning/05_Temp/q_oth_mapped.xlsx
+  They will then be merged in and replaced to the individual variables.
+*/
+*Load in data and save a tempfile
+preserve
+
+  import excel using "${temp}q_oth_mapped.xlsx", first clear
+  keep if !mi(Mapping) // only merge on mapped values
+  ren Othervalues q_oth_cl // change the file back to q_oth for the merge
+  tempfile q_oth_mapping
+  save `q_oth_mapping'
   
-    import excel using "${temp}q_oth_mapped.xlsx", first
-    keep if !mi(mapping) // only merge on mapped values
-    ren other q_oth // change the file back to q_oth for the merge
-    tempfile q_oth_mapping
-    save `q_oth_mapping'
-    
-  restore
-  
-  *Merge on file
-  mmerge q_oth using `q_oth_mapping', t(n:1) missing(nomatch)
-  /* 
-    Alternatively, merge to the subset of responses with non_missing values and 
-    append these files afterwards using "merge m:1 q_oth using `q_oth_mapping'" 
-  */
-  assert _merge == 1 | _merge == 3
-  
-  *Replace values
-  levelsof q // first collect every level of q and replace
-  loc levels `r(levels)'
-  foreach level of local levels {
-    replace q = `level' if mapping == `level'
-  }
-  
-  *replace missing values to IPA standard missing values
-  replace q = .d if mapping == -66 // don't know
-  replace q = .r if mapping == -77 // refusal
-  replace q = .n if mapping == -88 // not applicable
-  
-  *finally check that everything was captured
-  assert q != 99 if _merge == 3
-  drop _merge q_oth_cl mapping // remove extraneous variable
+restore
+
+*Merge on file
+mmerge q_oth_cl using `q_oth_mapping', t(n:1) missing(nomatch)
+/* 
+  Alternatively, merge to the subset of responses with non_missing values and 
+  append these files afterwards using "merge m:1 q_oth using `q_oth_mapping'" 
+*/
+assert _merge == -1 | _merge == 1 | _merge == 3 // missing, no coding, or coded
+
+*Replace values
+levelsof q // first collect every level of q and replace
+loc levels `r(levels)'
+foreach level of local levels {
+  replace q = `level' if mapping == `level'
+}
+
+*Replace extended values 
+// do this manually
+
+*replace missing values to IPA standard missing values
+replace q = .d if mapping == -66 // don't know
+replace q = .r if mapping == -77 // refusal
+replace q = .n if mapping == -88 // not applicable
+
+*finally check that everything was captured
+assert q != 99 if _merge == 3 // this assumes 99 == other in the survey AND that the all values were coded
+drop _merge q_oth_cl mapping // remove extraneous variable
 ````
