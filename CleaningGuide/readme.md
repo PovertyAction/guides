@@ -12,7 +12,7 @@ Proper data cleaning is essential for analytical accuracy. Raw data needs to be 
 
 This guide outlines best practices in data cleaning, primarily concentrating on converting raw survey data to usable data for analysis of RCTs using Stata. The scope of the guide is to cover the principles of cleaning data over a project lifecycle with the goal of producing clean data in an accurate and reproducible fashion. The guide does not cover best practices in designing surveys, coding, or conducting data analysis.
 
-In each section, we describe a set of common tasks and provide information on “what” this step is and “how” we suggest this step is completed in Stata. We also flag potential complexities. This guide assumes basic knowledge of Stata (introductory Stata training can be found [here]( https://github.com/PovertyAction/IPA-Stata-Trainings)). 
+In each section, we describe a set of common tasks and provide information on “what” this step is and “how” we suggest this step is completed in Stata. We also flag potential complexities. This guide assumes basic knowledge of Stata (introductory Stata training can be found [here](https://github.com/PovertyAction/IPA-Stata-Trainings)). 
 
 As part of this guide, we briefly cover other parts of the data flow, including coding best practices, deidentification, and version control. In many ways these topics are distinct from data cleaning, but all interrelate to some extent. Effective data cleaning will follow coding best practices, have a version control system, and be well documented. 
 
