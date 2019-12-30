@@ -27,4 +27,5 @@ aux_links:
 #baseurl: "/guides" 
 
 # Add logo
-logo: "/assets/Combined_logo.png"
+# Need to fix proportions 
+#logo: "/assets/Combined_logo.png"
