@@ -22,3 +22,9 @@ aux_links:
     - "//www.poverty-action.org/"
   "Global Poverty Research Lab": 
     - "//www.kellogg.northwestern.edu/research/global-poverty-research-lab.aspx"
+
+# Change URLs
+baseurl: "/guides" 
+
+# Add logo
+logo: "/assets/Combined_logo.png"
