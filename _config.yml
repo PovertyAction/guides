@@ -24,7 +24,7 @@ aux_links:
     - "//www.kellogg.northwestern.edu/research/global-poverty-research-lab.aspx"
 
 # Change URLs
-baseurl: "/guides" 
+#baseurl: "/guides" 
 
 # Add logo
 logo: "/assets/Combined_logo.png"

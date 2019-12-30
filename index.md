@@ -1,3 +1,10 @@
+---
+layout: default
+title: Home
+nav_order: 1
+permalink: /
+---
+
 # Home
 
 IPA & GPRL guides are stored on this site. 
