@@ -7,45 +7,74 @@ grand_parent: Cleaning Guide
 has_children: false
 ---
 
+## Wide and Long Data
+One way to describe data is if the dataset is stored in a "long" or "wide" format. Long data keeps repeated values as an observation (row):
+  
+  | Household ID | Member ID  | Treatment  | 
+  | ------------- | ------------- | ------------- |
+  | HH001 | 01 | T |
+  | HH001 | 02 | C |
+
+Wide data describes data that has similar values as variables (columns). The same example could be displayed wide by expanding the `Member ID` column to be a suffix of the `Treatment` column, like the following:
+
+  | Household ID | Treatment_01  | Treatment_02 
+  | ------------- | ------------- | ------------- |
+  | HH001 | T | C |
+
+There is no correct choice for how data should be stored. You should decided the format to make the data most useable for the analysis being conducted. As a rule of thumb, in a clean dataset each observation is a row, each variable is a column, and each type of observation is a separate dataset [Wickham, 2014](https://www.jstatsoft.org/article/view/v059i10). However, The unit of analysis may change for different analyses. An analysis could be conducted at the person-year-level in one analysis, but at the person-level in another. The context of the data being analyzed are required to determine what format the data should be stored in. As long as an ID variable exists for each level of the data (e.g. a long dataset may have a household ID *and* a household member ID). For more guidance on how Stata treats “wide” and “long” datasets as well as how to change between them (reshape the data) type `help reshape` in Stata.
+
+When cleaning data, it's generally a good idea to decide how the data will be stored based on how it will be cleaned. For example, if one goal of cleaning is to produce an income variable at the household-level, but income is collected at the respondent-day-level, it may be a good idea to clean the income module separately and keep that dataset long. Then, the income data can be collapsed to the household-level and merged onto the household-level dataset later in the variable construction process. How, or if, that happens is up to you as the analyst. 
+
+There is one point at which the data has a known unit of analysis: during high frequency checks and backchecks. Data is always at the unit of the survey submission when doing quality control. One observation is one survey submission. For multi-day surveys, a survey submission may be a different level of data than the survey.
+
 ## SurveyCTO Data
-When downloading from SurveyCTO, you can choose whether to export the data in wide or long format.
+When downloading from SurveyCTO, you can choose whether to export the data in [wide or long format](https://docs.surveycto.com/05-exporting-and-publishing-data/01-overview/09.data-format.html). SurveyCTO also produces a file dataset that links long formatted datasets on their unique IDs if the data is exported long.
 
-Keeping the data in long format means that SurveyCTO will automatically organize observations at the largest unit level (e.g. household-level) and will save all sub-unit level data into separate repeats group (e.g. person-level, plot-level). This means you will have a larger number of datasets to work with (and perhaps a more involved merging process if you want to compile all the data), but each dataset in itself will be smaller and easier to read.
+Keeping the data in long format means that SurveyCTO will automatically organize observations at the largest unit level (e.g. household-level) and will save all sub-unit level data into separate datasets for each repeat group (e.g. person-level, plot-level, etc.). This means you will have a larger number of datasets to work with (and perhaps a more involved merging process if you want to compile all the data), but each dataset will be at the unit of the question, so may be more intuitive to work with.
 
-Wide data, on the other hand, saves you the process of merging manually, but it means that some of the sub-unit level data will automatically be reshaped in order to fit with the main dataset. For example, ages of individual household members collected by the variable “age” will be reshaped as “age_1” (for the first member), “age_2” (for the second member), etc. It is easier to run quality checks on wide data, but these datasets can also grow very large very quickly and become unwieldy to work with.
+Wide data saves you the process of merging manually. If any repeat groups exist, sub-unit level data will automatically be reshaped in order to fit with the main dataset. For example, names of individual household members collected by the variable `name` will be reshaped as `name_1` (for the first member), `name_2` (for the second member), etc. It is easier to run quality checks on wide data, as these data will contain all data collected by the survey. However, these datasets can also grow very large very quickly and become unwieldy to work with. To load wide data into Stata it may be necessary to increase the number of variables Stata can read in a single dataset (less than 32,767 for Stata-SE) by typing `set maxvar 32767`
 
-For more guidance on what “wide” and “long” datasets are, and how to reshape type `help reshape` in Stata.
+## Alternative to reshape
+To convert between wide and long data, Stata uses the `reshape` command. Reshaping is a very computationally intensive command. If you are dealing with a large data set you will quickly find that using `reshape` can take an excessively long time or even break the current Stata session. There is an alternative way to manually code a `reshape` using `expand` and `replace`, that has the benefits of running much faster. It also provides an understanding of how a `reshape` transforms your data structure. In addition, variable labels can be modified with more control if done manually.
 
-## Alternative to Reshaping
-Reshaping is a very computationally intensive command. If you are dealing with a large data set you will quickly find that using `reshape` can take an excessively long time or even break the current Stata session. There is an alternative way to manually code a `reshape` using `expand` and `replace`, that has the benefits of running much faster. It also provides an understanding of how a `reshape` transforms your data structure. 
-
-Going from a wide dataset by person to a long datset by person-month. The variables we want to reshape are income and expenditures.
+The following code reshapes a wide dataset by person to a long datset by person-month. The variable that we want to reshape is `income`.
 
 ```
-  *store all of the income_MMYYYY variables into a local to count how many we are reshaping
-  ds income*           
-  local copies : word count `r(varlist)'  \\ the number of vars with the same stub per stub
-  expand `copies'      \\we need to create as many of each of our observations as as many vars we want to reshape
+*sCount all of the income variables and create a variable for each observations
+ds income*           
+local copies : word count `r(varlist)'  
+expand `copies' 
 
-  *Then create a list of all of the vars with each stub and manually expand
-  gen yearmonth = .        \\create an empty var that will hold the sub-group identifier (this is the j var in reshape)
-  foreach var in  income expenditures {
+*Then create a list of all of the vars with each stub and manually expand
+gen yearmonth = . \\create an empty var that will hold the sub-group identifier (this is the j var in reshape)
+foreach var in income {
+    
+    *Save all of the income variables
     ds `var'_*,                  
     local reshapevarlist `r(varlist)'   
 
     *remove the stub so that we can have the yearmonth or j identifier foreach var alone while maintaining their order        
     local monthyear = subinstr("`reshapevarlist'", "`var'_", "", .)   
-       
+     
     *create an empty version of the stub, this will become the long var
     gen `var' = .      
-       
-    forvalues x=1/`copies' {           
-      local currvar : word `x' of `reshapevarlist'         \\ looping through each of the vars with that stub- pull varname
-      replace `var' = `currvar' if mod(_n, `copies') == `x'      \\ replace the empty version with the x_th obs of this var for multiples of x
-      local yearmonth : word `x' of `monthyear' \\\pull out the sub identifier that corresponds with the var we are working on
-      replace yearmonth = `yearmonth' if mod(_n, `copies') == `x'  \\ replace the empty version with the x_th obs of this var for multiples of x 
-      drop `currvar'     \\ drop the wide versions of the variables
+     
+    *Loop through each value 
+    forvalues x = 1/`copies' {           
+        
+        * Replace the variable from the list we defined earlier in the loop
+        local currvar : word `x' of `reshapevarlist'         
+        replace `var' = `currvar' if mod(_n, `copies') == `x'
+
+        * Generate the identifier variable
+        local yearmonth : word `x' of `monthyear' 
+        replace yearmonth = `yearmonth' if mod(_n, `copies') == `x'  \\ replace the empty version with the x_th obs of this var for multiples of x 
+        
+        *Drop the wide variable
+        drop `currvar' 
     }
-  }
+    // end forval x= 1/`copies'
+}
+// end foreach var in income
 ```
 
