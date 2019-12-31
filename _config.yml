@@ -23,7 +23,7 @@ aux_links:
     - "//www.kellogg.northwestern.edu/research/global-poverty-research-lab.aspx"
 
 # Change URLs and metadata
-title: "IPA & GPRL Guides"
+title: "Guides"
 description: IPA & GPRL guides for data management of RCTs
 baseurl: "/guides" 
 url: "https://povertyaction.github.io" # the base hostname & protocol for your site, e.g. http://example.com
