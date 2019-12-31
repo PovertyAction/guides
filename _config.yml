@@ -1,5 +1,4 @@
 # ! Michael Rosenbaum 1.0.0 2019 11 12
-title: "Guides"
 
 # Theme info
 remote_theme: pmarsceill/just-the-docs
@@ -23,8 +22,13 @@ aux_links:
   "Global Poverty Research Lab": 
     - "//www.kellogg.northwestern.edu/research/global-poverty-research-lab.aspx"
 
-# Change URLs
-#baseurl: "/guides" 
+# Change URLs and metadata
+title: "IPA & GPRL Guides"
+description: IPA & GPRL guides for data management of RCTs
+baseurl: "/guides" 
+url: "https://povertyaction.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: pretty
+
 
 # Add logo
 # Need to fix proportions 
