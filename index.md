@@ -2,6 +2,8 @@
 layout: default
 title: Home
 nav_order: 1
+description: "IPA & GPRL guides for data management of RCTs"
+permalink: /
 ---
 
 # Home
