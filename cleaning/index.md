@@ -41,10 +41,10 @@ Once data is in a format to be imported, the raw data will have its own idiosync
 
 We find it useful to think about the cleaning processing in four rough stage:
 
-- [Raw Survey Data Management](https://povertyaction.github.io/guide/cleaning/rawdatamanagement/readme.html)
-- [Variable Management](https://povertyaction.github.io/guides/cleaning/02%20Variable%20Management/readme.html)
-- [Dataset, Value, and Variable Documentation](https://povertyaction/guides/cleaning/03%20Dataset,%20Value,%20and%20Variable%20Documentation/readme.html)
-- [Data Aggregation](https://povertyaction.github.io/guides/cleaning/04%20Data%20Aggregation%20and%20Outcome%20Creation/readme.html)
+- [Raw Survey Data Management](https://povertyaction.github.io/guides/cleaning/rawdatamanagement/)
+- [Variable Management](https://povertyaction.github.io/guides/cleaning/02%20Variable%20Management/readme/)
+- [Dataset, Value, and Variable Documentation](https://povertyaction.github.io/guides/cleaning/03%20Dataset,%20Value,%20and%20Variable%20Documentation/readme/)
+- [Data Aggregation](https://povertyaction.github.io/guides/cleaning/04%20Data%20Aggregation/readme/)
 
 Each of these stages has a description in the guide, as well as a list of tasks which each has a subpage in the guide. In addition, this guide briefly touches on Stata coding practices relevant to this process, as well as some tasks related to outcome creation that require data management and are particularly prone to error in Stata.
 
