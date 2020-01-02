@@ -36,13 +36,13 @@ We can use `fillin ID Survey_Round` to get the following
 | 2           | endline2     | Male        |0		|
 
 A couple things to note:
-  1. This command automatically creates an indicator variabel called \_fillin that keeps track of observations that were created from the command
-  2. Variables not specified in the `fillin` are filled in with a missing value. So after you run `fillin` you will need to go back and replace observations as you see appropriate. For example, for typically constant variables such as gender you could replace this new missing value to match the one above it. 
+1. This command automatically creates an indicator variabel called \_fillin that keeps track of observations that were created from the command
+2. Variables not specified in the `fillin` are filled in with a missing value. So after you run `fillin` you will need to go back and replace observations as you see appropriate. For example, for typically constant variables such as gender you could replace this new missing value to match the one above it. 
   
-  ```
-  sort ID Survey_Round
-  replace Gender = Gender[_n-1] if ID == ID[_n-1] & _fillin == 1 
-  ```
+```
+sort ID Survey_Round
+replace Gender = Gender[_n-1] if ID == ID[_n-1] & _fillin == 1 
+```
 
 ## labeldup
 
@@ -76,7 +76,7 @@ This is not a built-in Stata command and can be installed by typing `ssc install
   - It allows for missing values in the match variable and let's the user determine how they are treated with the `missing()` option.
   - It allows for differing merge variable names with the `umatch()` option
   - It allows for all merged variables from the using file to be prefixed as part of the merge with the `uname()` option
-  - It stores shared variable names that are not merged in a local `r(common)'
+  - It stores shared variable names that are not merged in a local `r(common)`
 
 There are a number of other options and syntax changes. You can see these by typing `help mmerge` once `mmerge` is installed. 
 
