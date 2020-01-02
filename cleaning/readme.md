@@ -22,7 +22,7 @@ At a high-level, the process that data goes through from when it is generated, i
 
 This entire process is called a data flow. At GPRL and IPA, we think of the steps in the data flow that take place in statistical software in four steps:
 
-![](https://raw.githubusercontent.com/PovertyAction/guides.github.io/master/CleaningGuide/DGP_CleanDataHighlight.PNG)
+![](https://raw.githubusercontent.com/PovertyAction/guides/master/assets/images/DGP_CleanDataHighlight.PNG)
 
 1.	**Import data** – all collected data is combined into a format readable by statistical software. In this step, the raw data is imported, corrections from enumerators are applied, and duplicates observations are removed. 
 2.	**Deidentify data** – personally identifying information (PII) is removed. This includes all individually identifying PII (geographic information, names, addresses, enumerator comments, etc.), as well as group identifying information (a combination of village and birthdate for example). 
@@ -35,16 +35,16 @@ Differences in in the data may make it impossible to follow this order exactly. 
 
 It goes without saying that raw data cannot be used for analysis. Individual survey items will not be informative on their own in most cases. Outcome variables need to be created from standardized sets of variables. In addition, documentation needs to be added so users of the data are clear on what each dataset contains.
 
-Raw data often needs corrections and deduplication that often requires additional data from enumerators or respondents. We view data collection for replacement as part of the data collection process. Often, these replacements are collected and made as part of the monitoring process. IPA and GPRL produced many tools and resources to help this process. In particular, IPA’s [data management system]( https://github.com/PovertyAction/high-frequency-checks) supports data quality monitoring, duplicate management, and corrections.
+Raw data often needs corrections and deduplication that often requires additional data from enumerators or respondents. We view data collection for replacement as part of the data collection process. Often, these replacements are collected and made as part of the monitoring process. IPA and GPRL produced many tools and resources to help this process. In particular, IPA’s [data management system](https://github.com/PovertyAction/high-frequency-checks) supports data quality monitoring, duplicate management, and corrections.
 
 Once data is in a format to be imported, the raw data will have its own idiosyncrasies. The cleaning process attempts to remove those idiosyncrasies from that dataset in a reproducible way. Imagine you have three surveys each with slightly different outputs. Cleaning would make the output from those datasets equivalent in format, and standardized modifications made to the content. The code that produces those data should be able to be run any number of times and should tell the user if something about the data has changed so that it can’t accomplish its function.
 
 We find it useful to think about the cleaning processing in four rough stage:
 
-- [Raw Survey Data Management](https://povertyaction.github.io/guides.github.io/CleaningGuide/01%20Raw%20Survey%20Data%20Management/readme.html)
-- [Variable Management](https://povertyaction.github.io/guides.github.io/CleaningGuide/02%20Variable%20Management/readme.html)
-- [Dataset, Value, and Variable Documentation](https://povertyaction.github.io/guides.github.io/CleaningGuide/03%20Dataset,%20Value,%20and%20Variable%20Documentation/readme.html)
-- [Data Aggregation](https://povertyaction.github.io/guides.github.io/CleaningGuide/04%20Data%20Aggregation%20and%20Outcome%20Creation/readme.html)
+- [Raw Survey Data Management](https://povertyaction.github.io/guide/cleaning/rawdatamanagement/readme.html)
+- [Variable Management](https://povertyaction.github.io/guides/cleaning/02%20Variable%20Management/readme.html)
+- [Dataset, Value, and Variable Documentation](https://povertyaction/guides/cleaning/03%20Dataset,%20Value,%20and%20Variable%20Documentation/readme.html)
+- [Data Aggregation](https://povertyaction.github.io/guides/cleaning/04%20Data%20Aggregation%20and%20Outcome%20Creation/readme.html)
 
 Each of these stages has a description in the guide, as well as a list of tasks which each has a subpage in the guide. In addition, this guide briefly touches on Stata coding practices relevant to this process, as well as some tasks related to outcome creation that require data management and are particularly prone to error in Stata.
 
