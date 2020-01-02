@@ -43,11 +43,9 @@ recode * (-99=.)
 
 ## Extended missing values in Stata
 
-Stata has special codes for numeric missing values. For numeric variables, missing values are considered to be greater in value than all other numbers and themselves have an order of magnitude. The magnitude of missing values increases across the alphabet, with the standard missing value `.` coming before `.a`: `.` <  `.a` <  `.b` <  `.c` < ... < `.z` The `.a`, `.b`, etc. are called “extended missing values.” Our standard for which extended missing values correspond with which reasons for missingness can be found here. Note that extended missing values cannot be stored in string variables. 
+Stata has special codes for numeric missing values. For numeric variables, missing values are considered to be greater in value than all other numbers and themselves have an order of magnitude. The magnitude of missing values increases across the alphabet, with the standard missing value `.` coming before `.a`: `.` <  `.a` <  `.b` <  `.c` < ... < `.z` The `.a`, `.b`, etc. are called “extended missing values.” . Note that extended missing values cannot be stored in string variables. Instead, all string variables with a missing value are shown as `“”` (called “blank”). 
 
-String variables with a missing value are shown as `“”` (called “blank”). 
-
-Ensure these values consistently represent missing values in your data. For instance, sometimes -99 refers to “don’t know”. In that case, you will want to replace all `-99` values with `.d`. It can be helpful to use the recode command to efficiently replace those values. We suggest keeping the following standards for extended missing values:
+Ensure extended missing values consistently represent missing values in your data. For instance, if -99 and -999 refer to “don’t know” in two different waves of the survey, they should be standardized. In that case, you will want to replace all -99 and -999 values with `.d`. It can be helpful to use the recode command to efficiently replace those values. We suggest keeping the following standards for extended missing values:
 
 | Type of Missing | Extended Missing |
 | ---- | ---- | 
@@ -58,7 +56,7 @@ Ensure these values consistently represent missing values in your data. For inst
 | Skip | .s |
 | Version differences | .v |
 
-Some responses may require the enumerator to switch from the standard missing values (for example if a response is restricted to be positive, -99 may not be allowed). Other times, enumerators may enter the wrong missing value by mistake, such as -999 instead of -99. As part of the code to relabel missing values by type, you can include some searching for these changes. The following code does so.
+Some responses may require the enumerator to switch from the standard missing values (for example if a response is restricted to be positive, -99 may not be allowed). Other times, enumerators may enter the wrong missing value by mistake, such as -999 instead of -99. As part of the code to relabel missing values by type, you can include code that searches for these changes. The following code replaces multiple values and looks for positive versions of the missing values in outliers.
 
 ```
 *Assign numerical codes
@@ -94,7 +92,7 @@ foreach var of local numvars {
 		// end foreach val of 99 88 77 66 
 
 	}
-	// end if mi("`: value lael `var''")
+	// end if mi("`: value label `var''")
 
 
 	** Relabel based on missing patterns
