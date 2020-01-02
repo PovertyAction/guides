@@ -22,7 +22,7 @@ save "example.dta", replace
 restore 
 ````
 
-## Asserting before hand
+## Asserting beforehand
 It is important you code asserts before you collapse to check that you're variables are what you are expecting. For example, if you think you have a constant var among the variables you are collapsing on - you should check prior to collapsing. If you are wrong, you could not know based on the stat you choose, and it is hard to check after the collapse since the data is gone. 
 
 ## Explain why you use the statistic you choose 
