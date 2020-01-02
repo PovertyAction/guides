@@ -39,18 +39,3 @@ There are a few commands that can help with fuzzy mergeing in Stata. All are use
 
 A number of other commands and approaches eist for this problem. This has been evaluated in the economics literature for historical record linkage. [Abramitzky et. al.](https://ranabr.people.stanford.edu/sites/g/files/sbiybj5391/f/linking_may2019.pdf) test multiple matching protocols and find that automated comparison techniques compare favorably to human matching in a variety of circumstances. Stata resources are included with the linked paper.
 
-## Workflow for reclink
-
-Fuzzy merging is generally computation expensive, and takes a long time over large datasets. `reclink` and `matchit` are both relatively efficient, but require some amount of matching
-
-### String cleaning
-
-
-
-```
-
-```
-
-### Probabilistic matching
-
-### Matching review
