@@ -56,6 +56,7 @@ Ensure these values consistently represent missing values in your data. For inst
 | Not applicable | .n |
 | Refusal | .r |
 | Skip | .s |
+| Version differences | .v |
 
 Some responses may require the enumerator to switch from the standard missing values (for example if a response is restricted to be positive, -99 may not be allowed). Other times, enumerators may enter the wrong missing value by mistake, such as -999 instead of -99. As part of the code to relabel missing values by type, you can include some searching for these changes. The following code does so.
 
