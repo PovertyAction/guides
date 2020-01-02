@@ -4,16 +4,11 @@ title: Raw Data Management
 nav_order: 1
 parent: Cleaning Guide
 has_children: true
+has_toc: false
 ---
 # Raw Data Management
 
 Raw data generally come in the form of the instrument used to generate the data, be it a survey form or a customer relationship management system. These formats usually result from the form best used to capture the data and not to process it. Format conversion from the source format to one usable by statistical software often requires changing file formats, changing data formats, and general error correction. This section of the cleaning guide covers that process, primarily focused on getting data from SurveyCTO to a preferred structure in Stata. 
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ## Survey Data
 Most IPA research projects include survey data. Survey data has the advantage of being received in a consistent format and a known structure. SurveyCTO data, especially, has tools that aid import into Stata. Deciding the data structure during survey programming provides important benefits for raw data management.
