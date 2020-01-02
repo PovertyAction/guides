@@ -28,7 +28,7 @@ foreach var in `r(varlist)' {
     2. add it to a special local  
 */
 foreach var of varlist _all {
-if strlen("`var'")>27 {       
+    if strlen("`var'")>27 {       
         tab `var'               
         local too_long_vars `too_long_vars' `var'                           
     }
