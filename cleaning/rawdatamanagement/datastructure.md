@@ -63,7 +63,7 @@ foreach var in income {
     forvalues x = 1/`copies' {           
         
         * Replace the variable from the list we defined earlier in the loop
-        /* See h mod to understand how mod works, but in short if mod(n, `copies') == `x' 
+        /* See "h mod" to understand how mod works, but in short "if mod(n, `copies') == `x'"" 
         will only replace the variable for the nth observation in each group defined by
         an ID variable (e.g. the nth or last row created in the expand)
         */

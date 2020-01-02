@@ -60,18 +60,16 @@ Some responses may require the enumerator to switch from the standard missing va
 
 ```
 *Assign numerical codes
-loc idk 	-99 99 999	// numerical code for "Don't Know"
-loc rf 		-77	77 75	// numerical code for "Refuse"
-loc na 		-88			// numerical code for "Not Applicable"
-loc oth 	-66 		// numerical code for "Other"
-loc skip 	-70 		// numerical code for  "Skip"
+loc idk		-99 99 999	// numerical code for "Don't Know"
+loc rf		-77 77 75	// numerical code for "Refuse"
+loc na		-88			// numerical code for "Not Applicable"
+loc oth		-66			// numerical code for "Other"
+loc skip	-70			// numerical code for  "Skip"
 
-
-* Replace values for each type of refusal
+* Replace values for each type of refusal across numerical variables
 qui ds, not(type string) 
 local numvars `r(varlist)'
 foreach var of local numvars { 
-
 
 	** Replace missing values as negative for unlabeled numeric variable above 0 
 	if mi("`: value label `var''") { // no labels from SurveyCTO import code
@@ -94,36 +92,29 @@ foreach var of local numvars {
 	}
 	// end if mi("`: value label `var''")
 
-
 	** Relabel based on missing patterns
 	foreach x of local idk {
 		replace `var' = .d if `var' == `x' 		// Don't know 
 	}
 	// end foreach x of local idk
-
 	foreach x of local na {
 		replace `var' = .n if `var' == `x' 		// N/A
 	}
 	// end foreach x of local na
-
 	foreach x of local oth {
 		replace `var' = .o if `var' == `x' 		// Other
 	}
 	// end foreach x of local oth
-
 	foreach x of local rf {
 		replace `var' = .r if `var' == `x' 		// Refuse
 	}
 	// end foreach x of local rf
-
 	foreach x of local skip {
 		replace `var' = .s if `var' == `x' 		// Skip
 	}
 	// end foreach x of local 
-
 } 
 // end foreach var of local numvars
-
 ```
 
 We recommend checking outliers and replacements manually, and to search for modal responses in numeric variables that won't have missing values as outliers. Accurate responses can overlap with missing response codes. Automated replacement code, such as the code above, should only be completed after confirming that all inverted values are correct. Even better, use of defensive coding such as assert or the `pause` command will resolve this. The best solution is often to make sure that the data generating process guards against this type of messiness. Programming in confirmation questions in the survey ("Did the respondent really answer 99 or is this a missing value?") can help accomplish this with more accuracy.
