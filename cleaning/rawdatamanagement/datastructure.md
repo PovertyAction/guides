@@ -46,7 +46,7 @@ local copies : word count `r(varlist)'
 expand `copies' 
 
 *Then create a list of all of the vars with each stub and manually expand
-gen yearmonth = . \\create an empty var that will hold the sub-group identifier (this is the j var in reshape)
+gen yearmonth = . // create an empty var that will hold the sub-group identifier (this is the j var in reshape)
 foreach var in income {
     
     *Save all of the income variables
