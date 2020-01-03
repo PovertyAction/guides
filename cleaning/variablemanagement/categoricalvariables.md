@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Categorical Variables and Dummy Variables
+title: Categorical Variables
 nav_order: 2
 parent: Variable Management
 grand_parent: Cleaning Guide
