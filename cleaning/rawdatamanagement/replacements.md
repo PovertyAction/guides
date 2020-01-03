@@ -8,7 +8,6 @@ has_children: false
 ---
 
 # Replacements
-
 As you are collecting data, there will inevitably be errors in your data that need to be manually corrected. It is important to always maintain the raw dataset with the original collected data. Once you have confirmed that a value in your dataset is incorrect and needs to be changed, this replacement should be made and saved in a new dataset, before you have done any other necessary cleaning. 
 
 When making a replacement, confirm that you are using a truly unique value for your observation. For example, the `key` variable should be used if you are making replacements in SurveyCTO data, since there can be duplicates in your ID variable, or you may need to make a replacement in the ID variable.  

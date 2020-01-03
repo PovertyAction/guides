@@ -7,7 +7,7 @@ grand_parent: Cleaning Guide
 has_children: false
 ---
 
-## Importing into Stata
+# Importing into Stata
 Data comes in many forms, from raw text (.txt) files to multi-sheet Excel (.xls and .xlsx) files. Importing data into Stata is necessary if the data is not already in Stata format (.dta file). In general, you should be able to use Stata’s functions and loops to efficiently import data. Stata can import most data formats. If your project’s data was collected using a platform like SurveyCTO, the raw data will come in .csv format and the SurveyCTO server will [provide a do file](https://docs.surveycto.com/05-exporting-and-publishing-data/01-overview/11.using-stata.html) that imports the raw .csv data into the Stata .dta format. 
 
 ## Importing different file types 

@@ -7,7 +7,7 @@ grand_parent: Cleaning Guide
 has_children: false
 ---
 
-## Wide and Long Data
+# Wide and Long Data
 One way to describe data is if the dataset is stored in a "long" or "wide" format. Long data keeps repeated values as an observation (row):
   
   | Household ID | Member ID  | Treatment  | 
