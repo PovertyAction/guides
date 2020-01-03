@@ -1,7 +1,7 @@
 # ! Michael Rosenbaum 1.0.0 2019 11 12
 
 # Theme info
-remote_theme: pmarsceill/just-the-docs
+remote_theme: mfrosenbaum/just-the-docs
 
 # Search
 search_enabled: true
