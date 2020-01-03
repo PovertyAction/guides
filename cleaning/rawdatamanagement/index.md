@@ -7,7 +7,6 @@ has_children: true
 has_toc: false
 ---
 # Raw Data Management
-
 Raw data generally come in the form of the instrument used to generate the data, be it a survey form or a customer relationship management system. These formats usually result from the form best used to capture the data and not to process it. Format conversion from the source format to one usable by statistical software often requires changing file formats, changing data formats, and general error correction. This section of the cleaning guide covers that process, primarily focused on getting data from SurveyCTO to a preferred structure in Stata. 
 
 ## Survey Data
