@@ -4,6 +4,8 @@ title: "Cleaning Guide"
 nav_order: 2
 has_children: true
 has_toc: false
+redirect_from:
+  - /guides/cleaning/readme/
 ---
 
 # Data Cleaning
