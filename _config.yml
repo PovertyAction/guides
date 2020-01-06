@@ -31,7 +31,7 @@ permalink: pretty
 
 # add plugins
 plugins:
-    -jekyll-redirect-from
+    - jekyll-redirect-from
 
 # Add logo
 # Need to fix proportions 
