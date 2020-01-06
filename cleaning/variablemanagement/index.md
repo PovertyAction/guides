@@ -5,6 +5,8 @@ nav_order: 2
 parent: Cleaning Guide
 has_children: true
 has_toc: false
+redirect_from:
+  - /guides/cleaning/variablemanagement/readme/
 ---
 
 # Variable Management
