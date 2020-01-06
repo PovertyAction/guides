@@ -29,6 +29,9 @@ baseurl: "/guides"
 url: "https://povertyaction.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: pretty
 
+# add plugins
+plugins:
+    -jekyll-redirect-from
 
 # Add logo
 # Need to fix proportions 
