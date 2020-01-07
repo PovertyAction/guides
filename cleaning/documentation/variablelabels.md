@@ -2,7 +2,7 @@
 layout: default
 title: Variable Labels
 nav_order: 2
-parent: Dataset, Value, and Variable Documentation
+parent: Dataset Documentation
 grand_parent: Cleaning Guide
 has_children: false
 ---

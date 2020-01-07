@@ -2,7 +2,7 @@
 layout: default
 title: Value Labels
 nav_order: 4
-parent: Dataset, Value, and Variable Documentation
+parent: Dataset Documentation
 grand_parent: Cleaning Guide
 has_children: false
 ---
