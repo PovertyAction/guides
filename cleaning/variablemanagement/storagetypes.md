@@ -39,7 +39,6 @@ tempvar temp
 gen double `temp' = . // create double to store datetime to avoid rounding
 
 *Foreach date variable, convert to datetime and run checks
-set trace on 
 foreach var of local date_vars {
 
 	*Display progress
