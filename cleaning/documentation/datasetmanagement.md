@@ -17,16 +17,16 @@ Any script that saves data should have code that identifies the variables saved,
 	sort hhid // sort in a unique order
 
 	*Create a local of variables
-	loc vars												///
-	hhid			enum_id									/// ID Variables
-	cluster			survey_date			form_id				/// File source variables
-	treatment		scto_rand								/// Treatment assignment 
-	bl_hhh_age		bl_hhh_female		bl_hhh_educ			/// Baseline demos
-	bl_hh_size												/// 
-	bl_cons_veg_*	bl_cons_meat_*		bl_cons_purch_*		/// Consumption
-	bl_cons_alc												/// 
-	bl_loan_size	bl_loan_exp_pay_m*	bl_loan_miss_m*		/// Loan information
-	bl_msf			bl_otaf									// Lender Fees
+	loc vars						///
+	hhid		enum_id					/// ID Variables
+	cluster		survey_date		form_id		/// File source variables
+	treatment	scto_rand				/// Treatment assignment 
+	bl_hhh_age	bl_hhh_female		bl_hhh_educ	/// Baseline demos
+	bl_hh_size						/// 
+	bl_cons_veg_*	bl_cons_meat_*		bl_cons_purch_*	/// Consumption
+	bl_cons_alc						/// 
+	bl_loan_size	bl_loan_exp_pay_m*	bl_loan_miss_m*	/// Loan information
+	bl_msf		bl_otaf					// Lender Fees
 
 	*Keep necessary values
 	qui ds `vars', not
