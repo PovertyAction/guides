@@ -60,7 +60,7 @@ label def region
 label values female female
 label values region region
 ```
-Note how the labels have the number in the value label. This is not strictly necessary, but can be useful if you want to values to display alongside labels in outputs.
+Note how the labels have the corresponding value as well as the description in the value label. This is not strictly necessary, but can be useful if you want to values to display alongside labels in outputs.
 
 ## Defensive Workflow for Encoding Values
 One way to ensure that data is encoded in an expected way is to check that values are only encoded from a list of value labels that you defined. The user written command `sencode` (installed using `ssc install sencode`) can help to support this. `sencode` labels the variable according to the values that you've predefined and then adds additional values in order from the highest value if it encounters values that you haven't defined. An example data flow follows:
