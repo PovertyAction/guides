@@ -19,12 +19,13 @@ Variable names should correspond to both interpretability by a user, as well as 
 ds inc_* 
 ```
 We recommend balancing the following considerations while naming variables:
-- Grouping variables that describe outcome categories
-- Grouping types of variables like comment fields with a unique substring such as `_note`
-- Creating names that have a substantive meaning and are easy to type (e.g. `inc_bus_` & `inc_ag` instead of `sec1bincome_` & `sec1csec2aincome`)
-- Creating unique and consistent naming patterns across all datasets used in the project 
+- Group variable names that describe outcome categories (e.g. all variables that count yield could be prefixed with `y_`).
+- Group types of variables like comment fields with a unique substring such as `_note`.
+- Create names that have a substantive meaning and are also easy to type (e.g. `inc_bus_` & `inc_ag` instead of `section1b_` & `section2a_`)
+- For indicator variables, do not name the variable the category. Instead, name the variable what the value "1" indicates (e.g. if a variable takes 1 when a respondent is female and 0 when a respondent is male, name the variable `female` not `gender`)
+- Create unique and consistent naming patterns across all datasets used in the project 
 	- Two datasets that have different units of analysis should not be identified by the uninformative variable name `id`
-	- Two datasets that describe income at various levels should use the same prefix to describe the same construct (e.g. plot-level income could be `inc_ag_plot1` and baseline household income could be `bl_inc_ag`)
+	- Two datasets that describe income at various levels should use the same prefix to describe the same construct (e.g. plot-level income could be `inc_ag_plot1` and baseline household income could be `inc_ag*_bl`)
 
 In wide data, it's also important to consider how statistical software performs reshaping variables. Often times patterning variable names is necessary for reshaping to work smoothly. In Stata, `reshape` uses a stub in the variable to identify the value for each group. Ensuring that variables are named consistently (e.g. baseline variables are suffixed by `_1`, midline by `_2`, and endline by `_3`) can make it easier to reshape datasets.
 
