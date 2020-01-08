@@ -27,7 +27,7 @@ This entire process is called a data flow. At GPRL and IPA, we think of the step
 3.	**Clean data** – data content, formats, and encoding is standardized. After this, data consistency is verified and similar datasets are appended to create single datasets used to create outcomes.
 4.	**Create outcomes** – individual outcome variables are created from the clean data. Data are merged and appended as part of this project to make a dataset at the level of analysis needed.
 
-Differences in in the data may make it impossible to follow this order exactly. Generally, deidentification should happen as soon as possible in the data flow if the data contains PII.
+Differences in the data may make it impossible to follow this order exactly. Generally, deidentification should happen as soon as possible in the data flow if the data contains PII.
 
 ## Data Cleaning
 It goes without saying that raw data cannot be used for analysis. Individual survey items will not be informative on their own in most cases. Outcome variables need to be created from standardized sets of variables. In addition, documentation needs to be added so users of the data are clear on what each dataset contains.
