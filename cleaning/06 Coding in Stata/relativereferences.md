@@ -16,7 +16,7 @@ There are multiple ways to make relative references including local and global m
 To define relative references, do files can define a global for a particular path and then use the macro name throughout to refer to the set path.
 ```
 *Set directory path
-global path “C:/My Documents/My Project Folder“
+global path "C:/My Documents/My Project Folder"
 
 *Set folder directories
 global data "${path}/01_data"
@@ -39,13 +39,13 @@ What if someone new uses the project that you don’t know their username? Often
 loc user Me
 
 *Set project folder directory
-if "`user`"" == “Me” {
+if "`user`" == "Me" {
     global directory "C:/My Documents/My Project Folder/""
 }
 ```
 However, this requires manual management in the do file any time a new user is added to a project. To create a general case, the do file can take advantage of how Stata defines a project. When Stata is opened, State defaults to assigning a working directory by first, the location of the file being opened by Stata and second, the homepath in the profile.do file.
 
-We suggest using \`c(pwd)' as a stand-in for file location and assume the user had opened the master do file: If you add this as an `else` at the end of the ``if "`user’"==`` conditionals, then there is a good chance the do file will run even if you haven’t made a specific local for the user. 
+We suggest using \`c(pwd)' as a stand-in for file location and assume the user had opened the master do file: If you add this as an `else` at the end of the ``if "`user'"==`` conditionals, then there is a good chance the do file will run even if you haven’t made a specific local for the user. 
 ```
 *Set default directory
 else {
