@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Add or Replacing Data
+title: Add or Replace Data
 nav_order: 3
 parent: Raw Data Management
 grand_parent: Cleaning Guide
@@ -9,9 +9,9 @@ has_children: false
 
 # Adding or Correcting Data
 
-Raw data may not contain the full or correct set of data. There are many reasons why this may be the case: survey respones may need to be corrected by enumerators, translations for responses need to be added, admin data may have entry errors, etc. It is relative simple to make changes in data using statistical software, but it is important to make reproducible changes using a systematic way. 
+Raw data may not contain the full or correct set of data. There are many reasons why this may be the case: survey responses may need to be corrected by enumerators, translations for responses need to be added, admin data may have entry errors, etc. It is relatively simple to make changes in data using statistical software, but it is important to make changes in a systematic way to ensure all modifications are reproducible. 
 
-There are two common s We suggest using 
+There are at least two common situations in IPA projects where having a standardized data flow for modifying or adding data will increase data quality: replacements and translations. This article suggests best practices to add data collected outside a survey form for both translation and replacements. 
 
 ## Replacements
 As you are collecting data, there will inevitably be errors in your data that need to be manually corrected. It is important to always maintain the raw dataset with the original collected data. Once you have confirmed that a value in your dataset is incorrect and needs to be changed, this replacement should be made and saved in a new dataset, before you have done any other necessary cleaning. 
@@ -51,7 +51,7 @@ ipacheckreadreplace using "hfc_replacements.xlsm", ///
 The Excel template already uses these column names, so you must change the options/column names if you are using your own file or column names. `ipacheckreadreplace` also creates a replacements log, another Excel file that lists all the replacements, notes, and values, as well as a note that specifies if the replacement was successful. A replacement will only be successful in `ipacheckreadreplace` if the unique ID variable and the original value match what was entered in hfc_replacements.xlsx. 
 
 ## Translation
-Sometimes open survey responses need to be translated for deliverables or analysis. Translating these data using statistical software can result in long scripts with large potential for error rates and a potential to contain PII. This can be avoided by using an excel-based workflow with an encrypted translation file:
+Sometimes open survey responses need to be translated for deliverables or to support an analyst who isn't fluent in the survey language. Translating these data within statistical software can result in long scripts with large potential for error rates and a potential to contain PII. This can be avoided by using an excel-based workflow with encrypted translation file:
 - For each variable that needs to be translated, save the values that need translation to an excel sheet with an empty column (variable in the Stata .dta) for the language the responses need to be translated into.
 - Translate the responses using a standardized procedure, e.g. double-entry with another person breaking ties and rules on when to drop comments with PII.
 - Write code to merge the translation from the excel file back into the do file, instead of running this as a series of `replace` commands that is prone to error.
@@ -80,7 +80,6 @@ This results in a table that looks like this:
   | 01-0001 | Le dio sus herramientas agrícolas a su primo | | 
   | 18-0007 | El ID de esta respuesta debe ser 18-0008, no 18-0007 | | 
 
-
 The responses would be translated and then the file is then saved *with a different name*. We recommend saving the file as "[filename]\_translated\_[date]\_[initials]". We recommend doing double entry for all manual additions and comparing differences between any added responses. The completed file would have a value for every question below.
 
   | id | q  | q_en | 
@@ -96,6 +95,12 @@ Once these translations are completed, they would be merged on to the do file. T
 
  	MR translated these data on January 24, 2020 and double entered them.
  	MR's RM double checked conflicting translated entries.
+
+ 	If PII was removed as part of the translation process, this will be 
+ 	marked with a dummy* and corrected in the response of both languages.
+
+ 	*Note: no responses needed PII removal, so this code does not 
+ 	create the dummy.
 */
 *Load in data and save a tempfile
 preserve
@@ -128,3 +133,5 @@ replace q_en = check_q_en
 drop _merge check_q check_q_en
 
 ```
+
+This process can be repeated for any number of variables. It can also be extended to remove PII as part of the translation process. In that case, make sure to maintain a raw version of the dataset that is encrypted, and mark which values were changed to remove PII in the translated dataset.
