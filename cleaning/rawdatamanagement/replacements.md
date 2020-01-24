@@ -1,13 +1,19 @@
 ---
 layout: default
-title: Replacements
+title: Add or Replacing Data
 nav_order: 3
 parent: Raw Data Management
 grand_parent: Cleaning Guide
 has_children: false
 ---
 
-# Replacements
+# Adding or Correcting Data
+
+Raw data may not contain the full or correct set of data. There are many reasons why this may be the case: survey respones may need to be corrected by enumerators, translations for responses need to be added, admin data may have entry errors, etc. It is relative simple to make changes in data using statistical software, but it is important to make reproducible changes using a systematic way. 
+
+There are two common s We suggest using 
+
+## Replacements
 As you are collecting data, there will inevitably be errors in your data that need to be manually corrected. It is important to always maintain the raw dataset with the original collected data. Once you have confirmed that a value in your dataset is incorrect and needs to be changed, this replacement should be made and saved in a new dataset, before you have done any other necessary cleaning. 
 
 When making a replacement, confirm that you are using a truly unique value for your observation. For example, the `key` variable should be used if you are making replacements in SurveyCTO data, since there can be duplicates in your ID variable, or you may need to make a replacement in the ID variable.  
@@ -43,3 +49,82 @@ ipacheckreadreplace using "hfc_replacements.xlsm", ///
  ```
     
 The Excel template already uses these column names, so you must change the options/column names if you are using your own file or column names. `ipacheckreadreplace` also creates a replacements log, another Excel file that lists all the replacements, notes, and values, as well as a note that specifies if the replacement was successful. A replacement will only be successful in `ipacheckreadreplace` if the unique ID variable and the original value match what was entered in hfc_replacements.xlsx. 
+
+## Translation
+Sometimes open survey responses need to be translated for deliverables or analysis. Translating these data using statistical software can result in long scripts with large potential for error rates and a potential to contain PII. This can be avoided by using an excel-based workflow with an encrypted translation file:
+- For each variable that needs to be translated, save the values that need translation to an excel sheet with an empty column (variable in the Stata .dta) for the language the responses need to be translated into.
+- Translate the responses using a standardized procedure, e.g. double-entry with another person breaking ties and rules on when to drop comments with PII.
+- Write code to merge the translation from the excel file back into the do file, instead of running this as a series of `replace` commands that is prone to error.
+
+This workflow is shown below:
+
+```
+/* MR 10/25/2019:
+  Create a file to store translations question q.
+*/ 
+
+*Generate translated variable name
+gen q_en = ""
+local vlab : variable label q // extract variable label to copy
+label variable q_en "`vlab', English" // label with translation info
+
+*Save excel file for coding with only those questions that need trasnlating 
+export excel id q q_en using "${temp}/q_en.xlsx" if !mi(q), firstrow(varn) replace
+
+```
+
+This results in a table that looks like this:
+
+  | id | q| q_en | 
+  | ----- | ------ | ------ |
+  | 01-0001 | Le dio sus herramientas agrícolas a su primo | | 
+  | 18-0007 | El ID de esta respuesta debe ser 18-0008, no 18-0007 | | 
+
+
+The responses would be translated and then the file is then saved *with a different name*. We recommend saving the file as "[filename]\_translated\_[date]\_[initials]". We recommend doing double entry for all manual additions and comparing differences between any added responses. The completed file would have a value for every question below.
+
+  | id | q  | q_en | 
+  | ----- | ------ | ------ |
+  | 01-0001 | Este encuestado dio sus herramientas agrícolas a su primo. | This respondent gave their farming tools to their cousin | 
+  | 18-0007 | El ID de esta respuesta debe ser 18-0008, no 18-0007 | The ID of this response should be 18-0008, not 18-0007 |
+
+Once these translations are completed, they would be merged on to the do file. The code to complete that looks like this:
+
+```
+/* MR 01/24/20:
+ 	Merge on the translated data from the saved excel file.
+
+ 	MR translated these data on January 24, 2020 and double entered them.
+ 	MR's RM double checked conflicting translated entries.
+*/
+*Load in data and save a tempfile
+preserve
+
+  import excel using "${temp}/q_en_20200124_MR.xlsx", first clear
+  
+  *Do some cleaning to ensure excel files matches expected
+  missings dropvars, force // remove extravars
+  missings dropobs, force // remove empty observations
+  confirm variable id q q_en // check have variables
+
+  *Save tempfile to merge
+  tempfile q_en
+  save `q_en'
+  
+restore
+
+*Merge on file
+mmerge id using `q_en', t(1:1) uname(check_)
+
+*Check file
+assert _merge == 1 | _merge == 3 // in master only or translated
+assert q == check_q if _merge == 3 // ensure no changes to comment field
+assert _merge == 3 if !mi(q) // ensure all are translated
+
+*Manually replace translation after checks
+replace q_en = check_q_en
+
+*Housecleaning
+drop _merge check_q check_q_en
+
+```
