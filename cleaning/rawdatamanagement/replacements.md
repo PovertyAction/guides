@@ -84,7 +84,7 @@ The responses would be translated and then the file is then saved *with a differ
 
   | id | q  | q_en | 
   | ----- | ------ | ------ |
-  | 01-0001 | Este encuestado dio sus herramientas agrícolas a su primo. | This respondent gave their farming tools to their cousin | 
+  | 01-0001 | Le dio sus herramientas agrícolas a su primo. | This respondent gave their farming tools to their cousin | 
   | 18-0007 | El ID de esta respuesta debe ser 18-0008, no 18-0007 | The ID of this response should be 18-0008, not 18-0007 |
 
 Once these translations are completed, they would be merged on to the do file. The code to complete that looks like this:
