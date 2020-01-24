@@ -21,7 +21,7 @@ Particularly for large surveys, this can be a hassle. One helpful approach is to
 Make sure you save do files and documents so that this process can be replicated and understood by someone else in the future.
 
 This data flow would like the following. First, the specify reponses are cleaned and saved so that the excel sheet can be modified.
-````
+```
 /* MR 10/25/2019:
   The variable q_oth is the "specify" variable corresponding to
   the variable q If q == 99, then q_oth has a string value input
@@ -49,7 +49,7 @@ preserve
   export excel q_oth_cl `map' using "${temp}q_oth.xlsx", firstrow(varl) replace
 
 restore
-````
+```
 
 This results in a table that looks like this:
 
@@ -64,7 +64,7 @@ This results in a table that looks like this:
 The RA would fill out the mapping column based on the allowed values in the survey. This means that the "Mapping" column would take 1 for the "sky blue" value if the data uses 1 for the survey. If the data uses string values at this point in the cleaning process the "Mapping" column could be filled with "blue." Ensure that this process is reproducible and rule based. Inconsistent mapping of variables does not create clean data. After this table is completed, it can be merged back into the file to save the values. 
 
 The code to complete that looks like this:
-````
+```
 /* MR 10/25/19:
   For question "q", specified other values were cleaned according to the 
   following rules: 
@@ -116,4 +116,4 @@ replace q = .n if mapping == -88 // not applicable
 *finally check that everything was captured
 assert q != 99 if _merge == 3 // this assumes 99 == other in the survey AND that the all values were coded
 drop _merge q_oth_cl mapping // remove extraneous variable
-````
+```

@@ -49,7 +49,7 @@ If you are renaming/labeling a lot of variables it can be cleaner to put them in
 import excel "${raw}/variable_codebook.xlsx", firstrow clear
 
 
-** B. MAKE LOCALS WITH THE ORDERED EXISTING VARIABLE NAMES AND THE CORRESPONDING NEW, COMMON NAMES
+** B. Make locals with common names and corresponding survey names
 sort common_varname	// sort in unique order
 
 *Init project specific locals empty
@@ -57,16 +57,16 @@ loc survey_names 	// project-specific variable names
 loc common_names	// corresponding common variable names
 
 * Loop through all value of the excel file
-forvalues i = 1/`=_N' {																 
+forvalues i = 1/`=_N' {
 	
 	*Save name and labels in order from the excel sheet
-	loc survey_name = varname in `i'       							
-	loc common_name = common_varname in `i'								
+	loc survey_name = varname in `i'
+	loc common_name = common_varname in `i'
 	loc common_varl = common_varlab in `i'
 
 	*Fill locals to add information to project
-	loc proj_names `proj_names' `proj_name'							
-	loc common_names `common_names' `common_name'					
+	loc proj_names `proj_names' `proj_name'
+	loc common_names `common_names' `common_name'
 	loc common_label "`common_label' `"`common_varl'"'" 
 }
 // end forvalue i == 1/`N' 
@@ -74,7 +74,7 @@ forvalues i = 1/`=_N' {
 
 **C. Run some checks
 *Check renaming lists are same length
-assert "`:word count `proj_names''" == "`:word count `common_names''" 	
+assert "`:word count `proj_names''" == "`:word count `common_names''"
 
 *Save list of locals for logc
 macro list
@@ -89,12 +89,12 @@ loc common_varl // init empty
 use "``project'_directory'/`project'`input_dataset_suffix'.dta", clear
 
 *Loop through variable names to remain 
-forvalues i = 1(1)`: word count `proj_names'' { 														
-		
+forvalues i = 1(1)`: word count `proj_names'' {
+
 	*Collect names from list to rename variables
 	loc proj_name `:word `i' of `proj_names''
-	loc common_name `:word `i' of `common_names''	
-	loc common_varl `:word `i' of `common_label'' 
+	loc common_name `:word `i' of `common_names''
+	loc common_varl `:word `i' of `common_label''
 	
 	*Rename and label from common names
 	rename `proj_name' `common_name'

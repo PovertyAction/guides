@@ -1,6 +1,6 @@
 ---
 layout: default
-title: De-identifying Data
+title: De-identify Data
 nav_order: 6
 parent: Raw Data Management
 grand_parent: Cleaning Guide

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Importing into Stata
+title: Import into Stata
 nav_order: 1
 parent: Raw Data Management
 grand_parent: Cleaning Guide
