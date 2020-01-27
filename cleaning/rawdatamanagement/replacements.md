@@ -54,7 +54,7 @@ The Excel template already uses these column names, so you must change the optio
 Sometimes open survey responses need to be translated for deliverables or to support an analyst who isn't fluent in the survey language. Translating these data within statistical software can result in long scripts with large potential for error rates and a potential to contain PII. This can be avoided by using an excel-based workflow with encrypted translation file:
 - For each variable that needs to be translated, save the values that need translation to an excel sheet with an empty column (variable in the Stata .dta) for the language the responses need to be translated into.
 - Translate the responses using a standardized procedure, e.g. double-entry with another person breaking ties and rules on when to drop comments with PII.
-- Write code to merge the translation from the excel file back into the do file, instead of running this as a series of `replace` commands that is prone to error.
+- Write code to merge the translation from the excel file back into the do file, instead of running this as a series of `replace` commands that are prone to error.
 
 This workflow is shown below:
 
