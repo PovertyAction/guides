@@ -11,7 +11,7 @@ has_children: false
 
 Raw data may not contain the full or correct set of data. There are many reasons why this may be the case: survey responses may need to be corrected by enumerators, translations for responses need to be added, admin data may have entry errors, etc. It is relatively simple to make changes in data using statistical software, but it is important to make changes in a systematic way to ensure all modifications are reproducible. 
 
-There are at least two common situations in IPA projects where having a standardized data flow for modifying or adding data will increase data quality: replacements and translations. This article suggests best practices to add data collected outside a survey form for both translation and replacements. 
+There are at least two common situations in IPA projects where having a standardized data flow for modifying or adding data will increase data quality: replacements and translations. This article suggests best practices to add data collected outside of a survey form. 
 
 ## Replacements
 As you are collecting data, there will inevitably be errors in your data that need to be manually corrected. It is important to always maintain the raw dataset with the original collected data. Once you have confirmed that a value in your dataset is incorrect and needs to be changed, this replacement should be made and saved in a new dataset, before you have done any other necessary cleaning. 
@@ -60,7 +60,7 @@ This workflow is shown below:
 
 ```
 /* MR 10/25/2019:
-  Create a file to store translations question q.
+  Create a file to store translations for question q.
 */ 
 
 *Generate translated variable name
@@ -69,7 +69,7 @@ local vlab : variable label q // extract variable label to copy
 label variable q_en "`vlab', English" // label with translation info
 
 *Save excel file for coding with only those questions that need trasnlating 
-export excel id q q_en using "${temp}/q_en.xlsx" if !mi(q), firstrow(varn) replace
+export excel id q q_en using "${temp}/q_en.xlsx" if !mi(q), firstrow(variables) replace
 
 ```
 
