@@ -1,7 +1,8 @@
-# ! Michael Rosenbaum 1.0.0 2019 11 12
+# ! Michael Rosenbaum 1.0.1 2020aug10
 
 # Theme info
 remote_theme: mfrosenbaum/just-the-docs
+color_scheme: ipa
 
 # Search
 search_enabled: true
