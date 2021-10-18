@@ -28,9 +28,9 @@ This style is implemented below:
 *Define variable labels variables
 label var child_15		"[QA.101] Has children under 15"
 label var child_15B		"[QA.102a] Number boys under 15"
-label var child_15B_S	"[QA.102b] Number boys in school"
+label var child_15B_S		"[QA.102b] Number boys in school"
 label var child_15G		"[QA.103a] Number girls under 15"
-label var child_15G_S	"[QA.103b] Number girls in school"
+label var child_15G_S		"[QA.103b] Number girls in school"
 ```
 Note that this code aligns the variable names and the variable labels in the text. This makes it easy to read the labeling as a programmer.
 
