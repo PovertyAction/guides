@@ -19,7 +19,7 @@ In computer science, programming that ensures a program can function under unant
 
 We can check that this is the case in Stata:
 ```
-assert age < 18
+assert age >= 18 & !mi(age) // . is considered infinitely large by Stata, so > 18 captures missing values as well.
 ```
 Building these tests into your data flow should be a natural test that you work into data cleaning. This can be expanded to other functions like merges. If every household but one received both an agricultural and household survey, each household survey should merge to the plot dataset except one observation. The merge can be checked to confirm that that is the case:
 ```
@@ -47,7 +47,7 @@ Some additional concerns to focus on in administrative data are:
 - Ensure that variables remain consistent over repeated deliveries
 - Data translation and missingness standards of the storage system may create values in statistical software (e.g. SQL treats missing as “NULL”)
 
-Variable consistency can be handled using value labeling in Stata. For example, to ensure that data remains the same over the course of data collection, it can be useful to check that categorical variables map to expected values to a previously created value label. The following code accomplishes this:
+Variable consistency can be handled using value labeling in Stata. For example, to ensure that data remains the same over the course of data collection, it can be useful to check that categorical variables map to expected values to a previously created value label. The `noextend` option of the encode commands allows you to confirm no values exist in the variable other than those in the supplied label. The following code accomplishes this:
 
 ```
 *Create a local list of variables to encode
@@ -56,19 +56,8 @@ loc str_var var
 *Encode values and confirm expected
 foreach var of local str_var {
 	
-	*Count variable values 
-	di "Encoding `var'"
-	qui lab list `var'_label // Store the range of values in return codes
-	loc vlab_max `r(max)'
-	loc vlab_min `r(min)' 
-	
 	*Encode variables
-	sencode `var', label(`var'_label) replace // type h sencode to see options
-
-	*Check if values are in range in range if the values are non-missing
-	assert inrange(`var',`vlab_min',`vlab_max') if !mi(`var')
-	
-	macro drop vlab_max vlab_min // Ensure the working space is clean	
+	sencode `var', label(`var'_label) replace noextend // type h sencode to see options
 }  
 // end foreach v of local str_var
 ```
