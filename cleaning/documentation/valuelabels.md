@@ -99,28 +99,8 @@ loc str_var make
 *Encode values and confirm expected
 foreach var of local str_var {
 	
-	*Count variable values 
-	/* First, the variable is displayed in the log to identify problems,
-	   then the bounds of the value label that are defined above are 
-	   saved in two local marcos.
-	   
-	   Next, the variable is encoded. If a value that you don't expect to
-	   exist exists, it will be added to the value label without informing 
-	   you. Therefore, the code checks that all of the values are in the 
-	   range of the values that are defined above.
-	*/
-	di "Encoding `var'"
-	qui lab list `var'_label // Store the range of values in return codes
-	loc vlab_max `r(max)'
-	loc vlab_min `r(min)' 
-	
 	*Encode variables
-	sencode `var', label(`var'_label) replace // type h sencode to see options
-
-	*Check if values are in range in range if the values are non-missing
-	assert inrange(`var',`vlab_min',`vlab_max') if !mi(`var')
-	
-	macro drop vlab_max vlab_min // Ensure the working space is clean	
+	sencode `var', label(`var'_label) replace noextend // type h sencode to see options, the noextend option returns an error if the existing label doesn't capture all values.	
 }  
 // end foreach v of local str_var
 
