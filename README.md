@@ -1,4 +1,4 @@
 
-# guides
+#### ABOUT
 
-IPA & GPRL guides are stored here.
+This repository hosts materials for IPA & GPRL guides. The materials can be accessed on the guides' [website](https://povertyaction.github.io/guides/cleaning/readme/).
