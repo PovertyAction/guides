@@ -5,7 +5,7 @@ remote_theme: mfrosenbaum/just-the-docs
 color_scheme: ipa
 
 # Search
-search_enabled: true
+search_enabled: false
 # Enable support for hyphenated search words:
 search_tokenizer_separator: /[\s/]+/
 
