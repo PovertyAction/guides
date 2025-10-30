@@ -63,9 +63,7 @@ permalink: /
 
   <p>The IPA & GPRL Data Cleaning Guide has been migrated to a new location.</p>
 
-  <p><strong>You will be automatically redirected in <span id="countdown">5</span> seconds...</strong></p>
-
-  <p>Or click the button below to go there now:</p>
+  <p>Click the button below to go there now:</p>
 
   <a href="https://data.poverty-action.org/data-cleaning/" class="new-link">Go to New Site</a>
 
