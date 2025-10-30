@@ -9,24 +9,24 @@ search_enabled: true
 # Enable support for hyphenated search words:
 search_tokenizer_separator: /[\s/]+/
 
-# Link behavior 
+# Link behavior
 # This allows to link to subpages
 heading_anchors: true
 
-# Google Analytics Tracking 
+# Google Analytics Tracking
 ga_tracking: UA-6770433-5
 
 # Add auxilary links:
-aux_links: 
-  "Innovations for Poverty Action": 
-    - "//www.poverty-action.org/"
-  "Global Poverty Research Lab": 
+aux_links:
+  "Innovations for Poverty Action":
+    - "//data.poverty-action.org/"
+  "Global Poverty Research Lab":
     - "//www.kellogg.northwestern.edu/research/global-poverty-research-lab.aspx"
 
 # Change URLs and metadata
 title: "Guides"
 description: IPA & GPRL guides for data management of RCTs
-baseurl: "/guides" 
+baseurl: "/guides"
 url: "https://povertyaction.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: pretty
 
@@ -35,5 +35,5 @@ plugins:
     - jekyll-redirect-from
 
 # Add logo
-# Need to fix proportions 
+# Need to fix proportions
 #logo: "/assets/Combined_logo.png"
